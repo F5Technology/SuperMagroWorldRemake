@@ -1,0 +1,16 @@
+{
+  "FolderOrderSettings": [
+    {"name":"Fonts","order":6,"path":"folders/Fonts.yy",},
+    {"name":"Notes","order":7,"path":"folders/Notes.yy",},
+    {"name":"Objects","order":3,"path":"folders/Objects.yy",},
+    {"name":"Scripts","order":4,"path":"folders/Scripts.yy",},
+    {"name":"Sounds","order":5,"path":"folders/Sounds.yy",},
+    {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
+    {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
+    {"name":"Player","order":1,"path":"folders/Sprites/Player.yy",},
+    {"name":"SeuMadruga","order":1,"path":"folders/Sprites/Player/SeuMadruga.yy",},
+    {"name":"Player","order":1,"path":"folders/Objects/Player.yy",},
+    {"name":"SeuMadruga","order":1,"path":"folders/Objects/Player/SeuMadruga.yy",},
+  ],
+  "ResourceOrderSettings": [],
+}
