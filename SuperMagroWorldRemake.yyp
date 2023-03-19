@@ -23,6 +23,9 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"SeuMadruga","folderPath":"folders/Sprites/Player/SeuMadruga.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Player","folderPath":"folders/Objects/Player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"SeuMadruga","folderPath":"folders/Objects/Player/SeuMadruga.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"TileSets","folderPath":"folders/Sprites/TileSets.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Elementos","folderPath":"folders/Objects/Elementos.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Elementos","folderPath":"folders/Sprites/Elementos.yy",},
   ],
   "IncludedFiles": [],
   "isEcma": false,
@@ -32,7 +35,11 @@
   },
   "resources": [
     {"id":{"name":"objSeuMadruga","path":"objects/objSeuMadruga/objSeuMadruga.yy",},},
+    {"id":{"name":"sprSalaTeste","path":"sprites/sprSalaTeste/sprSalaTeste.yy",},},
     {"id":{"name":"spr_madruga_parado","path":"sprites/spr_madruga_parado/spr_madruga_parado.yy",},},
+    {"id":{"name":"sprParede","path":"sprites/sprParede/sprParede.yy",},},
+    {"id":{"name":"objParede","path":"objects/objParede/objParede.yy",},},
+    {"id":{"name":"tsSalaTeste","path":"tilesets/tsSalaTeste/tsSalaTeste.yy",},},
     {"id":{"name":"rmTeste","path":"rooms/rmTeste/rmTeste.yy",},},
   ],
   "RoomOrderNodes": [

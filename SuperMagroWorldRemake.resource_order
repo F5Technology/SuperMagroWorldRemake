@@ -11,6 +11,11 @@
     {"name":"SeuMadruga","order":1,"path":"folders/Sprites/Player/SeuMadruga.yy",},
     {"name":"Player","order":1,"path":"folders/Objects/Player.yy",},
     {"name":"SeuMadruga","order":1,"path":"folders/Objects/Player/SeuMadruga.yy",},
+    {"name":"TileSets","order":3,"path":"folders/Sprites/TileSets.yy",},
+    {"name":"Elementos","order":2,"path":"folders/Objects/Elementos.yy",},
+    {"name":"Elementos","order":4,"path":"folders/Sprites/Elementos.yy",},
   ],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"tsSalaTeste","order":1,"path":"tilesets/tsSalaTeste/tsSalaTeste.yy",},
+  ],
 }
