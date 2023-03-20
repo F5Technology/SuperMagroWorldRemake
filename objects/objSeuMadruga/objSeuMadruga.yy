@@ -2,7 +2,9 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "objSeuMadruga",
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
@@ -26,8 +28,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_madruga_parado",
-    "path": "sprites/spr_madruga_parado/spr_madruga_parado.yy",
+    "name": "sprMadrugaParado",
+    "path": "sprites/sprMadrugaParado/sprMadrugaParado.yy",
   },
   "spriteMaskId": null,
   "visible": true,
