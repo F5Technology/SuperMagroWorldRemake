@@ -1,1 +1,1 @@
-y += gravidadeSM(x, y);
+y = gravidade(x, y, false);

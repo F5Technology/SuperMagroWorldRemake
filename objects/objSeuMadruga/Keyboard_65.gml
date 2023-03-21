@@ -1,0 +1,1 @@
+x = movimentar(x, y, DirecaoEnum.Esquerda);
