@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "sprMadrugaParado",
   "bbox_bottom": 31,
-  "bbox_left": 11,
+  "bbox_left": 15,
   "bbox_right": 20,
   "bbox_top": 3,
   "bboxMode": 2,

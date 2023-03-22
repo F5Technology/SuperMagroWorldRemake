@@ -1,1 +1,5 @@
-y = gravidade(x, y, false);
+aplicarGravidade(false);
+
+if (global.parando) {
+	movimentar(global.direcao);
+}

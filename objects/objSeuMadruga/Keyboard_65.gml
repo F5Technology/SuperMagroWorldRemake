@@ -1,1 +1,3 @@
-x = movimentar(x, y, DirecaoEnum.Esquerda);
+if(!global.parando) {
+	movimentar(DirecaoEnum.Esquerda);
+}

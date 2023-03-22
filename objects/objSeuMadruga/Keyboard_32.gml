@@ -1,1 +1,1 @@
-y = gravidade(x, y, true);
+aplicarGravidade(true);
