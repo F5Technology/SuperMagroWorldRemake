@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "smNormal",
+  "name": "scrSeuMadruga",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

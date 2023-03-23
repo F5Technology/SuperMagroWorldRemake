@@ -16,9 +16,11 @@
     {"name":"SeuMadruga","order":1,"path":"folders/Sprites/Player/SeuMadruga.yy",},
     {"name":"TileSets","order":3,"path":"folders/Sprites/TileSets.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
+    {"name":"Sistema","order":3,"path":"folders/Objects/Sistema.yy",},
+    {"name":"Sistema","order":3,"path":"folders/Scripts/Sistema.yy",},
   ],
   "ResourceOrderSettings": [
-    {"name":"smNormal","order":1,"path":"scripts/smNormal/smNormal.yy",},
+    {"name":"scrSeuMadruga","order":1,"path":"scripts/scrSeuMadruga/scrSeuMadruga.yy",},
     {"name":"tsSalaTeste","order":1,"path":"tilesets/tsSalaTeste/tsSalaTeste.yy",},
   ],
 }
