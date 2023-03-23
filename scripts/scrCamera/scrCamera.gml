@@ -1,8 +1,8 @@
 /// @description Mecanicas da camera
 
 function acompanharPlayer(){
-	var posicaoHorizontal = global.direcao == DirecaoEnum.Esquerda ? 
-	objSeuMadruga.x + 25 : 
+	var posicaoHorizontal = global.direcao == DirecaoEnum.Direita ? 
+	objSeuMadruga.x + 15 : 
 	objSeuMadruga.x;
 	
 	y = lerp(y, objSeuMadruga.y, 0.10);

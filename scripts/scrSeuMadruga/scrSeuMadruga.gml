@@ -15,7 +15,9 @@ function aplicarGravidade(pular) {
 	
 	if (pular) {
 		if(!caindo) {
-			var limitePulo = -2.8;
+			var altaVelocidade = (global.velocidade == 2.80);
+			
+			var limitePulo = altaVelocidade ? -3.8 : -2.8;
 			forcaGravidade += -0.40;
 			
 			if(forcaGravidade <= limitePulo) {
@@ -51,23 +53,19 @@ function aplicarGravidade(pular) {
 }
 
 function movimentar(direcao) {		
-	var vertical = y;
-	var horizontal = x;
-	var velocidade = global.velocidade;
-	var botaoDireitoPress = keyboard_check(ord("D"));
-	var botaoEsquerdoPress = keyboard_check(ord("A"));
+	var botaoDireitoPress = keyboard_check(vk_right);
+	var botaoEsquerdoPress = keyboard_check(vk_left);
 	
 	if(botaoDireitoPress && botaoEsquerdoPress && !global.parando) {
 		global.parando = true;
 		return;
 	}
 	
-	if(global.parando) {
-		diminuirVelocidade();
-	} else {		
-		aumentarVelocidade();
-		global.parando = false;
-	}
+	var vertical = y;
+	var horizontal = x;
+	var velocidade = global.velocidade;
+	
+	ajustarVelocidade();
 	
 	var forca = (direcao * velocidade);
 	
@@ -87,22 +85,35 @@ function movimentar(direcao) {
 	x = horizontal;
 	global.direcao = direcao;
 }
-	
-function aumentarVelocidade() {
-	var limiteVelocidade = 1.5;
-	
-	if (global.velocidade <= limiteVelocidade) {
-		global.velocidade += 0.05;
-	}
-}
 
-function diminuirVelocidade() {
-	if(global.velocidade > 0) {
-		global.velocidade -= 0.05;
-	} else {
-		global.velocidade = 0;		
-		global.parando = false;
+function ajustarVelocidade() {
+	var parando = global.parando;
+	var correndo = global.correndo;
+	var velocidade = global.velocidade;
+	
+	if(parando) {
+		if(velocidade > 0) {
+			velocidade -= 0.05;
+		} else {
+			velocidade = 0;		
+			parando = false;
+		}
+	} else {		
+		var limiteVelocidade = correndo ? 2.80 : 1.5;
+		
+		show_debug_message("Velocidade: " + string(velocidade))
+	
+		if (velocidade <= limiteVelocidade) {
+			velocidade += 0.05;
+		} else if (velocidade > limiteVelocidade && velocidade <= 2.85) {
+			velocidade -= 0.05;
+		}
+		
+		parando = false;
 	}
+	
+	global.parando = parando;
+	global.velocidade = velocidade;
 }
 		
 function realizarColisaoParede(tipo, forca, horizontal, vertical) {
