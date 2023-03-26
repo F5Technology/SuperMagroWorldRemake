@@ -1,0 +1,1 @@
+global.propriedadesPlayer.abaixado = false;

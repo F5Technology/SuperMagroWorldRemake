@@ -1,1 +1,1 @@
-global.correndo = false;
+global.propriedadesPlayer.correndo = false;

@@ -1,1 +1,1 @@
-global.parando = true;
+global.propriedadesPlayer.parando = true;

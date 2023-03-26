@@ -1,3 +1,1 @@
-if(!global.parando) {
-	movimentar(DirecaoEnum.Esquerda);
-}
+checarMovimento(DirecaoEnum.Esquerda);

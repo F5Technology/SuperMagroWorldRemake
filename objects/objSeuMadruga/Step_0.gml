@@ -1,5 +1,5 @@
 aplicarGravidade(false);
 
-if (global.parando) {
-	movimentar(global.direcao);
+if (global.propriedadesPlayer.parando) {
+	movimentar(global.propriedadesPlayer.direcao);
 }

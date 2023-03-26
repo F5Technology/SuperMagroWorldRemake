@@ -1,1 +1,1 @@
-global.caindo = true;
+global.propriedadesPlayer.caindo = true;
