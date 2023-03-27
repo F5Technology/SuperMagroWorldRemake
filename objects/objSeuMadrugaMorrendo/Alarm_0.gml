@@ -1,0 +1,2 @@
+reiniciarSala();
+instance_destroy();

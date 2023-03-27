@@ -1,6 +1,7 @@
 /// @description Mecanicas do objeto player
 
 global.propriedadesPlayer = {
+	morto: false,
 	caindo: true,
 	parando: true,
 	velocidade: 0,
@@ -10,7 +11,7 @@ global.propriedadesPlayer = {
 	derrapando: false,
 	forcaGravidade: 0,
 	direcao: DirecaoEnum.Direita,
-	exibirSprite: exibirSpriteMadruga
+	trocarSprite: exibirSpriteMadruga
 }
 	
 function checarMovimento(direcao) {
@@ -22,7 +23,7 @@ function checarMovimento(direcao) {
 		global.propriedadesPlayer.derrapando = true;
 		
 		if(forcaGravidade == 0) {
-			global.propriedadesPlayer.exibirSprite(SpriteEnum.Derrapando);
+			global.propriedadesPlayer.trocarSprite(SpriteEnum.Derrapando);
 		}
 	} else {
 		global.propriedadesPlayer.derrapando = false;
@@ -108,7 +109,7 @@ function aplicarGravidade(pular) {
 				caindo = true;
 				global.propriedadesPlayer.caindo = true;
 			} else {
-				global.propriedadesPlayer.exibirSprite(SpriteEnum.Pulando);
+				global.propriedadesPlayer.trocarSprite(SpriteEnum.Pulando);
 			}
 		} else {
 			// Retorno impede com que o botão de pulo acelere a velocidade da queda
@@ -137,7 +138,7 @@ function aplicarGravidade(pular) {
 	}
 	
 	if(caindo && forcaGravidade > 0.30) {
-		global.propriedadesPlayer.exibirSprite(SpriteEnum.Caindo);
+		global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
 	}
 	
 	y = vertical;
@@ -189,7 +190,7 @@ function checarSpriteImovel() {
 	 if (velocidade == 0) {
 		 var sprite = abaixado ? SpriteEnum.Abaixado : SpriteEnum.Parado;	
 	
-		global.propriedadesPlayer.exibirSprite(sprite);
+		global.propriedadesPlayer.trocarSprite(sprite);
 	 }
 }
 	
@@ -210,7 +211,31 @@ function checarSpriteMovimento() {
 				sprite = SpriteEnum.Correndo;
 			}
 			
-			global.propriedadesPlayer.exibirSprite(sprite);
+			global.propriedadesPlayer.trocarSprite(sprite);
 		}
+	}
+}
+	
+function morrer() {	
+	instance_destroy();
+	global.propriedadesPlayer.morto = true;
+	
+	layer_sequence_create("Animations", x, y, anMadrugaMorrendo);
+	instance_create_layer(x, y, "Instances", objSeuMadrugaMorrendo);
+}
+	
+function reiniciarPropriedadesPlayer() {
+	global.propriedadesPlayer = {
+		morto: false,
+		caindo: true,
+		parando: true,
+		velocidade: 0,
+		samurai: false,
+		correndo: false,
+		abaixado: false,
+		derrapando: false,
+		forcaGravidade: 0,
+		direcao: DirecaoEnum.Direita,
+		trocarSprite: exibirSpriteMadruga
 	}
 }
