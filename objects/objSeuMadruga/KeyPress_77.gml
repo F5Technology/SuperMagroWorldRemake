@@ -1,1 +1,1 @@
-morrer();
+tomarDano();

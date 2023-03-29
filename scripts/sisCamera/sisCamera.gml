@@ -2,13 +2,15 @@
 
 function acompanharPlayer(){
 	var morto = global.propriedadesPlayer.morto;
+	var transformando = global.propriedadesPlayer.transformando;
 	
-	if(!morto) {
-		var posicaoHorizontal = global.propriedadesPlayer.direcao == DirecaoEnum.Direita ? 
-		objSeuMadruga.x + 15 : 
-		objSeuMadruga.x;
+	if(!morto && !transformando) {
+		var direcao = global.propriedadesPlayer.direcao;
+		var samurai = global.propriedadesPlayer.samurai;
+		var player = samurai ? objSamurai : objSeuMadruga;		
+		var posicaoHorizontal = direcao == DirecaoEnum.Direita ? player.x + 15 : player.x;
 	
-		y = lerp(y, objSeuMadruga.y, 0.10);
+		y = lerp(y, player.y, 0.10);
 		x = lerp(x, posicaoHorizontal, 0.10);
 	}
 }

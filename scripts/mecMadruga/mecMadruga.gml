@@ -10,6 +10,7 @@ global.propriedadesPlayer = {
 	abaixado: false,
 	derrapando: false,
 	forcaGravidade: 0,
+	transformando: false,
 	direcao: DirecaoEnum.Direita,
 	trocarSprite: exibirSpriteMadruga
 }
@@ -92,7 +93,7 @@ function ajustarVelocidade() {
 	global.propriedadesPlayer.velocidade = velocidade;
 }
 	
-function aplicarGravidade(pular) {
+function aplicarGravidadePlayer(pular) {
 	var vertical = y;
 	var horizontal = x;
 	var caindo = global.propriedadesPlayer.caindo;
@@ -235,7 +236,18 @@ function reiniciarPropriedadesPlayer() {
 		abaixado: false,
 		derrapando: false,
 		forcaGravidade: 0,
+		transformando: false,
 		direcao: DirecaoEnum.Direita,
 		trocarSprite: exibirSpriteMadruga
+	}
+}
+	
+function tomarDano() {	
+	var samurai = global.propriedadesPlayer.samurai;
+	
+	if (samurai) {
+		transformarNormal();
+	} else {
+		morrer();
 	}
 }

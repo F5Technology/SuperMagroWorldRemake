@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Sistema",
-    "path": "folders/Scripts/Sistema.yy",
+    "name": "Sistemas",
+    "path": "folders/Scripts/Sistemas.yy",
   },
 }

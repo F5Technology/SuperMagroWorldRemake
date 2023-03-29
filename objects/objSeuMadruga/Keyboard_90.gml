@@ -1,1 +1,1 @@
-aplicarGravidade(true);
+aplicarGravidadePlayer(true);
