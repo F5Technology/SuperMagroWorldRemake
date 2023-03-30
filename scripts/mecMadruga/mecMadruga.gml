@@ -16,6 +16,24 @@ global.propriedadesPlayer = {
 	trocarSprite: exibirSpriteMadruga
 }
 	
+function reiniciarPropriedadesPlayer() {
+	global.propriedadesPlayer = {
+		morto: false,
+		caindo: true,
+		parando: true,
+		velocidade: 0,
+		samurai: false,
+		correndo: false,
+		abaixado: false,
+		derrapando: false,
+		forcaGravidade: 0,
+		transformando: false,
+		lancandoShuriken: false,
+		direcao: DirecaoEnum.Direita,
+		trocarSprite: exibirSpriteMadruga
+	}
+}
+
 function checarMovimento(direcao) {
 	var parando = global.propriedadesPlayer.parando;
 	
@@ -224,29 +242,18 @@ function checarSpriteMovimento() {
 }
 	
 function morrer() {	
-	instance_destroy();
+	var samurai = global.propriedadesPlayer.samurai;
+	var player = samurai ? objSamurai : objSeuMadruga;
+	
+	var vertical = player.y;
+	var horizontal = player.x;
+	
+	instance_destroy(player);
+	global.propriedadesJogo.vidas--;
 	global.propriedadesPlayer.morto = true;
 	
-	layer_sequence_create("Animations", x, y, anMadrugaMorrendo);
-	instance_create_layer(x, y, "Instances", objSeuMadrugaMorrendo);
-}
-	
-function reiniciarPropriedadesPlayer() {
-	global.propriedadesPlayer = {
-		morto: false,
-		caindo: true,
-		parando: true,
-		velocidade: 0,
-		samurai: false,
-		correndo: false,
-		abaixado: false,
-		derrapando: false,
-		forcaGravidade: 0,
-		transformando: false,
-		lancandoShuriken: false,
-		direcao: DirecaoEnum.Direita,
-		trocarSprite: exibirSpriteMadruga
-	}
+	layer_sequence_create("Animations", horizontal, vertical, anMadrugaMorrendo);
+	instance_create_layer(horizontal, vertical, "Instances", objSeuMadrugaMorrendo);
 }
 	
 function tomarDano() {	

@@ -1,1 +1,1 @@
-reiniciarPropriedadesPlayer();
+iniciarSala();

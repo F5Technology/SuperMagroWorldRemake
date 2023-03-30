@@ -73,6 +73,7 @@
     {"id":{"name":"sprSamuraiPulandoEsquerda","path":"sprites/sprSamuraiPulandoEsquerda/sprSamuraiPulandoEsquerda.yy",},},
     {"id":{"name":"mecBasicas","path":"scripts/mecBasicas/mecBasicas.yy",},},
     {"id":{"name":"objTransformacao","path":"objects/objTransformacao/objTransformacao.yy",},},
+    {"id":{"name":"sisHUD","path":"scripts/sisHUD/sisHUD.yy",},},
     {"id":{"name":"sprSamuraiParadoEsquerda","path":"sprites/sprSamuraiParadoEsquerda/sprSamuraiParadoEsquerda.yy",},},
     {"id":{"name":"sprMadrugaParadoEsquerda","path":"sprites/sprMadrugaParadoEsquerda/sprMadrugaParadoEsquerda.yy",},},
     {"id":{"name":"sprSamuraiDerrapandoEsquerda","path":"sprites/sprSamuraiDerrapandoEsquerda/sprSamuraiDerrapandoEsquerda.yy",},},
