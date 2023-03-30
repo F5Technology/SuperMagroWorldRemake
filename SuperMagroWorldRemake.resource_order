@@ -25,6 +25,7 @@
   ],
   "ResourceOrderSettings": [
     {"name":"mecMadruga","order":1,"path":"scripts/mecMadruga/mecMadruga.yy",},
+    {"name":"sprSamuraiPulandoDireita","order":12,"path":"sprites/sprSamuraiPulandoDireita/sprSamuraiPulandoDireita.yy",},
     {"name":"sprMadrugaAbaixadoDireita","order":4,"path":"sprites/sprMadrugaAbaixadoDireita/sprMadrugaAbaixadoDireita.yy",},
     {"name":"objSeuMadruga","order":1,"path":"objects/objSeuMadruga/objSeuMadruga.yy",},
     {"name":"sprMadrugaDerrapandoDireita","order":12,"path":"sprites/sprMadrugaDerrapandoDireita/sprMadrugaDerrapandoDireita.yy",},
@@ -32,7 +33,6 @@
     {"name":"sprMadrugaPulandoDireita","order":8,"path":"sprites/sprMadrugaPulandoDireita/sprMadrugaPulandoDireita.yy",},
     {"name":"sprTransformacaoSamuraiParaNormalDireita","order":18,"path":"sprites/sprTransformacaoSamuraiParaNormalDireita/sprTransformacaoSamuraiParaNormalDireita.yy",},
     {"name":"sprTransformacaoNormalParaSamuraiEsquerda","order":17,"path":"sprites/sprTransformacaoNormalParaSamuraiEsquerda/sprTransformacaoNormalParaSamuraiEsquerda.yy",},
-    {"name":"sprSamuraiPulandoDireita","order":12,"path":"sprites/sprSamuraiPulandoDireita/sprSamuraiPulandoDireita.yy",},
     {"name":"sprSamuraiAbaixadoDireita","order":14,"path":"sprites/sprSamuraiAbaixadoDireita/sprSamuraiAbaixadoDireita.yy",},
     {"name":"sprSamuraiCorrendoEsquerda","order":5,"path":"sprites/sprSamuraiCorrendoEsquerda/sprSamuraiCorrendoEsquerda.yy",},
     {"name":"sprMadrugaAndandoDireita","order":2,"path":"sprites/sprMadrugaAndandoDireita/sprMadrugaAndandoDireita.yy",},

@@ -43,6 +43,7 @@
   },
   "resources": [
     {"id":{"name":"mecMadruga","path":"scripts/mecMadruga/mecMadruga.yy",},},
+    {"id":{"name":"sprSamuraiPulandoDireita","path":"sprites/sprSamuraiPulandoDireita/sprSamuraiPulandoDireita.yy",},},
     {"id":{"name":"sprMadrugaAbaixadoDireita","path":"sprites/sprMadrugaAbaixadoDireita/sprMadrugaAbaixadoDireita.yy",},},
     {"id":{"name":"objSeuMadruga","path":"objects/objSeuMadruga/objSeuMadruga.yy",},},
     {"id":{"name":"sprMadrugaDerrapandoDireita","path":"sprites/sprMadrugaDerrapandoDireita/sprMadrugaDerrapandoDireita.yy",},},
@@ -53,7 +54,6 @@
     {"id":{"name":"toolEnum","path":"scripts/toolEnum/toolEnum.yy",},},
     {"id":{"name":"sprTransformacaoSamuraiParaNormalDireita","path":"sprites/sprTransformacaoSamuraiParaNormalDireita/sprTransformacaoSamuraiParaNormalDireita.yy",},},
     {"id":{"name":"sprTransformacaoNormalParaSamuraiEsquerda","path":"sprites/sprTransformacaoNormalParaSamuraiEsquerda/sprTransformacaoNormalParaSamuraiEsquerda.yy",},},
-    {"id":{"name":"sprSamuraiPulandoDireita","path":"sprites/sprSamuraiPulandoDireita/sprSamuraiPulandoDireita.yy",},},
     {"id":{"name":"sprSamuraiAbaixadoDireita","path":"sprites/sprSamuraiAbaixadoDireita/sprSamuraiAbaixadoDireita.yy",},},
     {"id":{"name":"sprSamuraiCorrendoEsquerda","path":"sprites/sprSamuraiCorrendoEsquerda/sprSamuraiCorrendoEsquerda.yy",},},
     {"id":{"name":"sprMadrugaAndandoDireita","path":"sprites/sprMadrugaAndandoDireita/sprMadrugaAndandoDireita.yy",},},
