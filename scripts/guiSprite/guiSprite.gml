@@ -115,6 +115,16 @@ function exibirSpriteSamurai(sprite) {
 				objSamurai.sprite_index = sprSamuraiDerrapandoEsquerda;
 			}
 			break;
+		case SpriteEnum.LancarShuriken:
+			//Reseta animações para primeiro frame
+			objSeuMadruga.image_index = 0;
+			
+			if(direcao == DirecaoEnum.Direita) {
+				objSamurai.sprite_index = sprSamuraiShurikenDireita;
+			} else {
+				objSamurai.sprite_index = sprSamuraiShurikenEsquerda;
+			}
+			break;
 	}
 }
 	

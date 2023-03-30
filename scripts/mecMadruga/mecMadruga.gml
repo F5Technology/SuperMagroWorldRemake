@@ -11,6 +11,7 @@ global.propriedadesPlayer = {
 	derrapando: false,
 	forcaGravidade: 0,
 	transformando: false,
+	lancandoShuriken: false,
 	direcao: DirecaoEnum.Direita,
 	trocarSprite: exibirSpriteMadruga
 }
@@ -74,7 +75,9 @@ function ajustarVelocidade() {
 	
 	if(parando) {
 		if(velocidade > 0) {
-			velocidade -= 0.05;
+			var reducao = velocidade > 1.5 ? 0.20 : 0.05;
+			
+			velocidade -= reducao;
 		} else {
 			velocidade = 0;		
 			parando = false;
@@ -98,6 +101,7 @@ function aplicarGravidadePlayer(pular) {
 	var horizontal = x;
 	var caindo = global.propriedadesPlayer.caindo;
 	var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
+	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 	
 	if (pular) {
 		if(!caindo) {
@@ -109,7 +113,7 @@ function aplicarGravidadePlayer(pular) {
 			if(forcaGravidade <= limitePulo) {
 				caindo = true;
 				global.propriedadesPlayer.caindo = true;
-			} else {
+			} else if (!lancandoShuriken) {
 				global.propriedadesPlayer.trocarSprite(SpriteEnum.Pulando);
 			}
 		} else {
@@ -138,7 +142,7 @@ function aplicarGravidadePlayer(pular) {
 		}
 	}
 	
-	if(caindo && forcaGravidade > 0.30) {
+	if(caindo && !lancandoShuriken && forcaGravidade > 0.30) {
 		global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
 	}
 	
@@ -187,18 +191,20 @@ function realizarColisaoParede(tipo, forca, horizontal, vertical) {
 function checarSpriteImovel() {
 	var abaixado = global.propriedadesPlayer.abaixado;
 	var velocidade = global.propriedadesPlayer.velocidade;
+	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 	
-	 if (velocidade == 0) {
+	 if (velocidade == 0 && !lancandoShuriken) {
 		 var sprite = abaixado ? SpriteEnum.Abaixado : SpriteEnum.Parado;	
 	
 		global.propriedadesPlayer.trocarSprite(sprite);
 	 }
 }
 	
-function checarSpriteMovimento() {
+function checarSpriteMovimento() {	
+	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 	var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
 	
-	if (forcaGravidade == 0) {
+	if (forcaGravidade == 0 && !lancandoShuriken) {
 		var derrapando = global.propriedadesPlayer.derrapando;
 		var velocidade = global.propriedadesPlayer.velocidade;
 		
@@ -237,6 +243,7 @@ function reiniciarPropriedadesPlayer() {
 		derrapando: false,
 		forcaGravidade: 0,
 		transformando: false,
+		lancandoShuriken: false,
 		direcao: DirecaoEnum.Direita,
 		trocarSprite: exibirSpriteMadruga
 	}
@@ -247,6 +254,9 @@ function tomarDano() {
 	
 	if (samurai) {
 		transformarNormal();
+		global.propriedadesPlayer.correndo = false;
+		global.propriedadesPlayer.abaixado = false;
+		global.propriedadesPlayer.lancandoShuriken = false;
 	} else {
 		morrer();
 	}

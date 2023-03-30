@@ -34,3 +34,25 @@ function concluirTransformacao() {
 	
 	global.propriedadesPlayer.transformando = false;
 }
+	
+function lancarShuriken() {
+	var abaixado = global.propriedadesPlayer.abaixado;
+	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
+	
+	if (!lancandoShuriken && !abaixado) {
+		global.propriedadesPlayer.lancandoShuriken = true;
+		global.propriedadesPlayer.trocarSprite(SpriteEnum.LancarShuriken);
+		
+		//TODO: Criar intancia da shuriken
+	}
+}
+
+function finalizarAnimacaoLancarShuriken() {	
+	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
+	
+	if(lancandoShuriken && checarFimAnimacao()) {
+		global.propriedadesPlayer.lancandoShuriken = false;
+		
+		checarSpriteImovel();
+	}
+}

@@ -17,5 +17,6 @@ enum SpriteEnum {
 	Abaixado = 4,
 	Pulando = 5,
 	Caindo = 6,
-	Derrapando = 7
+	Derrapando = 7,
+	LancarShuriken = 8
 }
