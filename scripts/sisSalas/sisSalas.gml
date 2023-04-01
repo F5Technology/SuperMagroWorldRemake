@@ -3,6 +3,7 @@
 function iniciarSala() {
 	var sistemaTempoAtivo = global.sistemaTempoAtivo;
 	reiniciarPropriedadesPlayer();
+	reiniciarPropriedadesPrint();
 	reiniciarPropriedadesJogo();
 	
 	if (sistemaTempoAtivo) {

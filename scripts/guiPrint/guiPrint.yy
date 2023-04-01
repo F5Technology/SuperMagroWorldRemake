@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "sisHUD",
+  "name": "guiPrint",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Sistemas",
-    "path": "folders/Scripts/Sistemas.yy",
+    "name": "Interface",
+    "path": "folders/Scripts/Interface.yy",
   },
 }

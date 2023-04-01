@@ -147,7 +147,7 @@ function exibirAnimacaoTransformacao() {
 	}
 }
 
-function checarFimAnimacao(){
+function finalizouAnimacao(){
 	var _sprite=sprite_index;
 	var _image=image_index;
 	

@@ -50,9 +50,9 @@ function lancarShuriken() {
 function finalizarAnimacaoLancarShuriken() {	
 	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 	
-	if(lancandoShuriken && checarFimAnimacao()) {
+	if(lancandoShuriken && finalizouAnimacao()) {
 		global.propriedadesPlayer.lancandoShuriken = false;
 		
-		checarSpriteImovel();
+		exibirSpriteImovel();
 	}
 }

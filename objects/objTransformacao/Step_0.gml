@@ -1,3 +1,3 @@
-if (checarFimAnimacao()) {
+if (finalizouAnimacao()) {
 	concluirTransformacao();
 }

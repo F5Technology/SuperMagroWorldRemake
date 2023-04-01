@@ -70,20 +70,19 @@ function movimentar(direcao) {
 	
 	// Colisão com paredes
 	if(place_meeting(horizontal + forca, vertical, objParede)) {		
-		horizontal = realizarColisaoParede(
+		realizarColisaoParede(
 			TipoColisaoEnum.Horizontal, 
 			forca, 
 			horizontal, 
 			vertical
 		);
 	} else {
-		horizontal += forca;
+		x += forca;
 	}
 	
-	x = horizontal;
 	global.propriedadesPlayer.direcao = direcao;
 	
-	checarSpriteMovimento();
+	exibirSpriteMovimento();
 }
 
 function ajustarVelocidade() {
@@ -144,14 +143,14 @@ function aplicarGravidadePlayer(pular) {
 	
 	// Colisão com chão e teto
 	if(place_meeting(horizontal, vertical + forcaGravidade, objParede)) {
-		vertical = realizarColisaoParede(
+		realizarColisaoParede(
 			TipoColisaoEnum.Vertical, 
 			forcaGravidade, 
 			horizontal, 
 			vertical
 		);
 	} else {
-		vertical += forcaGravidade;
+		y += forcaGravidade;
 		global.propriedadesPlayer.forcaGravidade = forcaGravidade;
 		
 		if(!caindo) {
@@ -163,8 +162,6 @@ function aplicarGravidadePlayer(pular) {
 	if(caindo && !lancandoShuriken && forcaGravidade > 0.30) {
 		global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
 	}
-	
-	y = vertical;
 }
 		
 function realizarColisaoParede(tipo, forca, horizontal, vertical) {
@@ -180,14 +177,12 @@ function realizarColisaoParede(tipo, forca, horizontal, vertical) {
 				posicao += aproximacao;
 			}
 			
+			y = posicao;
 			global.propriedadesPlayer.forcaGravidade = 0;
+			global.propriedadesPlayer.caindo = colisaoTeto;
 			
-			if(colisaoTeto) {
-				global.propriedadesPlayer.caindo = true;
-			} else {
-				global.propriedadesPlayer.caindo = false;
-				
-				checarSpriteImovel();
+			if(!colisaoTeto) {				
+				exibirSpriteImovel();
 			}
 			break;
 		
@@ -198,15 +193,14 @@ function realizarColisaoParede(tipo, forca, horizontal, vertical) {
 				posicao += aproximacao;
 			}
 			
+			x = posicao;
 			global.propriedadesPlayer.velocidade = 0;		
 			global.propriedadesPlayer.parando = false;
 			break;
 	}
-	
-	return posicao;
 }
 
-function checarSpriteImovel() {
+function exibirSpriteImovel() {
 	var abaixado = global.propriedadesPlayer.abaixado;
 	var velocidade = global.propriedadesPlayer.velocidade;
 	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
@@ -218,9 +212,9 @@ function checarSpriteImovel() {
 	 }
 }
 	
-function checarSpriteMovimento() {	
-	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
+function exibirSpriteMovimento() {	
 	var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
+	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 	
 	if (forcaGravidade == 0 && !lancandoShuriken) {
 		var derrapando = global.propriedadesPlayer.derrapando;
