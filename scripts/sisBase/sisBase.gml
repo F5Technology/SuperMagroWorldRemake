@@ -39,10 +39,6 @@ function registrarMoeda() {
 	incluirPontos(10);
 	
 	global.propriedadesJogo.moedas = moedas;
-	
-	show_debug_message("Moedas: " + string(global.propriedadesJogo.moedas));
-	show_debug_message("Pontos: " + string(global.propriedadesJogo.pontos));
-	show_debug_message("Vidas: " + string(global.propriedadesJogo.vidas));
 }
 
 function coletarMoeda() {

@@ -11,6 +11,8 @@ function transformarSamurai() {
 		instance_create_layer(x, y, "Main", objTransformacao);
 	}
 	
+	incluirPontos(1000);
+	
 	//Destroi instancia do kanji ao coletar item
 	with (other) {
 		instance_destroy();
