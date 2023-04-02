@@ -24,7 +24,7 @@ function reiniciarPropriedadesJogo() {
 	}
 }
 
-function coletarMoeda() {
+function registrarMoeda() {
 	var moedas = global.propriedadesJogo.moedas;
 	
 	if (moedas >= 100) {
@@ -39,6 +39,19 @@ function coletarMoeda() {
 	incluirPontos(10);
 	
 	global.propriedadesJogo.moedas = moedas;
+	
+	show_debug_message("Moedas: " + string(global.propriedadesJogo.moedas));
+	show_debug_message("Pontos: " + string(global.propriedadesJogo.pontos));
+	show_debug_message("Vidas: " + string(global.propriedadesJogo.vidas));
+}
+
+function coletarMoeda() {
+	with (other) {	
+		instance_destroy();
+		instance_create_layer(x, y, "Secondary", objBrilho);
+	
+		registrarMoeda();
+	}
 }
 
 function checarTempo() {	

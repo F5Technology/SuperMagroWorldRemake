@@ -8,7 +8,7 @@ function transformarSamurai() {
 		global.propriedadesPlayer.samurai = true;
 		global.propriedadesPlayer.transformando = true;
 		global.propriedadesPlayer.trocarSprite = exibirSpriteSamurai;
-		instance_create_layer(x, y, "Instances", objTransformacao);
+		instance_create_layer(x, y, "Main", objTransformacao);
 	}
 	
 	//Destroi instancia do kanji ao coletar item
@@ -22,7 +22,7 @@ function transformarNormal() {
 	global.propriedadesPlayer.samurai = false;
 	global.propriedadesPlayer.transformando = true;
 	global.propriedadesPlayer.trocarSprite = exibirSpriteMadruga;
-	instance_create_layer(x, y, "Instances", objTransformacao);
+	instance_create_layer(x, y, "Main", objTransformacao);
 }
 
 function concluirTransformacao() {
@@ -30,7 +30,7 @@ function concluirTransformacao() {
 	var modo = samurai ? objSamurai : objSeuMadruga;
 	
 	instance_destroy();	
-	instance_create_layer(x, y, "Instances", modo);
+	instance_create_layer(x, y, "Main", modo);
 	
 	global.propriedadesPlayer.transformando = false;
 }

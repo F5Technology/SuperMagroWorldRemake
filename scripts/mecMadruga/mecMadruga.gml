@@ -247,7 +247,7 @@ function morrer() {
 	global.propriedadesPlayer.morto = true;
 	
 	layer_sequence_create("Animations", horizontal, vertical, anMadrugaMorrendo);
-	instance_create_layer(horizontal, vertical, "Instances", objSeuMadrugaMorrendo);
+	instance_create_layer(horizontal, vertical, "Main", objSeuMadrugaMorrendo);
 }
 	
 function tomarDano() {	

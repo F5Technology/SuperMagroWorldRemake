@@ -163,3 +163,9 @@ function finalizouAnimacao(){
 	if(argument_count > 2) _spd=argument[2];
 	return _image+_spd >= sprite_get_number(_sprite);
 }
+	
+function removerInstanciaAposAnimacao() {
+	if(finalizouAnimacao()) {
+		instance_destroy();
+	}
+}

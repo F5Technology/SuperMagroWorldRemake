@@ -42,8 +42,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "Samurai",
-    "path": "folders/Sprites/Player/Samurai.yy",
+    "name": "Animacoes",
+    "path": "folders/Sprites/Animacoes.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

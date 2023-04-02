@@ -1,0 +1,1 @@
+removerInstanciaAposAnimacao();
