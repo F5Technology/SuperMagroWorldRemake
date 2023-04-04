@@ -62,21 +62,10 @@ function movimentar(direcao) {
 	
 	ajustarVelocidade();
 	
-	var vertical = y;
-	var horizontal = x;
-	var velocidade = global.propriedadesPlayer.velocidade;
-	
+	var velocidade = global.propriedadesPlayer.velocidade;	
 	var forca = (direcao * velocidade);
 	
-	// Colisão com paredes
-	if(place_meeting(horizontal + forca, vertical, objParede)) {		
-		realizarColisaoParede(
-			TipoColisaoEnum.Horizontal, 
-			forca, 
-			horizontal, 
-			vertical
-		);
-	} else {
+	if (!colisao(TipoColisaoEnum.Horizontal, forca)) {
 		x += forca;
 	}
 	
@@ -114,8 +103,6 @@ function ajustarVelocidade() {
 }
 	
 function aplicarGravidadePlayer(pular) {
-	var vertical = y;
-	var horizontal = x;
 	var caindo = global.propriedadesPlayer.caindo;
 	var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
 	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
@@ -141,15 +128,7 @@ function aplicarGravidadePlayer(pular) {
 		forcaGravidade += 0.15;
 	}
 	
-	// Colisão com chão e teto
-	if(place_meeting(horizontal, vertical + forcaGravidade, objParede)) {
-		realizarColisaoParede(
-			TipoColisaoEnum.Vertical, 
-			forcaGravidade, 
-			horizontal, 
-			vertical
-		);
-	} else {
+	if (!colisao(TipoColisaoEnum.Vertical, forcaGravidade)) {
 		y += forcaGravidade;
 		global.propriedadesPlayer.forcaGravidade = forcaGravidade;
 		
@@ -161,42 +140,6 @@ function aplicarGravidadePlayer(pular) {
 	
 	if(caindo && !lancandoShuriken && forcaGravidade > 0.30) {
 		global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
-	}
-}
-		
-function realizarColisaoParede(tipo, forca, horizontal, vertical) {
-	var posicao = 0;	
-	var aproximacao = sign(forca);
-	
-	switch(tipo) {
-		case TipoColisaoEnum.Vertical:
-			posicao = vertical;
-			var colisaoTeto = (posicao + forca < 0);
-			
-			while(!place_meeting(horizontal, posicao + aproximacao, objParede)) {
-				posicao += aproximacao;
-			}
-			
-			y = posicao;
-			global.propriedadesPlayer.forcaGravidade = 0;
-			global.propriedadesPlayer.caindo = colisaoTeto;
-			
-			if(!colisaoTeto) {				
-				exibirSpriteImovel();
-			}
-			break;
-		
-		case TipoColisaoEnum.Horizontal:
-			posicao = horizontal;
-			
-			while(!place_meeting(posicao + aproximacao, vertical, objParede)) {
-				posicao += aproximacao;
-			}
-			
-			x = posicao;
-			global.propriedadesPlayer.velocidade = 0;		
-			global.propriedadesPlayer.parando = false;
-			break;
 	}
 }
 

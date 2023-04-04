@@ -14,6 +14,14 @@ function aplicarGravidadeGeral() {
 		}
 		
 		forcaGravidade = 0;
+	} else if(place_meeting(horizontal, vertical + forcaGravidade, objInterrogacao)) { //Colisão com o bloco de interrogação
+		var aproximacao = sign(forcaGravidade);
+			
+		while(!place_meeting(horizontal, vertical + aproximacao, objInterrogacao)) {
+			vertical += aproximacao;
+		}
+		
+		forcaGravidade = 0;
 	} else {
 		vertical += forcaGravidade;
 	}
