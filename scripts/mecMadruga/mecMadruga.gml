@@ -109,9 +109,15 @@ function aplicarGravidadePlayer(pular) {
 	
 	if (pular) {
 		if(!caindo) {
-			var altaVelocidade = (global.propriedadesPlayer.velocidade == 2.80);
+			var limitePulo = -3;
+			var velocidade = global.propriedadesPlayer.velocidade;
+			var acimaVelocidade = (velocidade > 1.5);
 			
-			var limitePulo = altaVelocidade ? -3.8 : -2.8;
+			if (velocidade > 1.5) {
+				limitePulo -= (velocidade - 1.80);
+			}
+			
+			//var limitePulo = acimaVelocidade ? -4 : -3;
 			forcaGravidade += -0.40;
 			
 			if(forcaGravidade <= limitePulo) {
