@@ -1,1 +1,3 @@
-coletarMoeda();
+with (other) {
+	coletarMoeda();
+}

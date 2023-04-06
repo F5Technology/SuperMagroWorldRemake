@@ -1,9 +1,9 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objTijolos",
+  "name": "objHitBoxTop",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"objHitBoxTop","path":"objects/objHitBoxTop/objHitBoxTop.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -28,9 +28,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprBlocoTijolos",
-    "path": "sprites/sprBlocoTijolos/sprBlocoTijolos.yy",
+    "name": "sprHitBoxTop",
+    "path": "sprites/sprHitBoxTop/sprHitBoxTop.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

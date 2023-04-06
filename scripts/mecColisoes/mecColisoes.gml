@@ -87,3 +87,51 @@ function realizarColisao(tipo, objeto, forca) {
 			break;
 	}
 }
+	
+function quebrarTijolos() {
+	instance_destroy();
+	global.propriedadesPlayer.caindo = true;
+	layer_sequence_create("Animations", x, y, anTijolosQuebrados);
+}
+	
+function baterInterrogacao() {	
+	if (ativo) {
+		ativo = false;
+		
+		var samurai = global.propriedadesPlayer.samurai;
+		var player = samurai ? objSamurai : objSeuMadruga;
+		
+		y -= sprite_height / 2;		
+		player.y += 1;
+		
+		global.propriedadesPlayer.caindo = true;
+		
+		alarm[0] = 5;
+	}
+}
+
+function retornarItemBlocoInterrogacao() {
+	if(powerUp) {
+		instance_create_layer(x, y - sprite_height, "Main", objKanji);
+	} else {			
+		var instanciaMoeda = instance_create_layer(x, y - sprite_height, "Main", objMoeda);
+		
+		instanciaMoeda.alarm[0] = 5;
+	}
+	
+	y += sprite_height / 2;	
+	sprite_index = sprBlocoVazio;
+}
+	
+function posicionarHitBoxSuperior() {
+	var morto = global.propriedadesPlayer.morto;
+	var transformando = global.propriedadesPlayer.transformando;
+	
+	if(!morto && !transformando) {
+		var samurai = global.propriedadesPlayer.samurai;
+		var player = samurai ? objSamurai : objSeuMadruga;
+		
+		x = player.x;
+		y = player.y;
+	}
+}

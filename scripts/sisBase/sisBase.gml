@@ -42,12 +42,10 @@ function registrarMoeda() {
 }
 
 function coletarMoeda() {
-	with (other) {	
-		instance_destroy();
-		instance_create_layer(x, y, "Secondary", objBrilho);
-	
-		registrarMoeda();
-	}
+	instance_destroy();
+	instance_create_layer(x, y, "Secondary", objBrilho);
+		
+	registrarMoeda();
 }
 
 function checarTempo() {	

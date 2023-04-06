@@ -117,7 +117,6 @@ function aplicarGravidadePlayer(pular) {
 				limitePulo -= (velocidade - 1.80);
 			}
 			
-			//var limitePulo = acimaVelocidade ? -4 : -3;
 			forcaGravidade += -0.40;
 			
 			if(forcaGravidade <= limitePulo) {
@@ -190,8 +189,8 @@ function morrer() {
 	
 	var vertical = player.y;
 	var horizontal = player.x;
-	
-	instance_destroy(player);
+
+	instance_destroy(player);	
 	global.propriedadesJogo.vidas--;
 	global.propriedadesPlayer.morto = true;
 	
