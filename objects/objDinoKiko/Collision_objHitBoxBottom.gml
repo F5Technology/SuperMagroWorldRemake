@@ -1,1 +1,1 @@
-morrerInimigo();
+pularEmCimaInimigo();

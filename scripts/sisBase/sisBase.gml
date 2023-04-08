@@ -31,12 +31,12 @@ function registrarMoeda() {
 		moedas = 0;
 		global.propriedadesJogo.vidas++;
 		
-		//TODO: Inserir sprite da 1UP
+		mostrarValorEmJogo(ValorEnum.Vida);
 	} else {
 		moedas++;
-	}
 	
-	incluirPontos(10);
+		incluirPontos(10);
+	}
 	
 	global.propriedadesJogo.moedas = moedas;
 }
@@ -78,7 +78,7 @@ function checarTempo() {
 function incluirPontos(pontos) {
 	global.propriedadesJogo.pontos += pontos;
 	
-	//TODO: exibir sprite dos pontos
+	mostrarValorEmJogo(pontos);
 }
 	
 function pausar() {

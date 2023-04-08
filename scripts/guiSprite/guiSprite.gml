@@ -166,6 +166,26 @@ function exibirAnimacaoTransformacao() {
 	}
 }
 
+function mostrarValorEmJogo(valor) {
+	switch(valor) {
+		case ValorEnum.Vida:
+			layer_sequence_create("Animations", x, y, an1UP);
+			break;
+		case ValorEnum.Ponto10:
+			layer_sequence_create("Animations", x, y, anPontos10);
+			break;
+		case ValorEnum.Ponto200:
+			layer_sequence_create("Animations", x, y, anPontos200);
+			break;
+		case ValorEnum.Ponto400:
+			layer_sequence_create("Animations", x, y, anPontos400);
+			break;
+		case ValorEnum.Ponto1000:
+			layer_sequence_create("Animations", x, y, anPontos1000);
+			break;
+	}
+}
+
 function piscarSprite() {
 	if(image_alpha == 1) {
 		image_alpha = 0;

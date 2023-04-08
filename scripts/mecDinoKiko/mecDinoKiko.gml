@@ -23,13 +23,28 @@ function trocarDirecaoInimigo() {
 	exibirSpriteDinoKiko(SpriteEnum.Andando);
 }
 
-function morrerInimigo() {
-	instance_destroy();
+function matarInimigo() {
+	var morto = global.propriedadesPlayer.morto;
+	var transformando = global.propriedadesPlayer.transformando;
 	
-	exibirSpriteDinoKiko(SpriteEnum.Morrendo);
+	if(!morto && !transformando) {
+		instance_destroy(); 
+		incluirPontos(200);
 	
-	global.propriedadesPlayer.caindo = false;
-	global.propriedadesPlayer.forcaGravidade = -2;
+		exibirSpriteDinoKiko(SpriteEnum.Morrendo);
+		
+		global.propriedadesPlayer.caindo = false;
+		global.propriedadesPlayer.forcaGravidade = -2;
+		
+		aplicarGravidadePlayer(true);
+	}
+}
 	
-	aplicarGravidadePlayer(true);
+function pularEmCimaInimigo() {
+	var limiteHit = y - (sprite_height / 2);
+	var coordernadaHit = objHitBoxBottom.y + 6;
+	
+	if(coordernadaHit <= limiteHit) {
+		matarInimigo();
+	}
 }

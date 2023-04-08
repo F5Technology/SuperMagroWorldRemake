@@ -21,3 +21,11 @@ enum SpriteEnum {
 	LancarShuriken = 8,
 	Morrendo = 9
 }
+
+enum ValorEnum {
+	Vida = 1,
+	Ponto10 = 10,
+	Ponto200 = 200,
+	Ponto400 = 400,
+	Ponto1000 = 1000
+}
