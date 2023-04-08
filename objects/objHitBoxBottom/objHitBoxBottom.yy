@@ -1,15 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objKanji",
+  "name": "objHitBoxBottom",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Itens",
-    "path": "folders/Objects/Itens.yy",
+    "name": "Elementos",
+    "path": "folders/Objects/Elementos.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -25,13 +25,11 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"forcaGravidadeAtual","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
-  ],
+  "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprKanji",
-    "path": "sprites/sprKanji/sprKanji.yy",
+    "name": "sprHitBoxBottom",
+    "path": "sprites/sprHitBoxBottom/sprHitBoxBottom.yy",
   },
   "spriteMaskId": null,
   "visible": true,

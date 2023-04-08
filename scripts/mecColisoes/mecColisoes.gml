@@ -106,7 +106,7 @@ function baterInterrogacao() {
 		
 		global.propriedadesPlayer.caindo = true;
 		
-		alarm[0] = 5;
+		alarm[0] = 3;
 	}
 }
 
@@ -123,7 +123,7 @@ function retornarItemBlocoInterrogacao() {
 	sprite_index = sprBlocoVazio;
 }
 	
-function posicionarHitBoxSuperior() {
+function posicionarHitBox() {
 	var morto = global.propriedadesPlayer.morto;
 	var transformando = global.propriedadesPlayer.transformando;
 	

@@ -1,0 +1,1 @@
+exibirSpriteDinoKiko(SpriteEnum.Andando);

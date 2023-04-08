@@ -8,8 +8,10 @@ global.propriedadesPlayer = {
 	samurai: false,
 	correndo: false,
 	abaixado: false,
+	invencivel: false,
 	derrapando: false,
 	forcaGravidade: 0,
+	instanciaHitBox: 0,
 	transformando: false,
 	lancandoShuriken: false,
 	direcao: DirecaoEnum.Direita,
@@ -25,8 +27,10 @@ function reiniciarPropriedadesPlayer() {
 		samurai: false,
 		correndo: false,
 		abaixado: false,
+		invencivel: false,
 		derrapando: false,
 		forcaGravidade: 0,
+		instanciaHitBox: 0,
 		transformando: false,
 		lancandoShuriken: false,
 		direcao: DirecaoEnum.Direita,
@@ -105,6 +109,7 @@ function ajustarVelocidade() {
 function aplicarGravidadePlayer(pular) {
 	var caindo = global.propriedadesPlayer.caindo;
 	var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
+	var instanciaHitBox = global.propriedadesPlayer.instanciaHitBox;
 	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 	
 	if (pular) {
@@ -143,8 +148,18 @@ function aplicarGravidadePlayer(pular) {
 		}
 	}
 	
-	if(caindo && !lancandoShuriken && forcaGravidade > 0.30) {
-		global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
+	if(caindo && forcaGravidade > 0.30) {	
+		if(!instance_exists(instanciaHitBox)) {
+			global.propriedadesPlayer.instanciaHitBox = instance_create_layer(x, y, "Secondary", objHitBoxBottom);
+		}
+		
+		if(!lancandoShuriken) {
+			global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
+		}
+	} else {
+		if(instance_exists(instanciaHitBox)) {
+			instance_destroy(instanciaHitBox);
+		}
 	}
 }
 
@@ -161,10 +176,11 @@ function exibirSpriteImovel() {
 }
 	
 function exibirSpriteMovimento() {	
+	var caindo = global.propriedadesPlayer.caindo;
 	var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
 	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 	
-	if (forcaGravidade == 0 && !lancandoShuriken) {
+	if (forcaGravidade == 0 && !caindo && !lancandoShuriken) {
 		var derrapando = global.propriedadesPlayer.derrapando;
 		var velocidade = global.propriedadesPlayer.velocidade;
 		
@@ -191,6 +207,7 @@ function morrer() {
 	var horizontal = player.x;
 
 	instance_destroy(player);	
+	global.inteligenciaArtificialLigada = false;
 	global.propriedadesJogo.vidas--;
 	global.propriedadesPlayer.morto = true;
 	
@@ -200,13 +217,32 @@ function morrer() {
 	
 function tomarDano() {	
 	var samurai = global.propriedadesPlayer.samurai;
+	var invencivel = global.propriedadesPlayer.invencivel;
 	
-	if (samurai) {
-		transformarNormal();
-		global.propriedadesPlayer.correndo = false;
-		global.propriedadesPlayer.abaixado = false;
-		global.propriedadesPlayer.lancandoShuriken = false;
-	} else {
-		morrer();
+	if(!invencivel) {
+		if (samurai) {
+			transformarNormal();
+			global.propriedadesPlayer.correndo = false;
+			global.propriedadesPlayer.abaixado = false;
+			global.propriedadesPlayer.lancandoShuriken = false;
+		} else {		
+			morrer();
+		}
 	}
+}
+
+function aplicarInvencibilidade() {
+	var invencivel = global.propriedadesPlayer.invencivel;
+	
+	if(invencivel) {
+		piscarSprite();
+		
+		alarm[0] = 5;
+	}
+}
+
+function finalizarInvencibilidade() {
+	global.propriedadesPlayer.invencivel = false;
+	
+	image_alpha = 1;
 }

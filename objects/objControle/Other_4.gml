@@ -1,1 +1,2 @@
 iniciarSala();
+global.inteligenciaArtificialLigada = true;

@@ -128,6 +128,25 @@ function exibirSpriteSamurai(sprite) {
 	}
 }
 	
+function exibirSpriteDinoKiko(sprite) {
+	switch(sprite) {
+		case SpriteEnum.Andando:
+			if(direcao == DirecaoEnum.Direita) {
+				sprite_index = sprDinoKikoAndandoDireita;
+			} else {
+				sprite_index = sprDinoKikoAndandoEsquerda;
+			}
+			break;
+		case SpriteEnum.Morrendo:
+			if(direcao == DirecaoEnum.Direita) {
+				layer_sequence_create("Animations", x, y, anDinoKikoMorrendoDireita);
+			} else {
+				layer_sequence_create("Animations", x, y, anDinoKikoMorrendoEsquerda);
+			}
+			break;
+	}
+}
+	
 function exibirAnimacaoTransformacao() {
 	var samurai = global.propriedadesPlayer.samurai;
 	var direcao = global.propriedadesPlayer.direcao;
@@ -144,6 +163,14 @@ function exibirAnimacaoTransformacao() {
 		} else {
 			objTransformacao.sprite_index = sprTransformacaoSamuraiParaNormalEsquerda;
 		}
+	}
+}
+
+function piscarSprite() {
+	if(image_alpha == 1) {
+		image_alpha = 0;
+	} else {
+		image_alpha = 1;
 	}
 }
 

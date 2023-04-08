@@ -18,5 +18,6 @@ enum SpriteEnum {
 	Pulando = 5,
 	Caindo = 6,
 	Derrapando = 7,
-	LancarShuriken = 8
+	LancarShuriken = 8,
+	Morrendo = 9
 }

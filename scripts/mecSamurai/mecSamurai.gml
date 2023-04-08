@@ -4,7 +4,8 @@ function transformarSamurai() {
 	var samurai = global.propriedadesPlayer.samurai;
 	
 	if (!samurai) {
-		instance_destroy();	
+		instance_destroy();			
+		global.inteligenciaArtificialLigada = false;
 		global.propriedadesPlayer.samurai = true;
 		global.propriedadesPlayer.transformando = true;
 		global.propriedadesPlayer.trocarSprite = exibirSpriteSamurai;
@@ -20,7 +21,8 @@ function transformarSamurai() {
 }
 
 function transformarNormal() {
-	instance_destroy();	
+	instance_destroy();		
+	global.inteligenciaArtificialLigada = false;
 	global.propriedadesPlayer.samurai = false;
 	global.propriedadesPlayer.transformando = true;
 	global.propriedadesPlayer.trocarSprite = exibirSpriteMadruga;
@@ -34,6 +36,11 @@ function concluirTransformacao() {
 	instance_destroy();	
 	instance_create_layer(x, y, "Main", modo);
 	
+	modo.alarm[0] = 5;
+	modo.alarm[1] = 60 * 3; //  3 segundos
+	
+	global.inteligenciaArtificialLigada = true;
+	global.propriedadesPlayer.invencivel = true;
 	global.propriedadesPlayer.transformando = false;
 }
 	

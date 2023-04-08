@@ -1,1 +1,0 @@
-forcaGravidadeAtual = 0;
