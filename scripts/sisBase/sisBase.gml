@@ -1,6 +1,9 @@
 /// @description Sistema basicos de controle de dados do jogo
 
-global.sistemaTempoAtivo = false;
+global.sistemasJogo = {
+	tempo: false,
+	inteligenciaArtificial: true
+}
 
 global.propriedadesJogo = {
 	fase: 1,

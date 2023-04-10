@@ -1,2 +1,1 @@
 iniciarSala();
-global.inteligenciaArtificialLigada = true;

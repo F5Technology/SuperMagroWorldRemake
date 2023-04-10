@@ -5,7 +5,7 @@ function transformarSamurai() {
 	
 	if (!samurai) {
 		instance_destroy();			
-		global.inteligenciaArtificialLigada = false;
+		global.sistemasJogo.inteligenciaArtificial = false;
 		global.propriedadesPlayer.samurai = true;
 		global.propriedadesPlayer.transformando = true;
 		global.propriedadesPlayer.trocarSprite = exibirSpriteSamurai;
@@ -22,7 +22,7 @@ function transformarSamurai() {
 
 function transformarNormal() {
 	instance_destroy();		
-	global.inteligenciaArtificialLigada = false;
+	global.sistemasJogo.inteligenciaArtificial = false;
 	global.propriedadesPlayer.samurai = false;
 	global.propriedadesPlayer.transformando = true;
 	global.propriedadesPlayer.trocarSprite = exibirSpriteMadruga;
@@ -39,7 +39,7 @@ function concluirTransformacao() {
 	modo.alarm[0] = 5;
 	modo.alarm[1] = 60 * 3; //  3 segundos
 	
-	global.inteligenciaArtificialLigada = true;
+	global.sistemasJogo.inteligenciaArtificial = true;
 	global.propriedadesPlayer.invencivel = true;
 	global.propriedadesPlayer.transformando = false;
 }

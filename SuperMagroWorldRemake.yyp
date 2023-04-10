@@ -12,6 +12,7 @@
   "defaultScriptType": 1,
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animations","folderPath":"folders/Animations.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Elementos","folderPath":"folders/Animations/Elementos.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"NPC","folderPath":"folders/Animations/NPC.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Dino Kiko","folderPath":"folders/Animations/NPC/Dino Kiko.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Fonts","folderPath":"folders/Fonts.yy",},
@@ -44,7 +45,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"SeuMadruga","folderPath":"folders/Sprites/Player/SeuMadruga.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"TileSets","folderPath":"folders/Sprites/TileSets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Elementos","folderPath":"folders/Animations/Elementos.yy",},
   ],
   "IncludedFiles": [],
   "isEcma": false,

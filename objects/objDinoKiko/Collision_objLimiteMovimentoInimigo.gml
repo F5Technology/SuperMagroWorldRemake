@@ -1,1 +1,1 @@
-trocarDirecaoInimigo();
+trocarDirecao();

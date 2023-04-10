@@ -1,1 +1,1 @@
-pularEmCimaInimigo();
+aplicandoDanoPulo();

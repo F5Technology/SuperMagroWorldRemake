@@ -1,1 +1,1 @@
-executarInteligenciaArtificialInimigo();
+rodandoInteligenciaArtificial();

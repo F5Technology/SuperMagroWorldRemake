@@ -1,33 +1,35 @@
 /// @description Rotinas e mecanicas do dino kiko
 
-global.inteligenciaArtificialLigada = true;
-
-function executarInteligenciaArtificialInimigo(){
-	var inteligenciaArtificialLigada = global.inteligenciaArtificialLigada;
+function rodandoInteligenciaArtificial(){
+	var inteligenciaArtificialLigada = global.sistemasJogo.inteligenciaArtificial;
 	
 	if(inteligenciaArtificialLigada) {
-		movimentoInimigo();
+		movimento();
 		aplicarGravidadeGeral();
 	}
 }
 
-function movimentoInimigo() {		
-	//var forca = (direcao * 1.5);
+function movimento() {		
+	var forca = (direcao * 1);
 	
-	x += direcao;
+	x += forca;
 }
 
-function trocarDirecaoInimigo() {
-	direcao = direcao == DirecaoEnum.Direita ? DirecaoEnum.Esquerda : DirecaoEnum.Direita;
+function trocarDirecao() {	
+	if(direcao == DirecaoEnum.Direita) {
+		direcao = DirecaoEnum.Esquerda;
+	} else {
+		direcao = DirecaoEnum.Direita;
+	}
 
 	exibirSpriteDinoKiko(SpriteEnum.Andando);
 }
 
-function matarInimigo() {
-	var morto = global.propriedadesPlayer.morto;
-	var transformando = global.propriedadesPlayer.transformando;
+function serMorto() {
+	var playerMorto = global.propriedadesPlayer.morto;
+	var playerTransformando = global.propriedadesPlayer.transformando;
 	
-	if(!morto && !transformando) {
+	if(!playerMorto && !playerTransformando) {
 		instance_destroy(); 
 		incluirPontos(200);
 	
@@ -40,11 +42,11 @@ function matarInimigo() {
 	}
 }
 	
-function pularEmCimaInimigo() {
+function aplicandoDanoPulo() {
 	var limiteHit = y - (sprite_height / 2);
 	var coordernadaHit = objHitBoxBottom.y + 6;
 	
 	if(coordernadaHit <= limiteHit) {
-		matarInimigo();
+		serMorto();
 	}
 }

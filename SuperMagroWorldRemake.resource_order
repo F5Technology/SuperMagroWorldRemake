@@ -1,6 +1,7 @@
 {
   "FolderOrderSettings": [
     {"name":"Animations","order":1,"path":"folders/Animations.yy",},
+    {"name":"Elementos","order":1,"path":"folders/Animations/Elementos.yy",},
     {"name":"Dino Kiko","order":1,"path":"folders/Animations/NPC/Dino Kiko.yy",},
     {"name":"Fonts","order":7,"path":"folders/Fonts.yy",},
     {"name":"Notes","order":8,"path":"folders/Notes.yy",},
@@ -28,7 +29,6 @@
     {"name":"SeuMadruga","order":1,"path":"folders/Sprites/Player/SeuMadruga.yy",},
     {"name":"TileSets","order":2,"path":"folders/Sprites/TileSets.yy",},
     {"name":"Tile Sets","order":3,"path":"folders/Tile Sets.yy",},
-    {"name":"Elementos","order":1,"path":"folders/Animations/Elementos.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"mecMadruga","order":1,"path":"scripts/mecMadruga/mecMadruga.yy",},

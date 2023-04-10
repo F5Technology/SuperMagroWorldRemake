@@ -11,9 +11,9 @@ global.propriedadesPlayer = {
 	invencivel: false,
 	derrapando: false,
 	forcaGravidade: 0,
-	instanciaHitBox: 0,
 	transformando: false,
 	lancandoShuriken: false,
+	instanciaHitBox: undefined,
 	direcao: DirecaoEnum.Direita,
 	trocarSprite: exibirSpriteMadruga
 }
@@ -30,9 +30,9 @@ function reiniciarPropriedadesPlayer() {
 		invencivel: false,
 		derrapando: false,
 		forcaGravidade: 0,
-		instanciaHitBox: 0,
 		transformando: false,
-		lancandoShuriken: false,
+		lancandoShuriken: false,		
+		instanciaHitBox: undefined,
 		direcao: DirecaoEnum.Direita,
 		trocarSprite: exibirSpriteMadruga
 	}
@@ -207,7 +207,7 @@ function morrer() {
 	var horizontal = player.x;
 
 	instance_destroy(player);	
-	global.inteligenciaArtificialLigada = false;
+	global.sistemasJogo.inteligenciaArtificial = false;
 	global.propriedadesJogo.vidas--;
 	global.propriedadesPlayer.morto = true;
 	
