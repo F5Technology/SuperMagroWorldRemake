@@ -5,6 +5,11 @@ enum DirecaoEnum {
 	Direita = 1
 }
 
+enum ElevacaoEnum {
+	Subir = -1,
+	Descer = 1
+}
+
 enum TipoColisaoEnum {
 	Vertical = 1,
 	Horizontal = 2
@@ -18,8 +23,11 @@ enum SpriteEnum {
 	Pulando = 5,
 	Caindo = 6,
 	Derrapando = 7,
-	LancarShuriken = 8,
-	Morrendo = 9
+	LancarProjetil = 8,
+	Morrendo = 9,
+	Aparecendo = 10,
+	Escondendo = 11,
+	CoolDown = 12
 }
 
 enum ValorEnum {

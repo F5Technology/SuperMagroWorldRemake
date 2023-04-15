@@ -115,7 +115,7 @@ function exibirSpriteSamurai(sprite) {
 				objSamurai.sprite_index = sprSamuraiDerrapandoEsquerda;
 			}
 			break;
-		case SpriteEnum.LancarShuriken:
+		case SpriteEnum.LancarProjetil:
 			//Reseta animações para primeiro frame
 			objSeuMadruga.image_index = 0;
 			
@@ -143,6 +143,103 @@ function exibirSpriteDinoKiko(sprite) {
 			} else {
 				layer_sequence_create("Animations", x, y, anDinoKikoMorrendoEsquerda);
 			}
+			break;
+	}
+}
+	
+function exibirSpriteNaveChefe() {
+	var direcao = global.propriedadesChefe.direcao;
+	
+	if(direcao == DirecaoEnum.Direita) {
+		objNave.sprite_index = sprNaveDireita;
+	} else {
+		objNave.sprite_index = sprNaveEsquerda;
+	}
+}
+
+function exibirSpriteFlorindaFase1(sprite) {
+	var direcao = global.propriedadesChefe.direcao;
+	
+	switch(sprite) {
+		case SpriteEnum.Parado:
+			if(direcao == DirecaoEnum.Direita) {
+				objFlorinda.sprite_index = sprFlorindaF1Direita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF1Esquerda;
+			}
+			break;
+		case SpriteEnum.LancarProjetil:
+			if(direcao == DirecaoEnum.Direita) {
+				objFlorinda.sprite_index = sprFlorindaF1LancandoMassaDireita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF1LancandoMassaEsquerda;
+			}
+			break;
+		case SpriteEnum.Aparecendo:
+			if(direcao == DirecaoEnum.Direita) {
+				objFlorinda.sprite_index = sprFlorindaF1AparecendoDireita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF1AparecendoEsquerda;
+			}
+			break;
+		case SpriteEnum.Escondendo:
+			if(direcao == DirecaoEnum.Direita) {
+				objFlorinda.sprite_index = sprFlorindaF1EscondendoDireita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF1EscondendoEsquerda;
+			}
+			break;
+	}
+}
+
+function exibirSpriteFlorindaFase2(sprite) {
+	var direcao = global.propriedadesChefe.direcao;
+	
+	switch(sprite) {
+		case SpriteEnum.Parado:
+			if(direcao == DirecaoEnum.Direita) {
+				objFlorinda.sprite_index = sprFlorindaF2Direita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF2Esquerda;
+			}
+			break;
+		case SpriteEnum.LancarProjetil:
+			if(direcao == DirecaoEnum.Direita) {
+				objFlorinda.sprite_index = sprFlorindaF2LancandoMassaDireita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF2LancandoMassaEsquerda;
+			}
+			break;
+		case SpriteEnum.Aparecendo:
+			if(direcao == DirecaoEnum.Direita) {
+				objFlorinda.sprite_index = sprFlorindaF2AparecendoDireita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF2AparecendoEsquerda;
+			}
+			break;
+		case SpriteEnum.Escondendo:
+			if(direcao == DirecaoEnum.Direita) {
+				objFlorinda.sprite_index = sprFlorindaF2EscondendoDireita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF2EscondendoEsquerda;
+			}
+			break;
+	}
+}
+
+function exibirSpriteFlorindaFase3(sprite) {
+	var direcao = global.propriedadesChefe.direcao;
+	
+	switch(sprite) {
+		case SpriteEnum.Parado:
+			if(direcao == DirecaoEnum.Direita) {
+				objFlorinda.sprite_index = sprFlorindaF3Direita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF3Esquerda;
+			}
+			break;
+		case SpriteEnum.LancarProjetil:
+			objFlorinda.sprite_index = sprFlorindaF3CoolDown;
 			break;
 	}
 }

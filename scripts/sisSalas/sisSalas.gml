@@ -7,6 +7,7 @@ function iniciarSala() {
 	reiniciarPropriedadesPlayer();
 	reiniciarPropriedadesPrint();
 	reiniciarPropriedadesJogo();
+	reiniciarPropriedadesChefe();
 	
 	if (sistemaTempoAtivo) {
 		checarTempo();

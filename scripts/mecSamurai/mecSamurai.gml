@@ -50,7 +50,7 @@ function lancarShuriken() {
 	
 	if (!lancandoShuriken && !abaixado) {
 		global.propriedadesPlayer.lancandoShuriken = true;
-		global.propriedadesPlayer.trocarSprite(SpriteEnum.LancarShuriken);
+		global.propriedadesPlayer.trocarSprite(SpriteEnum.LancarProjetil);
 		
 		//TODO: Criar intancia da shuriken
 	}
