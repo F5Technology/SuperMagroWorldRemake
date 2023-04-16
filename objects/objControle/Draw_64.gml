@@ -1,5 +1,1 @@
-exibirVidas();
-exibirPontuacao();
-exibirFaseAtual();
-exibirTempo();
-exibirMoedas();
+exibirHUD();

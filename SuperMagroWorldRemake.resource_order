@@ -112,6 +112,7 @@
     {"name":"sprMadrugaParadoEsquerda","order":1,"path":"sprites/sprMadrugaParadoEsquerda/sprMadrugaParadoEsquerda.yy",},
     {"name":"sprSamuraiDerrapandoEsquerda","order":9,"path":"sprites/sprSamuraiDerrapandoEsquerda/sprSamuraiDerrapandoEsquerda.yy",},
     {"name":"sndFlorindaMorrendo","order":5,"path":"sounds/sndFlorindaMorrendo/sndFlorindaMorrendo.yy",},
+    {"name":"toolCalculadora","order":1,"path":"scripts/toolCalculadora/toolCalculadora.yy",},
     {"name":"sprSamuraiDerrapandoDireita","order":8,"path":"sprites/sprSamuraiDerrapandoDireita/sprSamuraiDerrapandoDireita.yy",},
     {"name":"sprFlorindaF1LancandoMassaDireita","order":6,"path":"sprites/sprFlorindaF1LancandoMassaDireita/sprFlorindaF1LancandoMassaDireita.yy",},
     {"name":"sprSamuraiAndandoEsquerda","order":3,"path":"sprites/sprSamuraiAndandoEsquerda/sprSamuraiAndandoEsquerda.yy",},

@@ -150,6 +150,7 @@
     {"id":{"name":"sprSamuraiDerrapandoEsquerda","path":"sprites/sprSamuraiDerrapandoEsquerda/sprSamuraiDerrapandoEsquerda.yy",},},
     {"id":{"name":"sndFlorindaMorrendo","path":"sounds/sndFlorindaMorrendo/sndFlorindaMorrendo.yy",},},
     {"id":{"name":"sprFlorindaF3Direita","path":"sprites/sprFlorindaF3Direita/sprFlorindaF3Direita.yy",},},
+    {"id":{"name":"toolCalculadora","path":"scripts/toolCalculadora/toolCalculadora.yy",},},
     {"id":{"name":"sprSamuraiDerrapandoDireita","path":"sprites/sprSamuraiDerrapandoDireita/sprSamuraiDerrapandoDireita.yy",},},
     {"id":{"name":"sprFlorindaF1Direita","path":"sprites/sprFlorindaF1Direita/sprFlorindaF1Direita.yy",},},
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},},

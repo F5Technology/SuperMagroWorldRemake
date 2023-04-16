@@ -49,8 +49,12 @@ function alterarDirecao() {
 }
 
 function movimentoNave() {
+	var limiteTopo = 0;
+	var limiteFundo = 0;
 	var fase = global.propriedadesChefe.fase;
 	var direcao = global.propriedadesChefe.direcao;
+	var elevacao = global.propriedadesChefe.elevacao;
+	var forca = global.propriedadesChefe.forcaHorizontal;
 	var forcaGravidadeAtual = global.propriedadesChefe.forcaVertical;
 	
 	switch (fase) {
@@ -58,7 +62,6 @@ function movimentoNave() {
 		
 			#region Movimento Horizontal
 			
-			var forca = global.propriedadesChefe.forcaHorizontal;
 			var limiteParada = objNave.x + (direcao * 20);
 			var limiteDerrapagem = limiteParada + (forca * 28);
 			
@@ -101,9 +104,8 @@ function movimentoNave() {
 			
 			#region Movimento Vertical
 			
-			var limiteFundo = objNave.y + 33;
-			var limiteTopo = objFlorinda.y - 15;
-			var elevacao = global.propriedadesChefe.elevacao;
+			limiteFundo = objNave.y + 33;
+			limiteTopo = objFlorinda.y - 15;
 			
 			if(place_meeting(objNave.x, limiteFundo, objLimiteVerticalChefe)) {
 				elevacao = ElevacaoEnum.Subir;
@@ -123,8 +125,133 @@ function movimentoNave() {
 			
 			break;
 		case 2:
+			
+			#region Movimento Horizontal
+			
+			var limiteForca = (direcao * 1.8);
+			var samurai = global.propriedadesPlayer.samurai;
+			var player = samurai ? objSamurai : objSeuMadruga;
+			var derrapando = global.propriedadesChefe.derrapando;
+			var indoParaDireita = (direcao == DirecaoEnum.Direita);
+			var indoParaEsquerda = (direcao == DirecaoEnum.Esquerda);
+			var limiteDireita = obterValorDePorcentagem(85, room_width);
+			var limiteEsquerda = obterValorDePorcentagem(15, room_width);
+			
+			if(player.x > limiteEsquerda && player.x < limiteDireita) {
+				limiteDireita = player.x;
+				limiteEsquerda = player.x;
+			} else if (player.x >= limiteDireita) {
+				limiteEsquerda = limiteDireita;
+			} else if (player.x <= limiteEsquerda) {
+				limiteDireita = limiteEsquerda;
+			}
+			
+			if(derrapando) {
+				forca -= (direcao * 0.050);
+			} else if ((indoParaDireita && forca < limiteForca) || (indoParaEsquerda && forca > limiteForca)) {
+				forca += (direcao * 0.050);
+			} else {
+				forca = limiteForca;
+			}
+			
+			if(forca == 0) {
+				alterarDirecao();
+				derrapando = false;
+				
+				exibirSpriteNaveChefe();
+				global.propriedadesChefe.trocarSprite(SpriteEnum.Parado);
+			} else if ((indoParaDireita && objNave.x >= limiteDireita) 
+					|| (indoParaEsquerda && objNave.x <= limiteEsquerda)) {
+				derrapando = true;
+			}
+			
+			objNave.x += forca;
+			
+			global.propriedadesChefe.derrapando = derrapando;
+			global.propriedadesChefe.forcaHorizontal = forca;
+			
+			#endregion
+			
+			#region Movimento Vertical
+			
+			limiteFundo = objNave.y + 53;
+			
+			if(place_meeting(objNave.x, limiteFundo, objLimiteVerticalChefe)) {
+				elevacao = ElevacaoEnum.Subir;
+			} else if(elevacao == ElevacaoEnum.Subir) {	
+				elevacao = ElevacaoEnum.Descer;
+			}
+			
+			forcaGravidadeAtual += (elevacao * 0.1);
+			
+			objNave.y += forcaGravidadeAtual;
+			
+			global.propriedadesChefe.elevacao = elevacao;
+			global.propriedadesChefe.forcaVertical = forcaGravidadeAtual;
+			
+			#endregion
+			
 			break;
 		case 3:
+			
+			#region Movimento Horizontal
+			
+			forca = (direcao * 1.8);
+			objNave.x += forca;
+			
+			var limiteColisao = objNave.x + forca * 10;
+			
+			if(place_meeting(limiteColisao, objNave.y, objLimiteMovimentoInimigo)) {
+				alterarDirecao();
+				
+				exibirSpriteNaveChefe();
+				global.propriedadesChefe.trocarSprite(SpriteEnum.Parado);
+			}
+			
+			#endregion
+			
+			#region Movimento Vertical
+			
+			limiteTopo = objFlorinda.y - 65;
+			
+			if(place_meeting(objFlorinda.x, limiteTopo, objLimiteVerticalChefe)) {
+				elevacao = ElevacaoEnum.Descer;
+			} else if (place_meeting(objNave.x, objNave.y, objLimiteVerticalChefe)) {	
+				with (objLimiteVerticalChefe) {
+					limiteFundo = y - sprite_height + 220;
+					
+					if(limiteFundo <= objNave.y) {
+						elevacao = ElevacaoEnum.Subir;
+						forcaGravidadeAtual = elevacao * 2;
+					}
+				}
+			}
+			
+			forcaGravidadeAtual += (elevacao * 0.1);
+			
+			objNave.y += forcaGravidadeAtual;
+			
+			global.propriedadesChefe.elevacao = elevacao;
+			global.propriedadesChefe.forcaVertical = forcaGravidadeAtual;
+			
+			#endregion
+			
 			break;
 	}
+}
+	
+function irProximaFase() {
+	var fase = global.propriedadesChefe.fase;
+	
+	fase++;
+	
+	if(fase == 2) {
+		global.propriedadesChefe.trocarSprite = exibirSpriteFlorindaFase2;
+	} else if (fase == 3) {
+		global.propriedadesChefe.trocarSprite = exibirSpriteFlorindaFase3;
+	}
+	
+	global.propriedadesChefe.fase = fase;
+	global.propriedadesChefe.direcao = DirecaoEnum.Esquerda;
+	global.propriedadesChefe.trocarSprite(SpriteEnum.Parado);
 }

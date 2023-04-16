@@ -1,5 +1,16 @@
 /// @description Exibição dos dados do jogo na HUD
 
+function exibirHUD() {
+	exibirVidas();
+	exibirPontuacao();
+	
+	if(room != rmChefe) {
+		exibirFaseAtual();
+		exibirTempo();
+		exibirMoedas();
+	}
+}
+
 function exibirVidas(){
 	var vertical = 130;
 	var horizontal = 130;
