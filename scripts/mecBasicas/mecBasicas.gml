@@ -3,6 +3,7 @@
 function aplicarGravidadeGeral() {	
 	var vertical = y;
 	var horizontal = x;
+	var limitePulo = -3;
 	var forcaGravidade = forcaGravidadeAtual + 0.15;
 	
 	//Colisão com o chão
@@ -28,4 +29,18 @@ function aplicarGravidadeGeral() {
 	
 	y = vertical;
 	forcaGravidadeAtual = forcaGravidade;
+}
+	
+function moverParaCentroSala() {
+	if(derrubado) {	
+		var centroSala = room_width / 2;
+		
+		if(x < centroSala) {
+			x += 1;
+		} else if (x > centroSala) {
+			x -= 1;
+		} else {
+			derrubado = false;
+		}
+	}
 }

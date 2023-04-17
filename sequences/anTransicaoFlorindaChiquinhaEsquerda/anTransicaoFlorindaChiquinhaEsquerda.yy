@@ -16,7 +16,7 @@
   },
   "eventStubScript": null,
   "eventToFunction": {},
-  "length": 380.0,
+  "length": 361.0,
   "lockOrigin": false,
   "moments": {
     "resourceType": "KeyframeStore<MomentsEventKeyframe>",
@@ -120,10 +120,7 @@
             ],},"modifiers":[],"trackColour":4294068361,"tracks":[],"traits":0,},
       ],"traits":0,},
   ],
-  "visibleRange": {
-    "x": 0.0,
-    "y": 376.0,
-  },
+  "visibleRange": null,
   "volume": 1.0,
   "xorigin": 0,
   "yorigin": 128,

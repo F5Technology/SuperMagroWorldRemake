@@ -12,6 +12,10 @@ function iniciarSala() {
 	if (sistemaTempoAtivo) {
 		checarTempo();
 	}
+	
+	if (room == rmChefe) {
+		introduzirChefe();
+	}
 }
 
 function reiniciarSala(){

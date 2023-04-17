@@ -34,11 +34,6 @@ function serMorto() {
 		incluirPontos(200);
 	
 		exibirSpriteDinoKiko(SpriteEnum.Morrendo);
-		
-		global.propriedadesPlayer.caindo = false;
-		global.propriedadesPlayer.forcaGravidade = -2;
-		
-		aplicarGravidadePlayer(true);
 	}
 }
 	
@@ -48,5 +43,10 @@ function aplicandoDanoPulo() {
 	
 	if(coordernadaHit <= limiteHit) {
 		serMorto();
+		
+		global.propriedadesPlayer.caindo = false;
+		global.propriedadesPlayer.forcaGravidade = -2;
+		
+		aplicarGravidadePlayer(true);
 	}
 }

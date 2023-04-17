@@ -6,6 +6,7 @@ global.propriedadesChefe = {
 	derrapando: false,
 	forcaVertical: 0,
 	forcaHorizontal: 0,
+	cenaRodando: false,
 	direcao: DirecaoEnum.Esquerda,
 	elevacao: ElevacaoEnum.Descer,
 	trocarSprite: exibirSpriteFlorindaFase1
@@ -18,6 +19,7 @@ function reiniciarPropriedadesChefe() {
 		derrapando: false,
 		forcaVertical: 0,
 		forcaHorizontal: 0,
+		cenaRodando: false,
 		direcao: DirecaoEnum.Esquerda,
 		elevacao: ElevacaoEnum.Descer,
 		trocarSprite: exibirSpriteFlorindaFase1
@@ -252,6 +254,65 @@ function irProximaFase() {
 	}
 	
 	global.propriedadesChefe.fase = fase;
+}
+
+function derrotarChefe() {
+	var fase = global.propriedadesChefe.fase;
+	
+	if(fase < 3) {
+		irProximaFase();
+		exibirAnimacaoChefeTomandoDano();
+	} else {
+		exibirAnimacaoChefeMorrendo();
+	}
+	
+	global.propriedadesChefe.cenaRodando = true;
+	global.sistemasJogo.inteligenciaArtificial = false;
+	
+	instance_destroy(objNave);
+	instance_destroy(objFlorinda);	
+}
+
+function receberDanoPulo() {
+	derrotarChefe();
+	
+	global.propriedadesPlayer.caindo = false;
+	global.propriedadesPlayer.forcaGravidade = -2;
+	
+	aplicarGravidadePlayer(true);
+}
+	
+function derrubarEmblema() {
+	var posicaoHorizontal = global.coordenadasAnimacao.x;
+	var posicaoVertical = global.coordenadasAnimacao.y - 64;
+	
+	var emblema = instance_create_layer(posicaoHorizontal, posicaoVertical, "Main", objKanji);
+	
+	emblema.derrubado = true;
+	emblema.forcaGravidadeAtual = -5.2;
+}
+
+function introduzirChefe() {
+	exibirAnimacaoIntroChefe();
+	global.propriedadesChefe.cenaRodando = true;
+	
+	objCronometrosAnimacoes.alarm[1] = 844;
+}
+	
+function iniciarLuta() {
+	var posicaoVertical = global.coordenadasAnimacao.y;
+	var posicaoHorizontal = global.coordenadasAnimacao.x;
+	
+	limparCamadaAnimacoesChefe();
+	
+	global.propriedadesChefe.cenaRodando = false;
+	global.sistemasJogo.inteligenciaArtificial = true;
 	global.propriedadesChefe.direcao = DirecaoEnum.Esquerda;
+	
+	instance_create_layer(posicaoHorizontal, posicaoVertical, "Main", objFlorinda);
+	instance_create_layer(posicaoHorizontal, posicaoVertical, "Main", objNave);
+	
 	global.propriedadesChefe.trocarSprite(SpriteEnum.Parado);
+	
+	seguirNave();
 }

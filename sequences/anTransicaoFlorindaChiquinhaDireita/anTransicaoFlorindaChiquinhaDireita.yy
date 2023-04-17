@@ -16,7 +16,7 @@
   },
   "eventStubScript": null,
   "eventToFunction": {},
-  "length": 380.0,
+  "length": 361.0,
   "lockOrigin": false,
   "moments": {
     "resourceType": "KeyframeStore<MomentsEventKeyframe>",
@@ -122,7 +122,7 @@
   ],
   "visibleRange": {
     "x": 0.0,
-    "y": 376.0,
+    "y": 360.0,
   },
   "volume": 1.0,
   "xorigin": 0,

@@ -32,6 +32,7 @@ function transformarNormal() {
 function concluirTransformacao() {
 	var samurai = global.propriedadesPlayer.samurai;
 	var modo = samurai ? objSamurai : objSeuMadruga;
+	var cenaRodando = global.propriedadesChefe.cenaRodando;
 	
 	instance_destroy();	
 	instance_create_layer(x, y, "Main", modo);
@@ -39,7 +40,10 @@ function concluirTransformacao() {
 	modo.alarm[0] = 5;
 	modo.alarm[1] = 60 * 3; //  3 segundos
 	
-	global.sistemasJogo.inteligenciaArtificial = true;
+	if(!cenaRodando) {	
+		global.sistemasJogo.inteligenciaArtificial = true;
+	}
+	
 	global.propriedadesPlayer.invencivel = true;
 	global.propriedadesPlayer.transformando = false;
 }
