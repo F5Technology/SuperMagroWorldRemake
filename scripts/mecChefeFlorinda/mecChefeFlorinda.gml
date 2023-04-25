@@ -3,12 +3,14 @@
 global.propriedadesChefe = {
 	hp: 15,
 	fase: 1,
-	derrapando: false,
 	forcaVertical: 0,
 	forcaHorizontal: 0,
+	derrapando: false,
 	cenaRodando: false,
+	inimigosSumonados: false,
 	direcao: DirecaoEnum.Esquerda,
 	elevacao: ElevacaoEnum.Descer,
+	situacao: SituacaoChefeEnum.Ativo,
 	trocarSprite: exibirSpriteFlorindaFase1
 }
 
@@ -16,22 +18,34 @@ function reiniciarPropriedadesChefe() {
 	global.propriedadesChefe = {
 		hp: 15,
 		fase: 1,
-		derrapando: false,
 		forcaVertical: 0,
 		forcaHorizontal: 0,
+		derrapando: false,
 		cenaRodando: false,
+		inimigosSumonados: false,
 		direcao: DirecaoEnum.Esquerda,
 		elevacao: ElevacaoEnum.Descer,
+		situacao: SituacaoChefeEnum.Ativo,
 		trocarSprite: exibirSpriteFlorindaFase1
 	}
 }
 	
 function executarInteligenciaArtificial() {
+	var situacao = global.propriedadesChefe.situacao;
 	var inteligenciaArtificialLigada = global.sistemasJogo.inteligenciaArtificial;
 	
 	if(inteligenciaArtificialLigada) {
-		movimentoNave();
-		seguirNave();
+		switch(situacao) {
+			case SituacaoChefeEnum.Ativo:
+				movimentoNave();
+				seguirNave();
+				break;
+			case SituacaoChefeEnum.SumonandoInimigos:
+				if(finalizouAnimacao()) {
+					concluirSumonInimigos();
+				}
+				break;
+		}
 	}
 }
 
@@ -300,6 +314,7 @@ function introduzirChefe() {
 }
 	
 function iniciarLuta() {
+	var fase = global.propriedadesChefe.fase;
 	var posicaoVertical = global.coordenadasAnimacao.y;
 	var posicaoHorizontal = global.coordenadasAnimacao.x;
 	
@@ -309,10 +324,45 @@ function iniciarLuta() {
 	global.sistemasJogo.inteligenciaArtificial = true;
 	global.propriedadesChefe.direcao = DirecaoEnum.Esquerda;
 	
-	instance_create_layer(posicaoHorizontal, posicaoVertical, "Main", objFlorinda);
+	var instanciaChefe = instance_create_layer(posicaoHorizontal, posicaoVertical, "Main", objFlorinda);
 	instance_create_layer(posicaoHorizontal, posicaoVertical, "Main", objNave);
 	
 	global.propriedadesChefe.trocarSprite(SpriteEnum.Parado);
 	
+	if(fase == 2) {
+		instanciaChefe.alarm[0] = 60 * 8;
+	} else if (fase == 3) {
+		//TODO: Inserir alarm de CoolDown
+	}
+	
 	seguirNave();
+}
+	
+function sumonarInimigos() {
+	global.propriedadesChefe.situacao = SituacaoChefeEnum.SumonandoInimigos;	
+	
+	global.propriedadesChefe.trocarSprite(SpriteEnum.Escondendo);
+}
+	
+function concluirSumonInimigos() {
+	var inimigosSumonados = global.propriedadesChefe.inimigosSumonados;
+	
+	if (inimigosSumonados) {
+		global.propriedadesChefe.trocarSprite(SpriteEnum.Parado);
+		global.propriedadesChefe.situacao = SituacaoChefeEnum.Ativo;
+	} else {
+		var limiteLancamento = 15;
+		var posicaoVertical = y + 15;
+		
+		var inimigoDireita = instance_create_layer(x, posicaoVertical, "Secondary", objDinoKiko);
+		var inimigoEsquerda = instance_create_layer(x, posicaoVertical, "Secondary", objDinoKiko);
+		
+		inimigoDireita.forcaGravidadeAtual = -3.5;
+		inimigoEsquerda.forcaGravidadeAtual = -3.5;
+		inimigoEsquerda.direcao = DirecaoEnum.Esquerda;
+		inimigoEsquerda.sprite_index = sprDinoKikoAndandoEsquerda;
+		
+		global.propriedadesChefe.inimigosSumonados = true;
+		global.propriedadesChefe.trocarSprite(SpriteEnum.Aparecendo);
+	}
 }

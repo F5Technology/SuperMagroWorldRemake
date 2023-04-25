@@ -37,3 +37,10 @@ enum ValorEnum {
 	Ponto400 = 400,
 	Ponto1000 = 1000
 }
+
+enum SituacaoChefeEnum {
+	Ativo = 1,
+	Aterrissando = 2,
+	SumonandoInimigos = 3,
+	CoolDown = 4
+}
