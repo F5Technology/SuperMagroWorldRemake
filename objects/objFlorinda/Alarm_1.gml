@@ -1,0 +1,1 @@
+global.propriedadesChefe.aguardandoAterrissagem = true;

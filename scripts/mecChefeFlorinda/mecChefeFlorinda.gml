@@ -8,10 +8,23 @@ global.propriedadesChefe = {
 	derrapando: false,
 	cenaRodando: false,
 	inimigosSumonados: false,
+	aguardandoAterrissagem: false,
 	direcao: DirecaoEnum.Esquerda,
 	elevacao: ElevacaoEnum.Descer,
 	situacao: SituacaoChefeEnum.Ativo,
 	trocarSprite: exibirSpriteFlorindaFase1
+}
+
+function reiniciarPropriedadesBasicasChefe() {
+	global.propriedadesChefe.forcaVertical = 0;
+	global.propriedadesChefe.forcaHorizontal = 0;
+	global.propriedadesChefe.derrapando = false;
+	global.propriedadesChefe.cenaRodando = false;
+	global.propriedadesChefe.direcao = DirecaoEnum.Esquerda;
+	global.propriedadesChefe.elevacao = ElevacaoEnum.Descer;
+	global.propriedadesChefe.situacao = SituacaoChefeEnum.Ativo;
+	
+	global.sistemasJogo.inteligenciaArtificial = true;
 }
 
 function reiniciarPropriedadesChefe() {
@@ -23,6 +36,7 @@ function reiniciarPropriedadesChefe() {
 		derrapando: false,
 		cenaRodando: false,
 		inimigosSumonados: false,
+		aguardandoAterrissagem: false,
 		direcao: DirecaoEnum.Esquerda,
 		elevacao: ElevacaoEnum.Descer,
 		situacao: SituacaoChefeEnum.Ativo,
@@ -39,11 +53,25 @@ function executarInteligenciaArtificial() {
 			case SituacaoChefeEnum.Ativo:
 				movimentoNave();
 				seguirNave();
+				checarAterrissagem();
 				break;
 			case SituacaoChefeEnum.SumonandoInimigos:
 				if(finalizouAnimacao()) {
 					concluirSumonInimigos();
 				}
+				break;
+			case SituacaoChefeEnum.Aterrissando:
+				aterrissar();
+				break;
+			case SituacaoChefeEnum.ConcluirAterrisagem:
+				if(finalizouAnimacao()) {
+					global.propriedadesChefe.situacao = SituacaoChefeEnum.Atacando; 
+					
+					global.propriedadesChefe.trocarSprite(SpriteEnum.LancarProjetil);
+				}
+				break;
+			case SituacaoChefeEnum.Atacando:
+				lancandoMassaMacarrao();
 				break;
 		}
 	}
@@ -239,6 +267,9 @@ function movimentoNave() {
 					if(limiteFundo <= objNave.y) {
 						elevacao = ElevacaoEnum.Subir;
 						forcaGravidadeAtual = elevacao * 2;
+						
+						global.propriedadesCamera.tremer = true;
+						objCronometrosAnimacoes.alarm[3] = 5;
 					}
 				}
 			}
@@ -288,12 +319,16 @@ function derrotarChefe() {
 }
 
 function receberDanoPulo() {
-	derrotarChefe();
+	var situacao = global.propriedadesChefe.situacao;
 	
-	global.propriedadesPlayer.caindo = false;
-	global.propriedadesPlayer.forcaGravidade = -2;
+	if (situacao != SituacaoChefeEnum.Aterrissando) {
+		derrotarChefe();
 	
-	aplicarGravidadePlayer(true);
+		global.propriedadesPlayer.caindo = false;
+		global.propriedadesPlayer.forcaGravidade = -2;
+		
+		aplicarGravidadePlayer(true);
+	}
 }
 	
 function derrubarEmblema() {
@@ -319,17 +354,16 @@ function iniciarLuta() {
 	var posicaoHorizontal = global.coordenadasAnimacao.x;
 	
 	limparCamadaAnimacoesChefe();
-	
-	global.propriedadesChefe.cenaRodando = false;
-	global.sistemasJogo.inteligenciaArtificial = true;
-	global.propriedadesChefe.direcao = DirecaoEnum.Esquerda;
+	reiniciarPropriedadesBasicasChefe();
 	
 	var instanciaChefe = instance_create_layer(posicaoHorizontal, posicaoVertical, "Main", objFlorinda);
 	instance_create_layer(posicaoHorizontal, posicaoVertical, "Main", objNave);
 	
 	global.propriedadesChefe.trocarSprite(SpriteEnum.Parado);
 	
-	if(fase == 2) {
+	if (fase == 1) {
+		instanciaChefe.alarm[1] = 60 * 8;
+	} else if(fase == 2) {
 		instanciaChefe.alarm[0] = 60 * 8;
 	} else if (fase == 3) {
 		//TODO: Inserir alarm de CoolDown
@@ -350,6 +384,9 @@ function concluirSumonInimigos() {
 	if (inimigosSumonados) {
 		global.propriedadesChefe.trocarSprite(SpriteEnum.Parado);
 		global.propriedadesChefe.situacao = SituacaoChefeEnum.Ativo;
+		
+		
+		alarm[1] = 60 * 8;
 	} else {
 		var limiteLancamento = 15;
 		var posicaoVertical = y + 15;
@@ -365,4 +402,88 @@ function concluirSumonInimigos() {
 		global.propriedadesChefe.inimigosSumonados = true;
 		global.propriedadesChefe.trocarSprite(SpriteEnum.Aparecendo);
 	}
+}
+	
+function checarAterrissagem() {
+	var aguardandoAterrissagem = global.propriedadesChefe.aguardandoAterrissagem;
+	
+	if (aguardandoAterrissagem) {
+		var aterrisar = false;
+		var fase = global.propriedadesChefe.fase;	
+		var samurai = global.propriedadesPlayer.samurai;
+		var player = samurai ? objSamurai : objSeuMadruga;	
+		
+		var limitePlayerDireita = player.x + 10;
+		var limitePlayerEsquerda = player.x - 10;
+		
+		var limiteSalaDireita = obterValorDePorcentagem(85, room_width);
+		var limiteSalaEsquerda = obterValorDePorcentagem(15, room_width);
+		
+		if (x > limitePlayerEsquerda && x < limitePlayerDireita) {
+			aterrisar = true;
+		} else if (player.x >= limiteSalaDireita || player.x <= limiteSalaEsquerda) {					
+			switch (fase) {
+				case 1:
+				
+					show_debug_message(y);
+					
+					aterrisar = (y < 53 &&
+								((player.x <= limiteSalaEsquerda && x < limiteSalaEsquerda + 10) || 
+								(player.x >= limiteSalaDireita && x > limiteSalaDireita - 10)));
+					break;
+				case 2:					
+					aterrisar = ((player.x <= limiteSalaEsquerda && x > limiteSalaEsquerda) || 
+								(player.x >= limiteSalaDireita && x < limiteSalaDireita));		
+					break;
+			}
+		}
+		
+		if (aterrisar) {
+			global.propriedadesChefe.situacao = SituacaoChefeEnum.Aterrissando; 
+		
+			exibirSpriteNaveChefe();
+			global.propriedadesChefe.trocarSprite(SpriteEnum.Escondendo);
+		}
+	}
+}
+	
+function aterrissar() {
+	var aguardandoAterrissagem = global.propriedadesChefe.aguardandoAterrissagem;
+	
+	if (aguardandoAterrissagem) {
+		if (finalizouAnimacao()) {
+			visible = false;
+			global.propriedadesChefe.aguardandoAterrissagem = false;
+		}
+		
+	} else {
+		objNave.y += 10;
+		seguirNave();
+		
+		if (place_meeting(objNave.x, objNave.y - 20, objParede)) {			
+			visible = true;		
+			exibirSpriteNaveChefe();	
+			
+			global.propriedadesCamera.tremer = true;
+			global.propriedadesChefe.trocarSprite(SpriteEnum.Aparecendo);
+			global.propriedadesChefe.situacao = SituacaoChefeEnum.ConcluirAterrisagem; 
+			
+			objCronometrosAnimacoes.alarm[3] = 10;
+		}
+	}
+}
+
+function lancandoMassaMacarrao() {
+	var samurai = global.propriedadesPlayer.samurai;
+	var player = samurai ? objSamurai : objSeuMadruga;
+	
+	if(x < player.x) {
+		global.propriedadesChefe.direcao = DirecaoEnum.Direita;		
+	} else {
+		global.propriedadesChefe.direcao = DirecaoEnum.Esquerda;
+	}
+				
+	exibirSpriteNaveChefe();
+	global.propriedadesChefe.trocarSprite(SpriteEnum.LancarProjetil);
+	//TODO: Lancar projetil massa macarrão
 }

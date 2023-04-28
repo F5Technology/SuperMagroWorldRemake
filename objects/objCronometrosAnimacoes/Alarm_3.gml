@@ -1,0 +1,1 @@
+global.propriedadesCamera.tremer = false;

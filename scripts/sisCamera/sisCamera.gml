@@ -1,5 +1,19 @@
 /// @description Mecanicas da camera
 
+global.propriedadesCamera = {
+	tremer: false,
+	x: camera_get_view_x(view_camera[0]),
+	y: camera_get_view_y(view_camera[0])
+}
+
+function ajustarCamera() {
+	if (room == rmChefe) {
+		centrarSalaChefe();
+	} else {
+		acompanharPlayer();
+	}
+}
+
 function acompanharPlayer(){
 	var morto = global.propriedadesPlayer.morto;
 	var transformando = global.propriedadesPlayer.transformando;
@@ -12,5 +26,20 @@ function acompanharPlayer(){
 	
 		y = lerp(y, player.y, 0.10);
 		x = lerp(x, posicaoHorizontal, 0.10);
+	}
+}
+
+function centrarSalaChefe() {
+	var posicaoX = global.propriedadesCamera.x;
+	var posicaoY = global.propriedadesCamera.y;
+	var tremerCamera = global.propriedadesCamera.tremer;
+	
+	if (tremerCamera) {
+		var limiteVertical = random_range(-3, 3);
+		var limiteHorizontal = random_range(-3, 3);
+		
+		camera_set_view_pos(view_camera[0], posicaoX+limiteHorizontal, posicaoY+limiteVertical);		
+	} else {
+		camera_set_view_pos(view_camera[0], posicaoX, posicaoY);
 	}
 }

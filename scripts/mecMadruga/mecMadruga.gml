@@ -210,6 +210,7 @@ function morrer() {
 	global.sistemasJogo.inteligenciaArtificial = false;
 	global.propriedadesJogo.vidas--;
 	global.propriedadesPlayer.morto = true;
+	global.propriedadesCamera.tremer = false;
 	
 	layer_sequence_create("Animations", horizontal, vertical, anMadrugaMorrendo);
 	instance_create_layer(horizontal, vertical, "Main", objSeuMadrugaMorrendo);

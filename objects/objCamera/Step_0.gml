@@ -1,1 +1,1 @@
-acompanharPlayer();
+ajustarCamera();

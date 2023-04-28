@@ -34,10 +34,11 @@ function aplicarGravidadeGeral() {
 function moverParaCentroSala() {
 	if(derrubado) {	
 		var centroSala = room_width / 2;
+		var valorHorizontalArredondado = round(x);
 		
-		if(x < centroSala) {
+		if(valorHorizontalArredondado < centroSala) {
 			x += 1;
-		} else if (x > centroSala) {
+		} else if (valorHorizontalArredondado > centroSala) {
 			x -= 1;
 		} else {
 			derrubado = false;

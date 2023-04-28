@@ -32,7 +32,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"61d81dca-365d-427d-b51c-af0b5dc7f9e1","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 7,
+  "origin": 9,
   "parent": {
     "name": "Fase 2",
     "path": "folders/Sprites/NPC/Chefe Florinda/Fase 2.yy",
@@ -78,7 +78,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 50,
-    "yorigin": 86,
+    "yorigin": 56,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

@@ -41,6 +41,8 @@ enum ValorEnum {
 enum SituacaoChefeEnum {
 	Ativo = 1,
 	Aterrissando = 2,
-	SumonandoInimigos = 3,
-	CoolDown = 4
+	ConcluirAterrisagem = 3,
+	SumonandoInimigos = 4,
+	CoolDown = 5,
+	Atacando = 6
 }

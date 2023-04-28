@@ -14,6 +14,7 @@ function iniciarSala() {
 	}
 	
 	if (room == rmChefe) {
+		global.propriedadesJogo.chefe = true;
 		introduzirChefe();
 	}
 }
