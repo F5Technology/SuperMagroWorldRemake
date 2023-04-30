@@ -1,1 +1,1 @@
-room_goto(rmTeste); //TODO: enviar para tela inicial quando estiver pronto
+room_goto(rmIntro);

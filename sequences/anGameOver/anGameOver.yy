@@ -36,7 +36,7 @@
   "timeUnits": 1,
   "tracks": [
     {"resourceType":"GMGraphicTrack","resourceVersion":"1.0","name":"sprGameOver","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<AssetSpriteKeyframe>","resourceVersion":"1.0","Keyframes":[
-          {"resourceType":"Keyframe<AssetSpriteKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"AssetSpriteKeyframe","resourceVersion":"1.0","Id":{"name":"sprGameOver","path":"sprites/sprGameOver/sprGameOver.yy",},},},"Disabled":false,"id":"dad7dec3-ec02-42ad-a325-493e1064f754","IsCreationKey":false,"Key":49.0,"Length":351.0,"Stretch":false,},
+          {"resourceType":"Keyframe<AssetSpriteKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"AssetSpriteKeyframe","resourceVersion":"1.0","Id":{"name":"sprGameOver","path":"sprites/sprGameOver/sprGameOver.yy",},},},"Disabled":false,"id":"dad7dec3-ec02-42ad-a325-493e1064f754","IsCreationKey":false,"Key":49.0,"Length":324.0,"Stretch":false,},
         ],},"modifiers":[],"trackColour":4282970752,"tracks":[
         {"resourceType":"GMColourTrack","resourceVersion":"1.0","name":"blend_multiply","builtinName":10,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<ColourKeyframe>","resourceVersion":"1.0","Keyframes":[
               {"resourceType":"Keyframe<ColourKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"ColourKeyframe","resourceVersion":"1.0","AnimCurveId":null,"Colour":16777215,"EmbeddedAnimCurve":null,},},"Disabled":false,"id":"516aed55-16c8-4802-8340-bd4360aebd40","IsCreationKey":false,"Key":49.0,"Length":1.0,"Stretch":false,},

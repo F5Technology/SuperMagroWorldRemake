@@ -1,1 +1,1 @@
-checarTelaGameOver();
+checarAnimacao();
