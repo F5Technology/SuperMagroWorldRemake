@@ -19,6 +19,12 @@ function iniciarSala() {
 	}
 }
 
-function reiniciarSala(){
+function reiniciarSala() {
 	room_restart();
+}
+	
+function transicaoSala() {
+	//TODO: Sistema de encaminhamento de fases na tela de Transição
+	
+	room_goto(rmTeste);
 }
