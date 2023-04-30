@@ -24,8 +24,8 @@
     "Keyframes": [],
   },
   "parent": {
-    "name": "Animations",
-    "path": "folders/Animations.yy",
+    "name": "Elementos",
+    "path": "folders/Animations/Elementos.yy",
   },
   "playback": 0,
   "playbackSpeed": 60.0,

@@ -24,8 +24,8 @@
     "Keyframes": [],
   },
   "parent": {
-    "name": "Animations",
-    "path": "folders/Animations.yy",
+    "name": "Player",
+    "path": "folders/Animations/Player.yy",
   },
   "playback": 0,
   "playbackSpeed": 60.0,

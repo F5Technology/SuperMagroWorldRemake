@@ -125,3 +125,9 @@ function exibirAnimacaoTransicaoChefeChiquinha() {
 	objControle.alarm[1] = 220;
 	objCronometrosAnimacoes.alarm[2] = 360;
 }
+	
+function checarTelaGameOver() {
+	if(room == rmGameOver) {
+		alarm[11] = 400;
+	}
+}
