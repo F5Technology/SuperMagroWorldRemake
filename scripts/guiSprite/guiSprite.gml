@@ -238,8 +238,12 @@ function exibirSpriteFlorindaFase3(sprite) {
 				objFlorinda.sprite_index = sprFlorindaF3Esquerda;
 			}
 			break;
-		case SpriteEnum.LancarProjetil:
-			objFlorinda.sprite_index = sprFlorindaF3CoolDown;
+		case SpriteEnum.CoolDown:
+			if(direcao == DirecaoEnum.Direita) {				
+				objFlorinda.sprite_index = sprFlorindaF3CoolDownDireita;
+			} else {
+				objFlorinda.sprite_index = sprFlorindaF3CoolDownEsquerda;
+			}
 			break;
 	}
 }

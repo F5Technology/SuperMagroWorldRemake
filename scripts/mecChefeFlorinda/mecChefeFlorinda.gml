@@ -7,6 +7,7 @@ global.propriedadesChefe = {
 	forcaHorizontal: 0,
 	derrapando: false,
 	cenaRodando: false,
+	contadorCoolDown: 25,
 	inimigosSumonados: false,
 	aguardandoAterrissagem: false,
 	direcao: DirecaoEnum.Esquerda,
@@ -35,6 +36,7 @@ function reiniciarPropriedadesChefe() {
 		forcaHorizontal: 0,
 		derrapando: false,
 		cenaRodando: false,
+		contadorCoolDown: 25,
 		inimigosSumonados: false,
 		aguardandoAterrissagem: false,
 		direcao: DirecaoEnum.Esquerda,
@@ -72,6 +74,9 @@ function executarInteligenciaArtificial() {
 				break;
 			case SituacaoChefeEnum.Atacando:
 				lancandoMassaMacarrao();
+				break;
+			case SituacaoChefeEnum.CoolDown:
+				global.propriedadesChefe.trocarSprite(SpriteEnum.CoolDown);
 				break;
 		}
 	}
@@ -265,11 +270,21 @@ function movimentoNave() {
 					limiteFundo = y - sprite_height + 220;
 					
 					if(limiteFundo <= objNave.y) {
-						elevacao = ElevacaoEnum.Subir;
-						forcaGravidadeAtual = elevacao * 2;
+						var contadorCoolDown = global.propriedadesChefe.contadorCoolDown;
+						
+						contadorCoolDown--;
+						
+						if(contadorCoolDown > 0) {
+							elevacao = ElevacaoEnum.Subir;
+							forcaGravidadeAtual = elevacao * 2;
+						} else {
+							global.propriedadesChefe.situacao = SituacaoChefeEnum.CoolDown;
+						}
 						
 						global.propriedadesCamera.tremer = true;
 						objCronometrosAnimacoes.alarm[3] = 5;
+						
+						global.propriedadesChefe.contadorCoolDown = contadorCoolDown;
 					}
 				}
 			}
@@ -319,15 +334,21 @@ function derrotarChefe() {
 }
 
 function receberDanoPulo() {
+	var fase = global.propriedadesChefe.fase;
 	var situacao = global.propriedadesChefe.situacao;
 	
-	if (situacao != SituacaoChefeEnum.Aterrissando) {
-		derrotarChefe();
-	
-		global.propriedadesPlayer.caindo = false;
-		global.propriedadesPlayer.forcaGravidade = -2;
+	if ((fase < 3 && situacao != SituacaoChefeEnum.Aterrissando) || situacao == SituacaoChefeEnum.CoolDown) {
+		var limiteHit = y - 15;
+		var coordernadaHit = objHitBoxBottom.y - 6;
 		
-		aplicarGravidadePlayer(true);
+		if(coordernadaHit <= limiteHit) {
+			derrotarChefe();
+	
+			global.propriedadesPlayer.caindo = false;
+			global.propriedadesPlayer.forcaGravidade = -2;
+			
+			aplicarGravidadePlayer(true);
+		}
 	}
 }
 	

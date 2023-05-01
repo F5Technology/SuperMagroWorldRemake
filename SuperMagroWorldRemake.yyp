@@ -67,7 +67,7 @@
     {"id":{"name":"sprSamuraiPulandoDireita","path":"sprites/sprSamuraiPulandoDireita/sprSamuraiPulandoDireita.yy",},},
     {"id":{"name":"sprFlorindaF2AparecendoDireita","path":"sprites/sprFlorindaF2AparecendoDireita/sprFlorindaF2AparecendoDireita.yy",},},
     {"id":{"name":"sprFlorindaF1AparecendoDireita","path":"sprites/sprFlorindaF1AparecendoDireita/sprFlorindaF1AparecendoDireita.yy",},},
-    {"id":{"name":"sprFlorindaF3CoolDown","path":"sprites/sprFlorindaF3CoolDown/sprFlorindaF3CoolDown.yy",},},
+    {"id":{"name":"sprFlorindaF3CoolDownEsquerda","path":"sprites/sprFlorindaF3CoolDownEsquerda/sprFlorindaF3CoolDownEsquerda.yy",},},
     {"id":{"name":"sprFlorindaF1EscondendoEsquerda","path":"sprites/sprFlorindaF1EscondendoEsquerda/sprFlorindaF1EscondendoEsquerda.yy",},},
     {"id":{"name":"sprMadrugaAbaixadoDireita","path":"sprites/sprMadrugaAbaixadoDireita/sprMadrugaAbaixadoDireita.yy",},},
     {"id":{"name":"mecChefeFlorinda","path":"scripts/mecChefeFlorinda/mecChefeFlorinda.yy",},},
@@ -210,6 +210,7 @@
     {"id":{"name":"sprSamuraiCorrendoDireita","path":"sprites/sprSamuraiCorrendoDireita/sprSamuraiCorrendoDireita.yy",},},
     {"id":{"name":"sprHit","path":"sprites/sprHit/sprHit.yy",},},
     {"id":{"name":"anTransicaoFlorindaChiquinhaDireita","path":"sequences/anTransicaoFlorindaChiquinhaDireita/anTransicaoFlorindaChiquinhaDireita.yy",},},
+    {"id":{"name":"sprFlorindaF3CoolDownDireita","path":"sprites/sprFlorindaF3CoolDownDireita/sprFlorindaF3CoolDownDireita.yy",},},
     {"id":{"name":"anFlorindaSurgindoF3","path":"sequences/anFlorindaSurgindoF3/anFlorindaSurgindoF3.yy",},},
     {"id":{"name":"sprFlorindaF2LancandoMassaDireita","path":"sprites/sprFlorindaF2LancandoMassaDireita/sprFlorindaF2LancandoMassaDireita.yy",},},
     {"id":{"name":"objAbismo","path":"objects/objAbismo/objAbismo.yy",},},
@@ -233,10 +234,10 @@
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"rmChefe","path":"rooms/rmChefe/rmChefe.yy",},},
+    {"roomId":{"name":"rmTeste","path":"rooms/rmTeste/rmTeste.yy",},},
     {"roomId":{"name":"rmGameOver","path":"rooms/rmGameOver/rmGameOver.yy",},},
     {"roomId":{"name":"rmIntro","path":"rooms/rmIntro/rmIntro.yy",},},
     {"roomId":{"name":"rmTransicao","path":"rooms/rmTransicao/rmTransicao.yy",},},
-    {"roomId":{"name":"rmTeste","path":"rooms/rmTeste/rmTeste.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

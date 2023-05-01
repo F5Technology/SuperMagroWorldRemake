@@ -130,6 +130,10 @@ function aplicarGravidadePlayer(pular) {
 			} else if (!lancandoShuriken) {
 				global.propriedadesPlayer.trocarSprite(SpriteEnum.Pulando);
 			}
+			
+			if(!instance_exists(instanciaHitBox)) {
+				global.propriedadesPlayer.instanciaHitBox = instance_create_layer(x, y, "Secondary", objHitBoxBottom);
+			}
 		} else {
 			// Retorno impede com que o botão de pulo acelere a velocidade da queda
 			return;
@@ -156,10 +160,8 @@ function aplicarGravidadePlayer(pular) {
 		if(!lancandoShuriken) {
 			global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
 		}
-	} else {
-		if(instance_exists(instanciaHitBox)) {
-			instance_destroy(instanciaHitBox);
-		}
+	} else if (forcaGravidade < 0.30 && forcaGravidade > -0.40 && instance_exists(instanciaHitBox)) {		
+		instance_destroy(instanciaHitBox);
 	}
 }
 
