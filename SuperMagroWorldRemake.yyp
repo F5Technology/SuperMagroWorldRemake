@@ -235,8 +235,8 @@
     {"id":{"name":"rmTeste","path":"rooms/rmTeste/rmTeste.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rmChefe","path":"rooms/rmChefe/rmChefe.yy",},},
     {"roomId":{"name":"rmTeste","path":"rooms/rmTeste/rmTeste.yy",},},
+    {"roomId":{"name":"rmChefe","path":"rooms/rmChefe/rmChefe.yy",},},
     {"roomId":{"name":"rmGameOver","path":"rooms/rmGameOver/rmGameOver.yy",},},
     {"roomId":{"name":"rmIntro","path":"rooms/rmIntro/rmIntro.yy",},},
     {"roomId":{"name":"rmTransicao","path":"rooms/rmTransicao/rmTransicao.yy",},},

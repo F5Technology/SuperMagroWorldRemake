@@ -11,6 +11,7 @@ global.propriedadesPlayer = {
 	invencivel: false,
 	derrapando: false,
 	forcaGravidade: 0,
+	forcaMovimento: 0,
 	transformando: false,
 	lancandoShuriken: false,
 	instanciaHitBox: undefined,
@@ -30,6 +31,7 @@ function reiniciarPropriedadesPlayer() {
 		invencivel: false,
 		derrapando: false,
 		forcaGravidade: 0,
+		forcaMovimento: 0,
 		transformando: false,
 		lancandoShuriken: false,		
 		instanciaHitBox: undefined,
@@ -39,7 +41,19 @@ function reiniciarPropriedadesPlayer() {
 }
 
 function checarMovimento(direcao) {
+	var botaoDireitoPress = keyboard_check(vk_right);
+	var botaoEsquerdoPress = keyboard_check(vk_left);
 	var parando = global.propriedadesPlayer.parando;
+	var forcaMovimento = global.propriedadesPlayer.forcaMovimento;
+	
+	if(!parando && 
+		((botaoDireitoPress && botaoEsquerdoPress) || 
+		(direcao == DirecaoEnum.Direita && forcaMovimento < 0) || 
+		(direcao == DirecaoEnum.Esquerda && forcaMovimento > 0))) 
+	{
+		parando = true;
+		global.propriedadesPlayer.parando = true;
+	}
 	
 	if(parando) {
 		var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
@@ -55,16 +69,11 @@ function checarMovimento(direcao) {
 	}
 }
 
-function movimentar(direcao) {		
-	var botaoDireitoPress = keyboard_check(vk_right);
-	var botaoEsquerdoPress = keyboard_check(vk_left);
+function movimentar(direcao) {	
+	var parando = global.propriedadesPlayer.parando;
 	
-	if(botaoDireitoPress && botaoEsquerdoPress && !global.propriedadesPlayer.parando) {
-		global.propriedadesPlayer.parando = true;
-		return;
-	}
 	
-	ajustarVelocidade();
+	ajustarVelocidade();	
 	
 	var velocidade = global.propriedadesPlayer.velocidade;	
 	var forca = (direcao * velocidade);
@@ -74,6 +83,7 @@ function movimentar(direcao) {
 	}
 	
 	global.propriedadesPlayer.direcao = direcao;
+	global.propriedadesPlayer.forcaMovimento = forca;
 	
 	exibirSpriteMovimento();
 }
@@ -90,7 +100,7 @@ function ajustarVelocidade() {
 			velocidade -= reducao;
 		} else {
 			velocidade = 0;		
-			parando = false;
+			global.propriedadesPlayer.parando = false;
 		}
 	} else {		
 		var limiteVelocidade = correndo ? 2.80 : 1.5;
@@ -101,8 +111,7 @@ function ajustarVelocidade() {
 			velocidade -= 0.05;
 		}
 	}
-	
-	global.propriedadesPlayer.parando = parando;
+	 
 	global.propriedadesPlayer.velocidade = velocidade;
 }
 	
