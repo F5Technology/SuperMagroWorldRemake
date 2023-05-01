@@ -323,6 +323,7 @@ function derrotarChefe() {
 		irProximaFase();
 		exibirAnimacaoChefeTomandoDano();
 	} else {
+		audio_stop_all();
 		exibirAnimacaoChefeMorrendo();
 	}
 	
@@ -373,6 +374,7 @@ function iniciarLuta() {
 	var fase = global.propriedadesChefe.fase;
 	var posicaoVertical = global.coordenadasAnimacao.y;
 	var posicaoHorizontal = global.coordenadasAnimacao.x;
+	var musica = fase < 3 ? sngChefeTemaPt1 : sngChefeTemaPt2;
 	
 	limparCamadaAnimacoesChefe();
 	reiniciarPropriedadesBasicasChefe();
@@ -386,11 +388,11 @@ function iniciarLuta() {
 		instanciaChefe.alarm[1] = 60 * 8;
 	} else if(fase == 2) {
 		instanciaChefe.alarm[0] = 60 * 8;
-	} else if (fase == 3) {
-		//TODO: Inserir alarm de CoolDown
 	}
 	
 	seguirNave();
+	
+	audio_play_sound(musica, 2, true);
 }
 	
 function sumonarInimigos() {
@@ -507,4 +509,9 @@ function lancandoMassaMacarrao() {
 	exibirSpriteNaveChefe();
 	global.propriedadesChefe.trocarSprite(SpriteEnum.LancarProjetil);
 	//TODO: Lancar projetil massa macarrão
+}
+	
+function transicao() {
+	audio_stop_all();
+	exibirAnimacaoTransicaoChefeChiquinha();
 }

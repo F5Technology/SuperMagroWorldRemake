@@ -38,6 +38,7 @@
     {"name":"Tile Sets","order":3,"path":"folders/Tile Sets.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"sngChefeTemaPt1","order":2,"path":"sounds/sngChefeTemaPt1/sngChefeTemaPt1.yy",},
     {"name":"mecMadruga","order":1,"path":"scripts/mecMadruga/mecMadruga.yy",},
     {"name":"sprSamuraiPulandoDireita","order":12,"path":"sprites/sprSamuraiPulandoDireita/sprSamuraiPulandoDireita.yy",},
     {"name":"sprFlorindaF2AparecendoDireita","order":4,"path":"sprites/sprFlorindaF2AparecendoDireita/sprFlorindaF2AparecendoDireita.yy",},
@@ -80,6 +81,7 @@
     {"name":"objTijolos","order":7,"path":"objects/objTijolos/objTijolos.yy",},
     {"name":"sprFlorindaF1LancandoMassaEsquerda","order":7,"path":"sprites/sprFlorindaF1LancandoMassaEsquerda/sprFlorindaF1LancandoMassaEsquerda.yy",},
     {"name":"sprMadrugaMascaraColisao","order":15,"path":"sprites/sprMadrugaMascaraColisao/sprMadrugaMascaraColisao.yy",},
+    {"name":"sngChefeTemaPt2","order":3,"path":"sounds/sngChefeTemaPt2/sngChefeTemaPt2.yy",},
     {"name":"objSamurai","order":3,"path":"objects/objSamurai/objSamurai.yy",},
     {"name":"objLimiteMovimentoInimigo","order":5,"path":"objects/objLimiteMovimentoInimigo/objLimiteMovimentoInimigo.yy",},
     {"name":"sprDinoKikoParadoDireita","order":3,"path":"sprites/sprDinoKikoParadoDireita/sprDinoKikoParadoDireita.yy",},

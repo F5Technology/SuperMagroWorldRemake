@@ -1,1 +1,1 @@
-exibirAnimacaoTransicaoChefeChiquinha();
+transicao();

@@ -62,6 +62,7 @@
     "IDEVersion": "2023.2.1.75",
   },
   "resources": [
+    {"id":{"name":"sngChefeTemaPt1","path":"sounds/sngChefeTemaPt1/sngChefeTemaPt1.yy",},},
     {"id":{"name":"mecColisoes","path":"scripts/mecColisoes/mecColisoes.yy",},},
     {"id":{"name":"mecMadruga","path":"scripts/mecMadruga/mecMadruga.yy",},},
     {"id":{"name":"sprSamuraiPulandoDireita","path":"sprites/sprSamuraiPulandoDireita/sprSamuraiPulandoDireita.yy",},},
@@ -114,6 +115,7 @@
     {"id":{"name":"anFlorindaSurgindoF1","path":"sequences/anFlorindaSurgindoF1/anFlorindaSurgindoF1.yy",},},
     {"id":{"name":"sprFlorindaF1LancandoMassaEsquerda","path":"sprites/sprFlorindaF1LancandoMassaEsquerda/sprFlorindaF1LancandoMassaEsquerda.yy",},},
     {"id":{"name":"sprMadrugaMascaraColisao","path":"sprites/sprMadrugaMascaraColisao/sprMadrugaMascaraColisao.yy",},},
+    {"id":{"name":"sngChefeTemaPt2","path":"sounds/sngChefeTemaPt2/sngChefeTemaPt2.yy",},},
     {"id":{"name":"objSamurai","path":"objects/objSamurai/objSamurai.yy",},},
     {"id":{"name":"sprMadrugaParadoDireita","path":"sprites/sprMadrugaParadoDireita/sprMadrugaParadoDireita.yy",},},
     {"id":{"name":"objLimiteMovimentoInimigo","path":"objects/objLimiteMovimentoInimigo/objLimiteMovimentoInimigo.yy",},},

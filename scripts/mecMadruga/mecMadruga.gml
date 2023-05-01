@@ -107,61 +107,66 @@ function ajustarVelocidade() {
 }
 	
 function aplicarGravidadePlayer(pular) {
-	var caindo = global.propriedadesPlayer.caindo;
-	var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
-	var instanciaHitBox = global.propriedadesPlayer.instanciaHitBox;
-	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
+	var morto = global.propriedadesPlayer.morto;
+	var transformando = global.propriedadesPlayer.transformando;
 	
-	if (pular) {
-		if(!caindo) {
-			var limitePulo = -3;
-			var velocidade = global.propriedadesPlayer.velocidade;
-			var acimaVelocidade = (velocidade > 1.5);
-			
-			if (velocidade > 1.5) {
-				limitePulo -= (velocidade - 1.80);
+	if(!morto && !transformando) {
+		var caindo = global.propriedadesPlayer.caindo;
+		var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
+		var instanciaHitBox = global.propriedadesPlayer.instanciaHitBox;
+		var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
+		
+		if (pular) {
+			if(!caindo) {
+				var limitePulo = -3;
+				var velocidade = global.propriedadesPlayer.velocidade;
+				var acimaVelocidade = (velocidade > 1.5);
+				
+				if (velocidade > 1.5) {
+					limitePulo -= (velocidade - 1.80);
+				}
+				
+				forcaGravidade += -0.40;
+				
+				if(forcaGravidade <= limitePulo) {
+					caindo = true;
+					global.propriedadesPlayer.caindo = true;
+				} else if (!lancandoShuriken) {
+					global.propriedadesPlayer.trocarSprite(SpriteEnum.Pulando);
+				}
+				
+				if(!instance_exists(instanciaHitBox)) {
+					global.propriedadesPlayer.instanciaHitBox = instance_create_layer(x, y, "Secondary", objHitBoxBottom);
+				}
+			} else {
+				// Retorno impede com que o botão de pulo acelere a velocidade da queda
+				return;
 			}
+		} else {
+			forcaGravidade += 0.15;
+		}
+		
+		if (!colisao(TipoColisaoEnum.Vertical, forcaGravidade)) {
+			y += forcaGravidade;
+			global.propriedadesPlayer.forcaGravidade = forcaGravidade;
 			
-			forcaGravidade += -0.40;
-			
-			if(forcaGravidade <= limitePulo) {
-				caindo = true;
-				global.propriedadesPlayer.caindo = true;
-			} else if (!lancandoShuriken) {
-				global.propriedadesPlayer.trocarSprite(SpriteEnum.Pulando);
+			if(!caindo) {
+				caindo = (forcaGravidade > 0);
+				global.propriedadesPlayer.caindo = caindo;
 			}
-			
+		}
+		
+		if(caindo && forcaGravidade > 0.30) {	
 			if(!instance_exists(instanciaHitBox)) {
 				global.propriedadesPlayer.instanciaHitBox = instance_create_layer(x, y, "Secondary", objHitBoxBottom);
 			}
-		} else {
-			// Retorno impede com que o botão de pulo acelere a velocidade da queda
-			return;
+			
+			if(!lancandoShuriken) {
+				global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
+			}
+		} else if (forcaGravidade < 0.30 && forcaGravidade > -0.40 && instance_exists(instanciaHitBox)) {		
+			instance_destroy(instanciaHitBox);
 		}
-	} else {
-		forcaGravidade += 0.15;
-	}
-	
-	if (!colisao(TipoColisaoEnum.Vertical, forcaGravidade)) {
-		y += forcaGravidade;
-		global.propriedadesPlayer.forcaGravidade = forcaGravidade;
-		
-		if(!caindo) {
-			caindo = (forcaGravidade > 0);
-			global.propriedadesPlayer.caindo = caindo;
-		}
-	}
-	
-	if(caindo && forcaGravidade > 0.30) {	
-		if(!instance_exists(instanciaHitBox)) {
-			global.propriedadesPlayer.instanciaHitBox = instance_create_layer(x, y, "Secondary", objHitBoxBottom);
-		}
-		
-		if(!lancandoShuriken) {
-			global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
-		}
-	} else if (forcaGravidade < 0.30 && forcaGravidade > -0.40 && instance_exists(instanciaHitBox)) {		
-		instance_destroy(instanciaHitBox);
 	}
 }
 
@@ -206,13 +211,21 @@ function morrer() {
 	var player = samurai ? objSamurai : objSeuMadruga;
 	
 	var vertical = player.y;
-	var horizontal = player.x;
+	var horizontal = player.x;	
+	
+	var animacoes = layer_get_all_elements("Animations_Boss");
 
+	audio_stop_all();
 	instance_destroy(player);	
 	global.sistemasJogo.inteligenciaArtificial = false;
 	global.propriedadesJogo.vidas--;
 	global.propriedadesPlayer.morto = true;
 	global.propriedadesCamera.tremer = false;
+	
+    for (var i = 0; i < array_length(animacoes); i++;)
+    {       
+		layer_sequence_pause(animacoes[i]);
+    }
 	
 	layer_sequence_create("Animations", horizontal, vertical, anMadrugaMorrendo);
 	instance_create_layer(horizontal, vertical, "Main", objSeuMadrugaMorrendo);
