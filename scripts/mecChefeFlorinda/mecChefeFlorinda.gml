@@ -590,3 +590,20 @@ function moverRoloMacarrao() {
 		x += direcao * 2.5;
 	}
 }
+
+function droparRoloMacarrao() {
+	var playerMorto = global.propriedadesPlayer.morto;
+	var playerTransformando = global.propriedadesPlayer.transformando;
+	var limiteHit = y - (sprite_height / 2);
+	var coordernadaHit = objHitBoxBottom.y + 6;
+	
+	if(!playerMorto && !playerTransformando && coordernadaHit <= y) {
+		instance_destroy(); 		
+		layer_sequence_create("Animations", x, y, anRoloMacarraoCaindo);
+		
+		global.propriedadesPlayer.caindo = false;
+		global.propriedadesPlayer.forcaGravidade = -2;
+		
+		aplicarGravidadePlayer(true);
+	}
+}

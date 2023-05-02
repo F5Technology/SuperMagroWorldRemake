@@ -24,8 +24,8 @@
     "Keyframes": [],
   },
   "parent": {
-    "name": "Elementos",
-    "path": "folders/Animations/Elementos.yy",
+    "name": "Cutscenes",
+    "path": "folders/Animations/Cutscenes.yy",
   },
   "playback": 0,
   "playbackSpeed": 60.0,
