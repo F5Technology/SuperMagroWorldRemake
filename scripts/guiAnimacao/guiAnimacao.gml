@@ -135,3 +135,12 @@ function checarAnimacao() {
 			break;
 	}
 }
+	
+function pausarAnimacoesChefe() {
+	var animacoes = layer_get_all_elements("Animations_Boss");
+	
+    for (var i = 0; i < array_length(animacoes); i++;)
+    {       
+		layer_sequence_pause(animacoes[i]);
+    }
+}

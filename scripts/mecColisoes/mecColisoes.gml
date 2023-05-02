@@ -33,6 +33,12 @@ function colisao(tipo, forca){
 				realizarColisao(TipoColisaoEnum.Horizontal, objParede, forca);
 			}	
 			
+			//Parede
+			if(place_meeting(horizontal + forca, vertical, objLimiteVerticalPlayer)) {	
+				houveColisao = true;
+				realizarColisao(TipoColisaoEnum.Horizontal, objLimiteVerticalPlayer, forca);
+			}	
+			
 			//Bloco de interrogação
 			if(place_meeting(horizontal + forca, vertical, objInterrogacao)) {	
 				houveColisao = true;

@@ -2,7 +2,8 @@
 
 global.sistemasJogo = {
 	tempo: false,
-	inteligenciaArtificial: true
+	inteligenciaArtificial: true,
+	fisicaProjeteisLigado: true
 }
 
 global.propriedadesJogo = {

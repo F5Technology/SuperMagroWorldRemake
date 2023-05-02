@@ -4,7 +4,8 @@ function transformarSamurai() {
 	var samurai = global.propriedadesPlayer.samurai;
 	
 	if (!samurai) {
-		instance_destroy();			
+		instance_destroy();		
+		global.sistemasJogo.fisicaProjeteisLigado = false;		
 		global.sistemasJogo.inteligenciaArtificial = false;
 		global.propriedadesPlayer.samurai = true;
 		global.propriedadesPlayer.transformando = true;
@@ -21,7 +22,8 @@ function transformarSamurai() {
 }
 
 function transformarNormal() {
-	instance_destroy();		
+	instance_destroy();
+	global.sistemasJogo.fisicaProjeteisLigado = false;
 	global.sistemasJogo.inteligenciaArtificial = false;
 	global.propriedadesPlayer.samurai = false;
 	global.propriedadesPlayer.transformando = true;
@@ -32,7 +34,6 @@ function transformarNormal() {
 function concluirTransformacao() {
 	var samurai = global.propriedadesPlayer.samurai;
 	var modo = samurai ? objSamurai : objSeuMadruga;
-	var cenaRodando = global.propriedadesChefe.cenaRodando;
 	
 	instance_destroy();	
 	instance_create_layer(x, y, "Main", modo);
@@ -40,9 +41,8 @@ function concluirTransformacao() {
 	modo.alarm[0] = 5;
 	modo.alarm[1] = 60 * 3; //  3 segundos
 	
-	if(!cenaRodando) {	
-		global.sistemasJogo.inteligenciaArtificial = true;
-	}
+	global.sistemasJogo.fisicaProjeteisLigado = true;
+	global.sistemasJogo.inteligenciaArtificial = true;
 	
 	global.propriedadesPlayer.invencivel = true;
 	global.propriedadesPlayer.transformando = false;
@@ -74,17 +74,19 @@ function finalizarAnimacaoLancarShuriken() {
 function criarShuriken() {
 	var posicaoVertical = y - 10;
 	var direcao = global.propriedadesPlayer.direcao;
-	var shuriken = instance_create_layer(x, posicaoVertical, "Main", objShuriken);
+	var shuriken = instance_create_layer(x, posicaoVertical, "Secondary", objShuriken);
 	
 	shuriken.direcao = direcao;
 }
 
 function moverShuriken() {
-	exibirSpriteShuriken(direcao);
+	var fisicaProjeteisLigado = global.sistemasJogo.fisicaProjeteisLigado;
 	
-	var forca = direcao * 3.5;
+	if (fisicaProjeteisLigado) {
+		exibirSpriteShuriken(direcao);
 	
-	x += forca;
+		x += direcao * 3.5;
+	}
 }
 
 function shurikenNoInimigo() {

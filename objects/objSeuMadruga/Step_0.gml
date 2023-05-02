@@ -1,3 +1,4 @@
+adicionarHitBoxInferior();
 aplicarGravidadePlayer(false);
 finalizarAnimacaoLancarShuriken();
 

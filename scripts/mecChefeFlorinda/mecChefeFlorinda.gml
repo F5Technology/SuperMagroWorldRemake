@@ -5,20 +5,24 @@ global.propriedadesChefe = {
 	fase: 1,
 	forcaVertical: 0,
 	forcaHorizontal: 0,
+	velocidadeSprite: 0,
 	derrapando: false,
 	cenaRodando: false,
+	contadorAtacando: 0,
 	contadorCoolDown: 25,
 	inimigosSumonados: false,
 	aguardandoAterrissagem: false,
 	direcao: DirecaoEnum.Esquerda,
 	elevacao: ElevacaoEnum.Descer,
 	situacao: SituacaoChefeEnum.Ativo,
+	elevacaoProjetil: ElevacaoEnum.Descer,
 	trocarSprite: exibirSpriteFlorindaFase1
 }
 
 function reiniciarPropriedadesBasicasChefe() {
 	global.propriedadesChefe.forcaVertical = 0;
 	global.propriedadesChefe.forcaHorizontal = 0;
+	global.propriedadesChefe.contadorAtacando = 0;
 	global.propriedadesChefe.derrapando = false;
 	global.propriedadesChefe.cenaRodando = false;
 	global.propriedadesChefe.direcao = DirecaoEnum.Esquerda;
@@ -34,23 +38,31 @@ function reiniciarPropriedadesChefe() {
 		fase: 1,
 		forcaVertical: 0,
 		forcaHorizontal: 0,
+		velocidadeSprite: 0,
 		derrapando: false,
 		cenaRodando: false,
+		contadorAtacando: 0,
 		contadorCoolDown: 25,
 		inimigosSumonados: false,
 		aguardandoAterrissagem: false,
 		direcao: DirecaoEnum.Esquerda,
 		elevacao: ElevacaoEnum.Descer,
 		situacao: SituacaoChefeEnum.Ativo,
+		elevacaoProjetil: ElevacaoEnum.Descer,
 		trocarSprite: exibirSpriteFlorindaFase1
 	}
 }
 	
 function executarInteligenciaArtificial() {
-	var situacao = global.propriedadesChefe.situacao;
+	var cenaRodando = global.propriedadesChefe.cenaRodando;
 	var inteligenciaArtificialLigada = global.sistemasJogo.inteligenciaArtificial;
 	
-	if(inteligenciaArtificialLigada) {
+	if(inteligenciaArtificialLigada && !cenaRodando) {
+		var situacao = global.propriedadesChefe.situacao;
+		var velocidadeSprite = global.propriedadesChefe.velocidadeSprite;
+		
+		image_speed = velocidadeSprite > 0 ? velocidadeSprite : image_speed;
+		
 		switch(situacao) {
 			case SituacaoChefeEnum.Ativo:
 				movimentoNave();
@@ -66,19 +78,27 @@ function executarInteligenciaArtificial() {
 				aterrissar();
 				break;
 			case SituacaoChefeEnum.ConcluirAterrisagem:
-				if(finalizouAnimacao()) {
-					global.propriedadesChefe.situacao = SituacaoChefeEnum.Atacando; 
+				if(finalizouAnimacao()) {							
+					var fase = global.propriedadesChefe.fase;
 					
+					global.propriedadesChefe.situacao = SituacaoChefeEnum.Atacando; 								
 					global.propriedadesChefe.trocarSprite(SpriteEnum.LancarProjetil);
+					
+					objFlorinda.image_index = fase == 1 ? 9 : 0;
+					global.propriedadesChefe.contadorAtacando = fase == 1 ? 40 : 42;
 				}
 				break;
 			case SituacaoChefeEnum.Atacando:
-				lancandoMassaMacarrao();
+				lancandoRoloMacarrao();
 				break;
 			case SituacaoChefeEnum.CoolDown:
 				global.propriedadesChefe.trocarSprite(SpriteEnum.CoolDown);
 				break;
 		}
+		
+		global.propriedadesChefe.velocidadeSprite = image_speed;
+	} else if (!cenaRodando) {
+		image_speed = 0;
 	}
 }
 
@@ -448,15 +468,12 @@ function checarAterrissagem() {
 			aterrisar = true;
 		} else if (player.x >= limiteSalaDireita || player.x <= limiteSalaEsquerda) {					
 			switch (fase) {
-				case 1:
-				
-					show_debug_message(y);
-					
+				case 1:					
 					aterrisar = (y < 53 &&
 								((player.x <= limiteSalaEsquerda && x < limiteSalaEsquerda + 10) || 
 								(player.x >= limiteSalaDireita && x > limiteSalaDireita - 10)));
 					break;
-				case 2:					
+				case 2:							
 					aterrisar = ((player.x <= limiteSalaEsquerda && x > limiteSalaEsquerda) || 
 								(player.x >= limiteSalaDireita && x < limiteSalaDireita));		
 					break;
@@ -498,9 +515,12 @@ function aterrissar() {
 	}
 }
 
-function lancandoMassaMacarrao() {
+function lancandoRoloMacarrao() {
+	var fase = global.propriedadesChefe.fase;
 	var samurai = global.propriedadesPlayer.samurai;
 	var player = samurai ? objSamurai : objSeuMadruga;
+	var contadorAtacando = global.propriedadesChefe.contadorAtacando;
+	var limiteContador = fase == 1 ? 60 : 43;
 	
 	if(x < player.x) {
 		global.propriedadesChefe.direcao = DirecaoEnum.Direita;		
@@ -510,7 +530,36 @@ function lancandoMassaMacarrao() {
 				
 	exibirSpriteNaveChefe();
 	global.propriedadesChefe.trocarSprite(SpriteEnum.LancarProjetil);
-	//TODO: Lancar projetil massa macarrão
+	
+	contadorAtacando++;
+	
+	if(contadorAtacando == limiteContador) {		
+		var direcao = global.propriedadesChefe.direcao;
+		
+		contadorAtacando = 0;
+		
+		var posicaoVertical = y - 10;
+		var posicaoHorizontal = x + (direcao * 30);
+		
+		if (fase == 2) {
+			var elevacaoProjetil = global.propriedadesChefe.elevacaoProjetil;
+			
+			if(elevacaoProjetil == ElevacaoEnum.Descer) {
+				posicaoVertical = y + 20;
+				global.propriedadesChefe.elevacaoProjetil = ElevacaoEnum.Subir;
+			} else {
+				posicaoVertical = y - 10;
+				global.propriedadesChefe.elevacaoProjetil = ElevacaoEnum.Descer;
+			}
+		}
+		
+		var roloMacarrao = instance_create_layer(posicaoHorizontal, posicaoVertical, "Top_priority", objRoloMacarrao);
+	
+		roloMacarrao.alarm[0] = 60 * 6;
+		roloMacarrao.direcao = direcao;
+	}
+	
+	global.propriedadesChefe.contadorAtacando = contadorAtacando;
 }
 	
 function transicao() {
@@ -525,5 +574,19 @@ function tomarHitShuriken() {
 		gpu_set_fog(false, c_white, 0, 0);
 	} else {
 		draw_self();
+	}
+}
+	
+function moverRoloMacarrao() {	
+	var fisicaProjeteisLigado = global.sistemasJogo.fisicaProjeteisLigado;
+	
+	if (fisicaProjeteisLigado) {			
+		var fase = global.propriedadesChefe.fase;
+		
+		if (fase == 1) {
+			y += 0.5;
+		}		
+		
+		x += direcao * 2.5;
 	}
 }

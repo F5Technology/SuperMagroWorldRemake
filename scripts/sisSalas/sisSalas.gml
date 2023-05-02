@@ -1,6 +1,7 @@
 /// @description Funções de troca de salas ou fases diretas
 
-function iniciarSala() {	
+function iniciarSala() {
+	global.sistemasJogo.fisicaProjeteisLigado = true;
 	global.sistemasJogo.inteligenciaArtificial = true;
 	
 	var sistemaTempoAtivo = global.sistemasJogo.tempo;

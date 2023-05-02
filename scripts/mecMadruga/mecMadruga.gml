@@ -115,6 +115,22 @@ function ajustarVelocidade() {
 	global.propriedadesPlayer.velocidade = velocidade;
 }
 	
+function adicionarHitBoxInferior() {
+	var morto = global.propriedadesPlayer.morto;
+	var transformando = global.propriedadesPlayer.transformando;
+	
+	if(!morto && !transformando) { 
+		var instanciaHitBox = global.propriedadesPlayer.instanciaHitBox;
+		var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
+		
+		if(forcaGravidade <> 0 && !instance_exists(instanciaHitBox)) {
+			global.propriedadesPlayer.instanciaHitBox = instance_create_layer(x, y, "Secondary", objHitBoxBottom);
+		} else if (forcaGravidade == 0 && instance_exists(instanciaHitBox)) {		
+			instance_destroy(instanciaHitBox);
+		}
+	}
+}
+	
 function aplicarGravidadePlayer(pular) {
 	var morto = global.propriedadesPlayer.morto;
 	var transformando = global.propriedadesPlayer.transformando;
@@ -122,7 +138,6 @@ function aplicarGravidadePlayer(pular) {
 	if(!morto && !transformando) {
 		var caindo = global.propriedadesPlayer.caindo;
 		var forcaGravidade = global.propriedadesPlayer.forcaGravidade;
-		var instanciaHitBox = global.propriedadesPlayer.instanciaHitBox;
 		var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 		
 		if (pular) {
@@ -143,10 +158,6 @@ function aplicarGravidadePlayer(pular) {
 				} else if (!lancandoShuriken) {
 					global.propriedadesPlayer.trocarSprite(SpriteEnum.Pulando);
 				}
-				
-				if(!instance_exists(instanciaHitBox)) {
-					global.propriedadesPlayer.instanciaHitBox = instance_create_layer(x, y, "Secondary", objHitBoxBottom);
-				}
 			} else {
 				// Retorno impede com que o botão de pulo acelere a velocidade da queda
 				return;
@@ -165,16 +176,8 @@ function aplicarGravidadePlayer(pular) {
 			}
 		}
 		
-		if(caindo && forcaGravidade > 0.30) {	
-			if(!instance_exists(instanciaHitBox)) {
-				global.propriedadesPlayer.instanciaHitBox = instance_create_layer(x, y, "Secondary", objHitBoxBottom);
-			}
-			
-			if(!lancandoShuriken) {
-				global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
-			}
-		} else if (forcaGravidade < 0.30 && forcaGravidade > -0.40 && instance_exists(instanciaHitBox)) {		
-			instance_destroy(instanciaHitBox);
+		if(caindo && forcaGravidade > 0.30 && !lancandoShuriken) {
+			global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
 		}
 	}
 }
@@ -221,20 +224,15 @@ function morrer() {
 	
 	var vertical = player.y;
 	var horizontal = player.x;	
-	
-	var animacoes = layer_get_all_elements("Animations_Boss");
 
 	audio_stop_all();
+	pausarAnimacoesChefe();
 	instance_destroy(player);	
+	global.sistemasJogo.fisicaProjeteisLigado = false;
 	global.sistemasJogo.inteligenciaArtificial = false;
 	global.propriedadesJogo.vidas--;
 	global.propriedadesPlayer.morto = true;
 	global.propriedadesCamera.tremer = false;
-	
-    for (var i = 0; i < array_length(animacoes); i++;)
-    {       
-		layer_sequence_pause(animacoes[i]);
-    }
 	
 	layer_sequence_create("Animations", horizontal, vertical, anMadrugaMorrendo);
 	instance_create_layer(horizontal, vertical, "Main", objSeuMadrugaMorrendo);
