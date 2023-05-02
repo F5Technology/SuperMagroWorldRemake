@@ -247,6 +247,14 @@ function exibirSpriteFlorindaFase3(sprite) {
 			break;
 	}
 }
+	
+function exibirSpriteShuriken(direcao) {
+	if(direcao == DirecaoEnum.Direita) {
+		sprite_index = sprShurikenDireita;
+	} else {
+		sprite_index = sprShurikenEsquerda;
+	}
+}
 
 function mostrarValorEmJogo(valor) {
 	switch(valor) {

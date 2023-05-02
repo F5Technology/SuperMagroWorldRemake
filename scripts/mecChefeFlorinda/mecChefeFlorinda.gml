@@ -1,7 +1,7 @@
 /// @description Rotinas e mecanicas do chefe final
 
 global.propriedadesChefe = {
-	hp: 15,
+	hp: 7,
 	fase: 1,
 	forcaVertical: 0,
 	forcaHorizontal: 0,
@@ -30,7 +30,7 @@ function reiniciarPropriedadesBasicasChefe() {
 
 function reiniciarPropriedadesChefe() {
 	global.propriedadesChefe = {
-		hp: 15,
+		hp: 7,
 		fase: 1,
 		forcaVertical: 0,
 		forcaHorizontal: 0,
@@ -308,8 +308,10 @@ function irProximaFase() {
 	fase++;
 	
 	if(fase == 2) {
+		global.propriedadesChefe.hp = 7;
 		global.propriedadesChefe.trocarSprite = exibirSpriteFlorindaFase2;
 	} else if (fase == 3) {
+		global.propriedadesChefe.hp = 15;
 		global.propriedadesChefe.trocarSprite = exibirSpriteFlorindaFase3;
 	}
 	
@@ -514,4 +516,14 @@ function lancandoMassaMacarrao() {
 function transicao() {
 	audio_stop_all();
 	exibirAnimacaoTransicaoChefeChiquinha();
+}
+	
+function tomarHitShuriken() {
+	if (hit) {
+		gpu_set_fog(true, c_white, 0, 0);
+		draw_self();
+		gpu_set_fog(false, c_white, 0, 0);
+	} else {
+		draw_self();
+	}
 }

@@ -50,13 +50,14 @@ function concluirTransformacao() {
 	
 function lancarShuriken() {
 	var abaixado = global.propriedadesPlayer.abaixado;
+	var derrapando = global.propriedadesPlayer.derrapando;
 	var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 	
-	if (!lancandoShuriken && !abaixado) {
+	if (!lancandoShuriken && !abaixado && !derrapando) {
 		global.propriedadesPlayer.lancandoShuriken = true;
 		global.propriedadesPlayer.trocarSprite(SpriteEnum.LancarProjetil);
 		
-		//TODO: Criar intancia da shuriken
+		alarm[2] = 6;
 	}
 }
 
@@ -67,5 +68,50 @@ function finalizarAnimacaoLancarShuriken() {
 		global.propriedadesPlayer.lancandoShuriken = false;
 		
 		exibirSpriteImovel();
+	}
+}
+	
+function criarShuriken() {
+	var posicaoVertical = y - 10;
+	var direcao = global.propriedadesPlayer.direcao;
+	var shuriken = instance_create_layer(x, posicaoVertical, "Main", objShuriken);
+	
+	shuriken.direcao = direcao;
+}
+
+function moverShuriken() {
+	exibirSpriteShuriken(direcao);
+	
+	var forca = direcao * 3.5;
+	
+	x += forca;
+}
+
+function shurikenNoInimigo() {
+	instance_destroy();
+	
+	with(other) {
+		serMorto();
+	}
+}
+	
+function shurikenNoChefe() {
+	instance_destroy();
+	
+	var hpChefe = global.propriedadesChefe.hp;
+	
+	hpChefe--;
+	
+	if(hpChefe == 0) {
+		derrotarChefe();
+	} else {
+		objNave.hit = true;
+		objFlorinda.hit = true;
+		
+		
+		objNave.alarm[0] = 5;
+		objFlorinda.alarm[2] = 5;
+		
+		global.propriedadesChefe.hp = hpChefe;
 	}
 }

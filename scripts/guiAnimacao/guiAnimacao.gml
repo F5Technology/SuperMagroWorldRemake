@@ -3,7 +3,6 @@
 global.coordenadasAnimacao = {
 	padraoChefeX: 208,
 	padraoChefeY: 112,
-	//padraoChefeY: 192,
 	x: 0,
 	y: 0
 }
