@@ -65,7 +65,7 @@ function realizarColisao(tipo, objeto, forca) {
 	switch(tipo) {
 		case TipoColisaoEnum.Vertical:
 			posicao = vertical;
-			var colisaoTeto = (posicao + forca < 0);
+			var colisaoTeto = (forca < 0);
 			
 			while(!place_meeting(horizontal, posicao + aproximacao, objeto)) {
 				posicao += aproximacao;
@@ -75,7 +75,9 @@ function realizarColisao(tipo, objeto, forca) {
 			global.propriedadesPlayer.forcaGravidade = 0;
 			global.propriedadesPlayer.caindo = colisaoTeto;
 			
-			if(!colisaoTeto) {				
+			if(colisaoTeto) {			
+				reproduzirSFXPlayer(SFXEnum.BaterTeto);	
+			} else {
 				exibirSpriteImovel();
 			}
 			break;
@@ -118,6 +120,7 @@ function baterInterrogacao() {
 
 function retornarItemBlocoInterrogacao() {
 	if(powerUp) {
+		reproduzirSFXElementos(SFXEnum.BlocoInterrogacao);
 		instance_create_layer(x, y - sprite_height, "Main", objKanji);
 	} else {			
 		var instanciaMoeda = instance_create_layer(x, y - sprite_height, "Main", objMoeda);

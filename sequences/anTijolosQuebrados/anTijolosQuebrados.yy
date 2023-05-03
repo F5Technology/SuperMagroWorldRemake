@@ -115,6 +115,16 @@
               {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":1.0,},"1":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":1.0,},},"Disabled":false,"id":"cbb96d82-b362-4810-a596-9f9d1e5a6a9c","IsCreationKey":true,"Key":0.0,"Length":1.0,"Stretch":false,},
             ],},"modifiers":[],"trackColour":4282945522,"tracks":[],"traits":0,},
       ],"traits":0,},
+    {"resourceType":"GMAudioTrack","resourceVersion":"1.1","name":"sndQuebrarTijolos","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<AudioKeyframe>","resourceVersion":"1.0","Keyframes":[
+          {"resourceType":"Keyframe<AudioKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"AudioKeyframe","resourceVersion":"1.0","Id":{"name":"sndQuebrarTijolos","path":"sounds/sndQuebrarTijolos/sndQuebrarTijolos.yy",},"Mode":0,},},"Disabled":false,"id":"e15818f3-e9a7-4b76-91a4-c928403b6c92","IsCreationKey":false,"Key":0.0,"Length":35.0,"Stretch":false,},
+        ],},"modifiers":[],"trackColour":4282970836,"tracks":[
+        {"resourceType":"GMRealTrack","resourceVersion":"1.0","name":"position","builtinName":14,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":true,"keyframes":{"resourceType":"KeyframeStore<RealKeyframe>","resourceVersion":"1.0","Keyframes":[
+              {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},"1":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},},"Disabled":false,"id":"a5307f8c-c40b-450e-b417-81d2dfde8a60","IsCreationKey":true,"Key":0.0,"Length":1.0,"Stretch":false,},
+            ],},"modifiers":[],"trackColour":4282970836,"tracks":[],"traits":0,},
+        {"resourceType":"GMRealTrack","resourceVersion":"1.0","name":"rotation","builtinName":8,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":true,"keyframes":{"resourceType":"KeyframeStore<RealKeyframe>","resourceVersion":"1.0","Keyframes":[
+              {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},},"Disabled":false,"id":"221e86dc-5976-4315-93c3-a5adc79b6695","IsCreationKey":true,"Key":0.0,"Length":1.0,"Stretch":false,},
+            ],},"modifiers":[],"trackColour":4282970836,"tracks":[],"traits":0,},
+      ],"traits":0,},
   ],
   "visibleRange": {
     "x": 0.0,

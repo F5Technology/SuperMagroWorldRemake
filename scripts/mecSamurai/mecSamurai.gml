@@ -4,7 +4,8 @@ function transformarSamurai() {
 	var samurai = global.propriedadesPlayer.samurai;
 	
 	if (!samurai) {
-		instance_destroy();		
+		instance_destroy();	
+		reproduzirSFXPlayer(SFXEnum.TransformarSamurai);
 		global.sistemasJogo.fisicaProjeteisLigado = false;		
 		global.sistemasJogo.inteligenciaArtificial = false;
 		global.propriedadesPlayer.samurai = true;
@@ -23,6 +24,7 @@ function transformarSamurai() {
 
 function transformarNormal() {
 	instance_destroy();
+	reproduzirSFXPlayer(SFXEnum.TransformarNormal);
 	global.sistemasJogo.fisicaProjeteisLigado = false;
 	global.sistemasJogo.inteligenciaArtificial = false;
 	global.propriedadesPlayer.samurai = false;
@@ -76,7 +78,8 @@ function criarShuriken() {
 	var direcao = global.propriedadesPlayer.direcao;
 	var shuriken = instance_create_layer(x, posicaoVertical, "Secondary", objShuriken);
 	
-	shuriken.direcao = direcao;
+	shuriken.direcao = direcao;	
+	reproduzirSFXPlayer(SFXEnum.DispararShuriken);
 }
 
 function moverShuriken() {
@@ -110,10 +113,10 @@ function shurikenNoChefe() {
 		objNave.hit = true;
 		objFlorinda.hit = true;
 		
-		
 		objNave.alarm[0] = 5;
 		objFlorinda.alarm[2] = 5;
 		
 		global.propriedadesChefe.hp = hpChefe;
+		reproduzirSFXChefe(SFXEnum.DanoShuriken);
 	}
 }

@@ -111,6 +111,16 @@
               {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":1.0,},"1":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":1.0,},},"Disabled":false,"id":"7a5b5c5c-3680-421a-a8d2-90fc4ef269f0","IsCreationKey":true,"Key":-12.0,"Length":1.0,"Stretch":false,},
             ],},"modifiers":[],"trackColour":4285395528,"tracks":[],"traits":0,},
       ],"traits":0,},
+    {"resourceType":"GMAudioTrack","resourceVersion":"1.1","name":"sndDanoChefe","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<AudioKeyframe>","resourceVersion":"1.0","Keyframes":[
+          {"resourceType":"Keyframe<AudioKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"AudioKeyframe","resourceVersion":"1.0","Id":{"name":"sndDanoChefe","path":"sounds/sndDanoChefe/sndDanoChefe.yy",},"Mode":0,},},"Disabled":false,"id":"550031a7-d057-4038-9edc-9cf1ca2f54b8","IsCreationKey":false,"Key":0.0,"Length":30.0,"Stretch":false,},
+        ],},"modifiers":[],"trackColour":4292932168,"tracks":[
+        {"resourceType":"GMRealTrack","resourceVersion":"1.0","name":"position","builtinName":14,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":true,"keyframes":{"resourceType":"KeyframeStore<RealKeyframe>","resourceVersion":"1.0","Keyframes":[
+              {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},"1":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},},"Disabled":false,"id":"2da7c6fe-2cec-4219-ad2c-29228a9ec6e5","IsCreationKey":true,"Key":0.0,"Length":1.0,"Stretch":false,},
+            ],},"modifiers":[],"trackColour":4292932168,"tracks":[],"traits":0,},
+        {"resourceType":"GMRealTrack","resourceVersion":"1.0","name":"rotation","builtinName":8,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":true,"keyframes":{"resourceType":"KeyframeStore<RealKeyframe>","resourceVersion":"1.0","Keyframes":[
+              {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},},"Disabled":false,"id":"2ba19fa5-d1de-4ff1-8344-7a520261f0b0","IsCreationKey":true,"Key":0.0,"Length":1.0,"Stretch":false,},
+            ],},"modifiers":[],"trackColour":4292932168,"tracks":[],"traits":0,},
+      ],"traits":0,},
   ],
   "visibleRange": {
     "x": 0.0,

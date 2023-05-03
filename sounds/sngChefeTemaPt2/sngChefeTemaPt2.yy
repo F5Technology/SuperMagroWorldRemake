@@ -8,7 +8,7 @@
   },
   "bitDepth": 1,
   "bitRate": 128,
-  "compression": 1,
+  "compression": 0,
   "conversionMode": 1,
   "duration": 72.081726,
   "parent": {
@@ -18,6 +18,6 @@
   "preload": false,
   "sampleRate": 44100,
   "soundFile": "sngChefeTemaPt2.ogg",
-  "type": 0,
+  "type": 1,
   "volume": 1.0,
 }

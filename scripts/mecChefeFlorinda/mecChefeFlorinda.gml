@@ -301,6 +301,7 @@ function movimentoNave() {
 							global.propriedadesChefe.situacao = SituacaoChefeEnum.CoolDown;
 						}
 						
+						reproduzirSFXChefe(SFXEnum.Tremer);
 						global.propriedadesCamera.tremer = true;
 						objCronometrosAnimacoes.alarm[3] = 5;
 						
@@ -388,6 +389,7 @@ function derrubarEmblema() {
 function introduzirChefe() {
 	exibirAnimacaoIntroChefe();
 	global.propriedadesChefe.cenaRodando = true;
+	//audio_play_sound(sngIntroChefeTema, 2, false);
 	
 	objCronometrosAnimacoes.alarm[1] = 844;
 }
@@ -444,6 +446,7 @@ function concluirSumonInimigos() {
 		inimigoEsquerda.direcao = DirecaoEnum.Esquerda;
 		inimigoEsquerda.sprite_index = sprDinoKikoAndandoEsquerda;
 		
+		reproduzirSFXChefe(SFXEnum.SumonarInimigos);
 		global.propriedadesChefe.inimigosSumonados = true;
 		global.propriedadesChefe.trocarSprite(SpriteEnum.Aparecendo);
 	}
@@ -506,6 +509,7 @@ function aterrissar() {
 			visible = true;		
 			exibirSpriteNaveChefe();	
 			
+			reproduzirSFXChefe(SFXEnum.Tremer);
 			global.propriedadesCamera.tremer = true;
 			global.propriedadesChefe.trocarSprite(SpriteEnum.Aparecendo);
 			global.propriedadesChefe.situacao = SituacaoChefeEnum.ConcluirAterrisagem; 

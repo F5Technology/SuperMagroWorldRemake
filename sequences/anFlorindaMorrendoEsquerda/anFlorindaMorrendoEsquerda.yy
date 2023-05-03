@@ -118,7 +118,7 @@
             ],},"modifiers":[],"trackColour":4294068455,"tracks":[],"traits":0,},
       ],"traits":0,},
     {"resourceType":"GMAudioTrack","resourceVersion":"1.1","name":"sndFlorindaMorrendo","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<AudioKeyframe>","resourceVersion":"1.0","Keyframes":[
-          {"resourceType":"Keyframe<AudioKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"AudioKeyframe","resourceVersion":"1.0","Id":{"name":"sndFlorindaMorrendo","path":"sounds/sndFlorindaMorrendo/sndFlorindaMorrendo.yy",},"Mode":0,},},"Disabled":false,"id":"a33435c6-7695-4fe8-9d52-0b9526eb90f0","IsCreationKey":false,"Key":12.0,"Length":42.0,"Stretch":false,},
+          {"resourceType":"Keyframe<AudioKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"AudioKeyframe","resourceVersion":"1.0","Id":{"name":"sndFlorindaMorrendo","path":"sounds/sndFlorindaMorrendo/sndFlorindaMorrendo.yy",},"Mode":0,},},"Disabled":false,"id":"a33435c6-7695-4fe8-9d52-0b9526eb90f0","IsCreationKey":false,"Key":12.0,"Length":38.0,"Stretch":false,},
         ],},"modifiers":[],"trackColour":4282970827,"tracks":[
         {"resourceType":"GMRealTrack","resourceVersion":"1.0","name":"position","builtinName":14,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":true,"keyframes":{"resourceType":"KeyframeStore<RealKeyframe>","resourceVersion":"1.0","Keyframes":[
               {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},"1":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},},"Disabled":false,"id":"f1a8dc90-ebd8-4b45-adb3-cc40eba76061","IsCreationKey":true,"Key":12.0,"Length":1.0,"Stretch":false,},
@@ -126,6 +126,16 @@
         {"resourceType":"GMRealTrack","resourceVersion":"1.0","name":"rotation","builtinName":8,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":true,"keyframes":{"resourceType":"KeyframeStore<RealKeyframe>","resourceVersion":"1.0","Keyframes":[
               {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},},"Disabled":false,"id":"8b16dc5b-311a-4f39-bd87-8e246f7b6f86","IsCreationKey":true,"Key":12.0,"Length":1.0,"Stretch":false,},
             ],},"modifiers":[],"trackColour":4282970827,"tracks":[],"traits":0,},
+      ],"traits":0,},
+    {"resourceType":"GMAudioTrack","resourceVersion":"1.1","name":"sndDanoChefe","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<AudioKeyframe>","resourceVersion":"1.0","Keyframes":[
+          {"resourceType":"Keyframe<AudioKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"AudioKeyframe","resourceVersion":"1.0","Id":{"name":"sndDanoChefe","path":"sounds/sndDanoChefe/sndDanoChefe.yy",},"Mode":0,},},"Disabled":false,"id":"2176f2fd-6a10-411d-a0a1-e4504a8c4410","IsCreationKey":false,"Key":0.0,"Length":30.0,"Stretch":false,},
+        ],},"modifiers":[],"trackColour":4288148040,"tracks":[
+        {"resourceType":"GMRealTrack","resourceVersion":"1.0","name":"position","builtinName":14,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":true,"keyframes":{"resourceType":"KeyframeStore<RealKeyframe>","resourceVersion":"1.0","Keyframes":[
+              {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},"1":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},},"Disabled":false,"id":"4149092b-eec2-4821-a7d5-76051720fe9d","IsCreationKey":true,"Key":0.0,"Length":1.0,"Stretch":false,},
+            ],},"modifiers":[],"trackColour":4288148040,"tracks":[],"traits":0,},
+        {"resourceType":"GMRealTrack","resourceVersion":"1.0","name":"rotation","builtinName":8,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":true,"keyframes":{"resourceType":"KeyframeStore<RealKeyframe>","resourceVersion":"1.0","Keyframes":[
+              {"resourceType":"Keyframe<RealKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"RealKeyframe","resourceVersion":"1.0","AnimCurveId":null,"EmbeddedAnimCurve":null,"RealValue":0.0,},},"Disabled":false,"id":"cecd27d8-c6df-437e-82ff-628169a9f22f","IsCreationKey":true,"Key":0.0,"Length":1.0,"Stretch":false,},
+            ],},"modifiers":[],"trackColour":4288148040,"tracks":[],"traits":0,},
       ],"traits":0,},
   ],
   "visibleRange": null,

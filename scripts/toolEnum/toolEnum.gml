@@ -46,3 +46,17 @@ enum SituacaoChefeEnum {
 	CoolDown = 5,
 	Atacando = 6
 }
+
+enum SFXEnum {
+	Pular = 1,
+	TransformarSamurai = 2,
+	TransformarNormal = 3,
+	DispararShuriken = 4,
+	Moeda = 5,
+	QuebrarTijolos = 6, 
+	BlocoInterrogacao = 7,
+	DanoShuriken = 8,
+	Tremer = 9,
+	SumonarInimigos = 10,
+	BaterTeto = 11
+}

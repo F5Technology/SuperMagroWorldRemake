@@ -226,13 +226,15 @@ function morrer() {
 	var horizontal = player.x;	
 
 	audio_stop_all();
+	pausarAnimacoes();
 	pausarAnimacoesChefe();
 	instance_destroy(player);	
-	global.sistemasJogo.fisicaProjeteisLigado = false;
-	global.sistemasJogo.inteligenciaArtificial = false;
+	
 	global.propriedadesJogo.vidas--;
 	global.propriedadesPlayer.morto = true;
 	global.propriedadesCamera.tremer = false;
+	global.sistemasJogo.fisicaProjeteisLigado = false;
+	global.sistemasJogo.inteligenciaArtificial = false;
 	
 	layer_sequence_create("Animations", horizontal, vertical, anMadrugaMorrendo);
 	instance_create_layer(horizontal, vertical, "Main", objSeuMadrugaMorrendo);

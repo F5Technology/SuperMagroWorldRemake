@@ -10,11 +10,15 @@ function iniciarSala() {
 	reiniciarPropriedadesJogo();
 	reiniciarPropriedadesChefe();
 	
+	audio_group_load(sfxPlayer);
+	audio_group_load(sfxElementos);
+	
 	if (sistemaTempoAtivo) {
 		checarTempo();
 	}
 	
 	if (room == rmChefe) {
+		audio_group_load(sfxChefe);
 		global.propriedadesJogo.chefe = true;
 		introduzirChefe();
 	}

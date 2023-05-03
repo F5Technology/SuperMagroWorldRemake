@@ -31,7 +31,7 @@ function reiniciarPropriedadesJogo() {
 function registrarMoeda() {
 	var moedas = global.propriedadesJogo.moedas;
 	
-	if (moedas >= 100) {
+	if (moedas >= 50) {
 		moedas = 0;
 		global.propriedadesJogo.vidas++;
 		
@@ -40,6 +40,7 @@ function registrarMoeda() {
 		moedas++;
 	
 		incluirPontos(10);
+		reproduzirSFXElementos(SFXEnum.Moeda);
 	}
 	
 	global.propriedadesJogo.moedas = moedas;
