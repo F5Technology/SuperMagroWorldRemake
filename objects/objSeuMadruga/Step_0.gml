@@ -1,3 +1,4 @@
+checagemComandosGamepad();
 adicionarHitBoxInferior();
 aplicarGravidadePlayer(false);
 finalizarAnimacaoLancarShuriken();
@@ -5,3 +6,4 @@ finalizarAnimacaoLancarShuriken();
 if (global.propriedadesPlayer.parando) {
 	movimentar(global.propriedadesPlayer.direcao);
 }
+

@@ -1,8 +1,11 @@
 /// @description Enums
 
 enum DirecaoEnum {
+	Baixo = -2,
 	Esquerda = -1,
-	Direita = 1
+	Neutro = 0,
+	Direita = 1,
+	Cima = 2
 }
 
 enum ElevacaoEnum {

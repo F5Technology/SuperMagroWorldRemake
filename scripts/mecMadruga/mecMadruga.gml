@@ -47,7 +47,8 @@ function checarMovimento(direcao) {
 	var forcaMovimento = global.propriedadesPlayer.forcaMovimento;
 	
 	if(!parando && 
-		((botaoDireitoPress && botaoEsquerdoPress) || 
+		(gamepadDirecaoAmbigua() ||
+		(botaoDireitoPress && botaoEsquerdoPress) || 
 		(direcao == DirecaoEnum.Direita && forcaMovimento < 0) || 
 		(direcao == DirecaoEnum.Esquerda && forcaMovimento > 0))) 
 	{

@@ -110,6 +110,8 @@ function pausar() {
 			layer_set_visible(camadaTiles, false);
 		}
 		
+		audio_play_sound(sndPause, 1, false);
+		
 		global.propriedadesJogo.pause = pause;
 		global.propriedadesPlayer.parando = true;
 	}
