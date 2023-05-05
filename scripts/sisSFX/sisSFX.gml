@@ -1,4 +1,13 @@
-/// @description Sistemas de reprodução de efeitos sonoros
+/// @description Sistemas de reprodução de efeitos 
+
+global.musicaAtual = 0;
+
+function carregarGruposAudios() {
+	audio_group_load(stMusicas);
+	audio_group_load(sfxPlayer);
+	audio_group_load(sfxElementos);
+	audio_group_load(sfxChefe);
+}
 
 function reproduzirSFXPlayer(sfx) {
 	if(sfx != SFXEnum.Pular) {
@@ -60,4 +69,35 @@ function reproduzirSFXChefe(sfx) {
 			audio_play_sound(sndDanoChefeShuriken, 1, false);
 			break;
 	}
+}
+	
+function reproduzirMusica(musica, loop) {
+	global.musicaAtual = audio_play_sound(musica, 2, loop);
+}
+
+function pausarMusicaAtual() {
+	var musicaAtual = global.musicaAtual;
+	
+	if(musicaAtual != 0) {
+		audio_pause_sound(musicaAtual);
+	}
+}
+
+function resumirMusicaAtual() {
+	var musicaAtual = global.musicaAtual;
+	
+	if(musicaAtual != 0) {
+		audio_resume_sound(musicaAtual);
+	}
+}
+
+function pararTodosAudios() {
+	audio_stop_all();
+	global.musicaAtual = 0;
+}
+	
+function pararEfeitosSonoros() {
+	audio_group_stop_all(sfxPlayer);
+	audio_group_stop_all(sfxElementos);
+	audio_group_stop_all(sfxChefe);
 }

@@ -9,16 +9,13 @@ function iniciarSala() {
 	reiniciarPropriedadesPrint();
 	reiniciarPropriedadesJogo();
 	reiniciarPropriedadesChefe();
-	
-	audio_group_load(sfxPlayer);
-	audio_group_load(sfxElementos);
+	carregarGruposAudios();
 	
 	if (sistemaTempoAtivo) {
 		checarTempo();
 	}
 	
 	if (room == rmChefe) {
-		audio_group_load(sfxChefe);
 		global.propriedadesJogo.chefe = true;
 		introduzirChefe();
 	}

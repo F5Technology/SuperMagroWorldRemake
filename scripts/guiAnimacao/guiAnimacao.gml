@@ -153,3 +153,21 @@ function pausarAnimacoesChefe() {
 		layer_sequence_pause(animacoes[i]);
     }
 }
+
+function continuarAnimacoes() {
+	var animacoes = layer_get_all_elements("Animations");
+	
+    for (var i = 0; i < array_length(animacoes); i++;)
+    {       
+		layer_sequence_play(animacoes[i]);
+    }
+}
+	
+function continuarAnimacoesChefe() {
+	var animacoes = layer_get_all_elements("Animations_Boss");
+	
+    for (var i = 0; i < array_length(animacoes); i++;)
+    {       
+		layer_sequence_play(animacoes[i]);
+    }
+}

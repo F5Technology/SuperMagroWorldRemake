@@ -99,6 +99,9 @@ function pausar() {
 			
 			instance_activate_all();
 			
+			resumirMusicaAtual();
+			continuarAnimacoes();
+			continuarAnimacoesChefe();
 			apagarPrintPause();
 			layer_set_visible(camadaTiles, true);
 		} else {
@@ -106,6 +109,10 @@ function pausar() {
 
 			instance_deactivate_all(true);
 			
+			pararEfeitosSonoros();
+			pausarMusicaAtual();
+			pausarAnimacoes();
+			pausarAnimacoesChefe();
 			printarTelaPause();
 			layer_set_visible(camadaTiles, false);
 		}

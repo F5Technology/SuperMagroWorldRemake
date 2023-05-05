@@ -3,12 +3,12 @@
   "resourceVersion": "1.0",
   "name": "sngChefeTemaPt1",
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "stMusicas",
+    "path": "audiogroups/stMusicas",
   },
   "bitDepth": 1,
   "bitRate": 128,
-  "compression": 0,
+  "compression": 1,
   "conversionMode": 1,
   "duration": 77.51442,
   "parent": {

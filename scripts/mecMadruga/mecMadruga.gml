@@ -226,7 +226,7 @@ function morrer() {
 	var vertical = player.y;
 	var horizontal = player.x;	
 
-	audio_stop_all();
+	pararTodosAudios();
 	pausarAnimacoes();
 	pausarAnimacoesChefe();
 	instance_destroy(player);	

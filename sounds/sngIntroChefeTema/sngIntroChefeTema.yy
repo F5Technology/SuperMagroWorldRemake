@@ -7,7 +7,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "bitDepth": 1,
-  "bitRate": 64,
+  "bitRate": 128,
   "compression": 1,
   "conversionMode": 1,
   "duration": 14.100952,
@@ -18,6 +18,6 @@
   "preload": false,
   "sampleRate": 44100,
   "soundFile": "sngIntroChefeTema.ogg",
-  "type": 0,
+  "type": 1,
   "volume": 1.0,
 }

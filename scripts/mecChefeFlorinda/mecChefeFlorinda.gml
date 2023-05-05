@@ -346,7 +346,7 @@ function derrotarChefe() {
 		irProximaFase();
 		exibirAnimacaoChefeTomandoDano();
 	} else {
-		audio_stop_all();
+		pararTodosAudios();
 		exibirAnimacaoChefeMorrendo();
 	}
 	
@@ -389,7 +389,7 @@ function derrubarEmblema() {
 function introduzirChefe() {
 	exibirAnimacaoIntroChefe();
 	global.propriedadesChefe.cenaRodando = true;
-	//audio_play_sound(sngIntroChefeTema, 2, false);
+	reproduzirMusica(sngIntroChefeTema, false);
 	
 	objCronometrosAnimacoes.alarm[1] = 844;
 }
@@ -416,7 +416,7 @@ function iniciarLuta() {
 	
 	seguirNave();
 	
-	audio_play_sound(musica, 2, true);
+	reproduzirMusica(musica, true);
 }
 	
 function sumonarInimigos() {
@@ -567,7 +567,7 @@ function lancandoRoloMacarrao() {
 }
 	
 function transicao() {
-	audio_stop_all();
+	pararTodosAudios();
 	exibirAnimacaoTransicaoChefeChiquinha();
 }
 	

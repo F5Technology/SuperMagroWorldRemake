@@ -7,6 +7,7 @@
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"sfxPlayer","targets":-1,},
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"sfxChefe","targets":-1,},
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"sfxElementos","targets":-1,},
+    {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"stMusicas","targets":-1,},
   ],
   "configs": {
     "children": [],

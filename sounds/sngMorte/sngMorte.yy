@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "sngMorte",
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "stMusicas",
+    "path": "audiogroups/stMusicas",
   },
   "bitDepth": 1,
   "bitRate": 128,
