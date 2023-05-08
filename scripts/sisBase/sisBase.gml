@@ -13,7 +13,8 @@ global.propriedadesJogo = {
 	tempo: 51,
 	pontos: 0,
 	moedas: 0,
-	pause: false
+	pause: false,
+	passandoFase: false
 }
 
 function reiniciarPropriedadesJogo() {
@@ -24,7 +25,8 @@ function reiniciarPropriedadesJogo() {
 		tempo: 51,
 		pontos: 0,
 		moedas: 0,
-		pause: false
+		pause: false,
+		passandoFase: false
 	}
 }
 
@@ -88,9 +90,10 @@ function incluirPontos(pontos) {
 	
 function pausar() {
 	var morto = global.propriedadesPlayer.morto;
+	var passandoFase = global.propriedadesJogo.passandoFase;
 	var transformando = global.propriedadesPlayer.transformando;
 	
-	if(!morto && !transformando) {		
+	if(!morto && !transformando && !passandoFase) {		
 		var camadaTiles = layer_get_id("Tiles");
 		var pause = global.propriedadesJogo.pause;
 		

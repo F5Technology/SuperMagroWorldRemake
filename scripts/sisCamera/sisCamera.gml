@@ -10,7 +10,13 @@ function ajustarCamera() {
 	if (room == rmChefe) {
 		centrarSalaChefe();
 	} else {
-		acompanharPlayer();
+		var passandoFase = global.propriedadesJogo.passandoFase;
+		
+		if(passandoFase) {
+			centrarPasseFase();
+		} else {
+			acompanharPlayer();
+		}
 	}
 }
 
@@ -27,6 +33,14 @@ function acompanharPlayer(){
 		y = lerp(y, player.y, 0.10);
 		x = lerp(x, posicaoHorizontal, 0.10);
 	}
+}
+
+function centrarPasseFase() {
+	var posicaoVertical = objMastro.y;
+	var posicaoHorizontal = objMastro.x + 80;
+	
+	y = lerp(y, posicaoVertical, 0.10);
+	x = lerp(x, posicaoHorizontal, 0.10);
 }
 
 function centrarSalaChefe() {

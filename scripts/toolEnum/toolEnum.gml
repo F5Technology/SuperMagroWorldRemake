@@ -61,5 +61,6 @@ enum SFXEnum {
 	DanoShuriken = 8,
 	Tremer = 9,
 	SumonarInimigos = 10,
-	BaterTeto = 11
+	BaterTeto = 11,
+	Queda = 12
 }

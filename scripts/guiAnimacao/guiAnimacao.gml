@@ -125,6 +125,16 @@ function exibirAnimacaoTransicaoChefeChiquinha() {
 	objCronometrosAnimacoes.alarm[2] = 360;
 }
 	
+function exibirAnimacaoPassandoFase() {	
+	instance_destroy();
+	
+	var samurai = global.propriedadesPlayer.samurai;
+	var animacao = samurai ? anSamuraiPassandoFase : anMadrugaPassandoFase;
+	
+	objCronometrosAnimacoes.alarm[7] = 600;
+	layer_sequence_create("Animations", objMastro.x + 23, objMastro.y - 2, animacao);
+}
+	
 function checarAnimacao() {
 	switch (room) {
 		case rmTelaInicial:

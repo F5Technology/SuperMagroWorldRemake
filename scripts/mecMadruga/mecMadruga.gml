@@ -272,3 +272,41 @@ function finalizarInvencibilidade() {
 	
 	image_alpha = 1;
 }
+	
+function colisaoMastro() {
+	var posicaoVerticalMastro = y;
+	var posicaoHorziontalMastro = x;
+	global.propriedadesJogo.passandoFase = true;
+	var samurai = global.propriedadesPlayer.samurai;
+	
+	incluirPontos(400);
+	instance_destroy();
+	instance_destroy(objHitBoxTop);
+	instance_destroy(objHitBoxBottom);
+	reproduzirSFXPlayer(SFXEnum.Queda);
+	reproduzirMusica(sngFimFase, false);
+	
+	objBandeira1.descer = true;
+	
+	with (other) {
+		var posicaoHorizontalMastro = samurai ? x - 9 : x - 4
+		instance_create_layer(x, y + 10, "Flags", objBandeira2);
+		var madrugaPassandoFase = instance_create_layer(posicaoHorizontalMastro, posicaoVerticalMastro, "Main", objMadrugaPassandoFase);
+		
+		madrugaPassandoFase.alarm[0] = 200;
+		
+		if(samurai) {
+			madrugaPassandoFase.sprite_index = sprSamuraiDescendoMastro;
+		}
+	}
+}
+	
+function descerMastro() {
+	if(descer) {
+		y += 1.5;
+		
+		if(y >= 188) {
+			descer = false;
+		}
+	}
+}

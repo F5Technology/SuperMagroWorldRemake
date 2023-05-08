@@ -39,6 +39,9 @@ function reproduzirSFXPlayer(sfx) {
 		case SFXEnum.BaterTeto:
 			audio_play_sound(sndBaterTeto, 1, false);
 			break;
+		case SFXEnum.Queda:
+			audio_play_sound(sndQuedaPlayer, 1, false);
+			break;
 	}
 }
 	
@@ -72,6 +75,7 @@ function reproduzirSFXChefe(sfx) {
 }
 	
 function reproduzirMusica(musica, loop) {
+	pararTodosAudios();
 	global.musicaAtual = audio_play_sound(musica, 2, loop);
 }
 

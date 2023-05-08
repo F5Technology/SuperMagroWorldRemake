@@ -7,6 +7,11 @@ function iniciarSala() {
 	var sistemaTempoAtivo = global.sistemasJogo.tempo;
 	reiniciarPropriedadesPlayer();
 	
+	reiniciarPropriedadesPrint();
+	reiniciarPropriedadesJogo();
+	reiniciarPropriedadesChefe();
+	carregarGruposAudios();
+	
 	if (sistemaTempoAtivo) {
 		checarTempo();
 	}
@@ -23,10 +28,11 @@ function reiniciarSala() {
 	
 function iniciarTransicaoSala() {
 	audio_stop_all();
-	alarm[0] = 60 * 2.5;
+	alarm[0] = 60 * 3;
 }
 	
 function transicaoSala() {
+	global.propriedadesJogo.passandoFase = false;
 	//TODO: Sistema de encaminhamento de fases na tela de Transição
 	
 	room_goto(rmTeste);
