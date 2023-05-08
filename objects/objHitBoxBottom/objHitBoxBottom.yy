@@ -32,5 +32,5 @@
     "path": "sprites/sprHitBoxBottom/sprHitBoxBottom.yy",
   },
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

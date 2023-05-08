@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "TileSets",
-    "path": "folders/Sprites/TileSets.yy",
+    "name": "Jogo",
+    "path": "folders/Sprites/TileSets/Jogo.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

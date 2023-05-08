@@ -246,6 +246,33 @@ function checagemComandosGamepad() {
 	}
 }
 	
+function checagemIniciarJogoGamepad() {
+	var gamepadAtivo = global.gamepadAtivo;
+	
+	if (gamepadAtivo) {
+		var gamepad = obterGamepadAtivo();
+		
+		if(gamepad.cima.pressed ||
+		   gamepad.baixo.pressed ||
+		   gamepad.esquerda.pressed ||
+		   gamepad.direita.pressed ||
+		   gamepad.analogicoDir.pressed ||
+		   gamepad.analogicoEsqu.pressed ||
+		   gamepad.start.pressed ||
+		   gamepad.select.pressed ||
+		   gamepad.botaoR1.pressed ||
+		   gamepad.botaoR2.pressed ||
+		   gamepad.botaoL1.pressed ||
+		   gamepad.botaoL2.pressed ||
+		   gamepad.botaoA.pressed ||
+		   gamepad.botaoB.pressed ||
+		   gamepad.botaoX.pressed ||
+		   gamepad.botaoY.pressed ) {
+			iniciarJogo();
+		}		
+	}
+}
+	
 function gamepadDirecaoAmbigua() {
 	var ambiguo = false;
 	var gamepadAtivo = global.gamepadAtivo;

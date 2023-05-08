@@ -127,11 +127,15 @@ function exibirAnimacaoTransicaoChefeChiquinha() {
 	
 function checarAnimacao() {
 	switch (room) {
+		case rmTelaInicial:
+			alarm[4] = 300;
+			reproduzirMusica(sngTelaInicial, true);
+			break;
 		case rmIntro:
-			alarm[10] = 230;
+			alarm[5] = 230;
 			break;
 		case rmGameOver:
-			alarm[11] = 470;
+			alarm[6] = 470;
 			break;
 	}
 }
@@ -170,4 +174,17 @@ function continuarAnimacoesChefe() {
     {       
 		layer_sequence_play(animacoes[i]);
     }
+}
+	
+function iniciarLoopTelaInicial() {
+	var camada = layer_get_id("Animations");
+	var animacoes = layer_get_all_elements(camada);
+
+	for (var i = 0; i < array_length(animacoes); i++;)
+	{
+		layer_sprite_destroy(animacoes[i]);
+	}
+	
+	instance_create_layer(x, y, "Main", objTelaInicial);
+	layer_sequence_create("Animations", 128, 112, anTelaInicial);
 }

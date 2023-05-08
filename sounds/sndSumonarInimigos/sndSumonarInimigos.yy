@@ -8,7 +8,7 @@
   },
   "bitDepth": 1,
   "bitRate": 128,
-  "compression": 1,
+  "compression": 2,
   "conversionMode": 0,
   "duration": 0.769955,
   "parent": {
@@ -18,6 +18,6 @@
   "preload": false,
   "sampleRate": 44100,
   "soundFile": "sndSumonarInimigos.wav",
-  "type": 0,
+  "type": 1,
   "volume": 0.47,
 }
