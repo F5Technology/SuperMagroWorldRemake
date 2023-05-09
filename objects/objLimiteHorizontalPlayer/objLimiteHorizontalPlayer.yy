@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objLimiteVerticalPlayer",
+  "name": "objLimiteHorizontalPlayer",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],

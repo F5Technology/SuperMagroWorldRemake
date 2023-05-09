@@ -132,7 +132,7 @@ function exibirAnimacaoPassandoFase() {
 	var animacao = samurai ? anSamuraiPassandoFase : anMadrugaPassandoFase;
 	
 	objCronometrosAnimacoes.alarm[7] = 600;
-	layer_sequence_create("Animations", objMastro.x + 23, objMastro.y - 2, animacao);
+	layer_sequence_create("Animations", objMastro.x + 23, objMastro.y - 1, animacao);
 }
 	
 function checarAnimacao() {

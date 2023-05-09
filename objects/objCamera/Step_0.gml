@@ -1,1 +1,2 @@
 ajustarCamera();
+parallax();

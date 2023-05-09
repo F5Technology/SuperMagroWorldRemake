@@ -57,3 +57,18 @@ function centrarSalaChefe() {
 		camera_set_view_pos(view_camera[0], posicaoX, posicaoY);
 	}
 }
+	
+function parallax() {
+	if(room == rmFase1) {
+		var posicaoCamera = x * -0.02;
+		var nuvensLonge = layer_get_id("CloudsFar");
+		var nuvensPerto = layer_get_id("CloudsClose");
+		var montanhasLonge = layer_get_id("MontainsFar");
+		var montanhasPerto = layer_get_id("MontainsClose");
+		
+		layer_x(nuvensLonge, lerp(0, camera_get_view_x(view_camera[0]), 0.7));
+		layer_x(nuvensPerto, lerp(0, camera_get_view_x(view_camera[0]), 0.67));
+		layer_x(montanhasLonge, lerp(0, camera_get_view_x(view_camera[0]), 0.8));
+		layer_x(montanhasPerto, lerp(0, camera_get_view_x(view_camera[0]), 0.5));
+	}
+}
