@@ -19,6 +19,8 @@ function iniciarSala() {
 	if (room == rmChefe) {
 		global.propriedadesJogo.chefe = true;
 		introduzirChefe();
+	} else {
+		reproduzirMusica(sngFase1, true);
 	}
 }
 

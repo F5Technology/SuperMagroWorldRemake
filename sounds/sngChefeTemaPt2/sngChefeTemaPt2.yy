@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "sngChefeTemaPt2",
   "audioGroupId": {
-    "name": "stMusicas",
-    "path": "audiogroups/stMusicas",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "bitDepth": 1,
   "bitRate": 128,

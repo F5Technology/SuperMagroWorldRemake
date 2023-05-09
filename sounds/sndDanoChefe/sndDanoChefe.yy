@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "sndDanoChefe.wav",
   "type": 1,
-  "volume": 0.47,
+  "volume": 1.0,
 }

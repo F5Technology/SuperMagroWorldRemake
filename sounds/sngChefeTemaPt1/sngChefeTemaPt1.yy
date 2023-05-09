@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "sngChefeTemaPt1",
   "audioGroupId": {
-    "name": "stMusicas",
-    "path": "audiogroups/stMusicas",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "bitDepth": 1,
   "bitRate": 128,
@@ -18,6 +18,6 @@
   "preload": false,
   "sampleRate": 44100,
   "soundFile": "sngChefeTemaPt1.ogg",
-  "type": 1,
+  "type": 0,
   "volume": 1.0,
 }

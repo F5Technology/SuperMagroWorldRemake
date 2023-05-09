@@ -274,10 +274,10 @@ function finalizarInvencibilidade() {
 }
 	
 function colisaoMastro() {
-	var posicaoVerticalMastro = y;
-	var posicaoHorziontalMastro = x;
 	global.propriedadesJogo.passandoFase = true;
 	var samurai = global.propriedadesPlayer.samurai;
+	var limiteMastro = objBandeira1.y + objBandeira1.sprite_height + 20;
+	var posicaoVerticalMastro = y >= limiteMastro ? y : limiteMastro;
 	
 	incluirPontos(400);
 	instance_destroy();

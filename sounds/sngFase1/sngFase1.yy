@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "sngMorte",
+  "name": "sngFase1",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 2,
   "conversionMode": 1,
-  "duration": 3.492358,
+  "duration": 85.668915,
   "parent": {
     "name": "Musicas",
     "path": "folders/Sounds/Musicas.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "sngMorte.ogg",
+  "soundFile": "sngFase1.ogg",
   "type": 1,
   "volume": 0.32,
 }

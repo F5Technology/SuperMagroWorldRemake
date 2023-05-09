@@ -42,8 +42,12 @@ function aplicandoDanoPulo() {
 	var coordernadaHit = objHitBoxBottom.y + 6;
 	
 	if(coordernadaHit <= limiteHit) {
+		var samurai = global.propriedadesPlayer.samurai;
+		var player = samurai ? objSamurai : objSeuMadruga;
+		
 		serMorto();
 		
+		player.y += 10;
 		global.propriedadesPlayer.caindo = false;
 		global.propriedadesPlayer.forcaGravidade = -2;
 		

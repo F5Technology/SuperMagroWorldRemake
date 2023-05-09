@@ -367,7 +367,11 @@ function receberDanoPulo() {
 		
 		if(coordernadaHit <= limiteHit) {
 			derrotarChefe();
+			
+			var samurai = global.propriedadesPlayer.samurai;
+			var player = samurai ? objSamurai : objSeuMadruga;
 	
+			player.y += 10;
 			global.propriedadesPlayer.caindo = false;
 			global.propriedadesPlayer.forcaGravidade = -2;
 			
@@ -602,9 +606,13 @@ function droparRoloMacarrao() {
 	var coordernadaHit = objHitBoxBottom.y + 6;
 	
 	if(!playerMorto && !playerTransformando && coordernadaHit <= y) {
-		instance_destroy(); 		
+		instance_destroy();
+		
+		var samurai = global.propriedadesPlayer.samurai;
+		var player = samurai ? objSamurai : objSeuMadruga;
 		layer_sequence_create("Animations", x, y, anRoloMacarraoCaindo);
 		
+		player.y += 10;
 		global.propriedadesPlayer.caindo = false;
 		global.propriedadesPlayer.forcaGravidade = -2;
 		
