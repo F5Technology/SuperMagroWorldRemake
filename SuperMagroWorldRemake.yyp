@@ -323,8 +323,8 @@
     {"id":{"name":"rmTeste","path":"rooms/rmTeste/rmTeste.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rmTeste","path":"rooms/rmTeste/rmTeste.yy",},},
     {"roomId":{"name":"rmFase1","path":"rooms/rmFase1/rmFase1.yy",},},
+    {"roomId":{"name":"rmTeste","path":"rooms/rmTeste/rmTeste.yy",},},
     {"roomId":{"name":"rmIntro","path":"rooms/rmIntro/rmIntro.yy",},},
     {"roomId":{"name":"rmTelaInicial","path":"rooms/rmTelaInicial/rmTelaInicial.yy",},},
     {"roomId":{"name":"rmChefe","path":"rooms/rmChefe/rmChefe.yy",},},

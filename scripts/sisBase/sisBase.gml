@@ -33,7 +33,7 @@ function reiniciarPropriedadesJogo() {
 function registrarMoeda() {
 	var moedas = global.propriedadesJogo.moedas;
 	
-	if (moedas >= 50) {
+	if (moedas >= 40) {
 		moedas = 0;
 		global.propriedadesJogo.vidas++;
 		
