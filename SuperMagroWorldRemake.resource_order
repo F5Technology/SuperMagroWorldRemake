@@ -158,6 +158,7 @@
     {"name":"sprTijoloQuebradoAntiHorario","order":11,"path":"sprites/sprTijoloQuebradoAntiHorario/sprTijoloQuebradoAntiHorario.yy",},
     {"name":"sprPresents","order":19,"path":"sprites/sprPresents/sprPresents.yy",},
     {"name":"sprFlorindaF2Esquerda","order":1,"path":"sprites/sprFlorindaF2Esquerda/sprFlorindaF2Esquerda.yy",},
+    {"name":"sprPortaChefe","order":29,"path":"sprites/sprPortaChefe/sprPortaChefe.yy",},
     {"name":"mecBasicas","order":6,"path":"scripts/mecBasicas/mecBasicas.yy",},
     {"name":"guiHUD","order":2,"path":"scripts/guiHUD/guiHUD.yy",},
     {"name":"sprRosto","order":1,"path":"sprites/sprRosto/sprRosto.yy",},
@@ -201,6 +202,7 @@
     {"name":"sprBlocoTijolos","order":9,"path":"sprites/sprBlocoTijolos/sprBlocoTijolos.yy",},
     {"name":"sprFlorindaF1Esquerda","order":1,"path":"sprites/sprFlorindaF1Esquerda/sprFlorindaF1Esquerda.yy",},
     {"name":"objShuriken","order":9,"path":"objects/objShuriken/objShuriken.yy",},
+    {"name":"sngFase2","order":8,"path":"sounds/sngFase2/sngFase2.yy",},
     {"name":"rmTelaInicial","order":5,"path":"rooms/rmTelaInicial/rmTelaInicial.yy",},
     {"name":"sndMoeda","order":4,"path":"sounds/sndMoeda/sndMoeda.yy",},
     {"name":"tsSalaTeste","order":1,"path":"tilesets/tsSalaTeste/tsSalaTeste.yy",},
@@ -260,5 +262,6 @@
     {"name":"sprFlorindaF2LancandoMassaEsquerda","order":7,"path":"sprites/sprFlorindaF2LancandoMassaEsquerda/sprFlorindaF2LancandoMassaEsquerda.yy",},
     {"name":"sprChao","order":1,"path":"sprites/sprChao/sprChao.yy",},
     {"name":"sprDinoKikoParadoEsquerda","order":2,"path":"sprites/sprDinoKikoParadoEsquerda/sprDinoKikoParadoEsquerda.yy",},
+    {"name":"rmFase2","order":7,"path":"rooms/rmFase2/rmFase2.yy",},
   ],
 }

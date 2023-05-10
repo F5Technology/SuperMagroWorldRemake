@@ -110,7 +110,7 @@ function baterInterrogacao() {
 		var player = samurai ? objSamurai : objSeuMadruga;
 		
 		y -= sprite_height / 2;		
-		player.y += 3;
+		player.y += 6;
 		
 		global.propriedadesPlayer.caindo = true;
 		

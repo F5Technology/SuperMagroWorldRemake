@@ -237,6 +237,7 @@ function morrer() {
 	global.sistemasJogo.fisicaProjeteisLigado = false;
 	global.sistemasJogo.inteligenciaArtificial = false;
 	
+	reproduzirMusica(sngMorte, false);
 	layer_sequence_create("Animations", horizontal, vertical, anMadrugaMorrendo);
 	instance_create_layer(horizontal, vertical, "Main", objSeuMadrugaMorrendo);
 }

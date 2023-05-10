@@ -6,13 +6,26 @@ function rodandoInteligenciaArtificial(){
 	if(inteligenciaArtificialLigada) {
 		movimento();
 		aplicarGravidadeGeral();
+		
+		if(andandoTijolos && noChao) {
+			checagemMortePorTijolos()
+		}
 	}
 }
 
 function movimento() {		
-	var forca = (direcao * 1);
+	//var forca = (direcao * 1);
 	
-	x += forca;
+	x += direcao;
+	
+	if(andandoTijolos && noChao) {
+		var limiteVertical = y + 8;
+		var limiteHorizontal = x + (sprite_width / 2 * direcao) + 5;
+		
+		if(!place_meeting(limiteHorizontal, limiteVertical, objTijolos)) {
+			trocarDirecao();
+		}
+	}
 }
 
 function trocarDirecao() {	
@@ -52,5 +65,13 @@ function aplicandoDanoPulo() {
 		global.propriedadesPlayer.forcaGravidade = -2;
 		
 		aplicarGravidadePlayer(true);
+	}
+}
+	
+function checagemMortePorTijolos() {
+	var limiteVertical = y + 8;
+	
+	if(!place_meeting(x, limiteVertical, objTijolos)) {
+		serMorto();
 	}
 }

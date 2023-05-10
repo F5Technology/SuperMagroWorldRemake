@@ -20,7 +20,7 @@ function iniciarSala() {
 		global.propriedadesJogo.chefe = true;
 		introduzirChefe();
 	} else {
-		reproduzirMusica(sngFase1, true);
+		reproduzirMusica(sngFase2, true);
 	}
 }
 

@@ -23,6 +23,18 @@ function aplicarGravidadeGeral() {
 		}
 		
 		forcaGravidade = 0;
+	} else if(place_meeting(horizontal, vertical + forcaGravidade, objTijolos)) { //Colisão com o bloco de tijolos
+		var aproximacao = sign(forcaGravidade);
+			
+		while(!place_meeting(horizontal, vertical + aproximacao, objTijolos)) {
+			vertical += aproximacao;
+		}
+		
+		forcaGravidade = 0;
+		
+		if(andandoTijolos) {
+			noChao = true;
+		}
 	} else {
 		vertical += forcaGravidade;
 	}
