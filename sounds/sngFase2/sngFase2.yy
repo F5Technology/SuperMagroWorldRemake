@@ -9,15 +9,15 @@
   "bitDepth": 1,
   "bitRate": 128,
   "compression": 2,
-  "conversionMode": 0,
-  "duration": 46.027756,
+  "conversionMode": 1,
+  "duration": 37.490383,
   "parent": {
     "name": "Musicas",
     "path": "folders/Sounds/Musicas.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "sngFase2.mp3",
+  "soundFile": "sngFase2.ogg",
   "type": 1,
   "volume": 1.0,
 }

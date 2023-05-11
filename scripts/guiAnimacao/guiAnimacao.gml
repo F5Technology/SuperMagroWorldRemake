@@ -147,6 +147,14 @@ function checarAnimacao() {
 		case rmGameOver:
 			alarm[6] = 470;
 			break;
+		case rmCreditos:
+			var direcao = global.propriedadesChefe.direcao;
+			var animacao = direcao == DirecaoEnum.Direita ? anCreditosDireita : anCreditosEsquerda;
+			
+			layer_sequence_create("Animations", 128, 112, animacao);
+		
+			alarm[8] = 10500;
+			break;
 	}
 }
 	

@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "sngGameOver.ogg",
   "type": 1,
-  "volume": 0.32,
+  "volume": 1.0,
 }
