@@ -5,6 +5,7 @@ global.propriedadesPlayer = {
 	caindo: true,
 	parando: true,
 	velocidade: 0,
+	fimJogo: false,
 	samurai: false,
 	correndo: false,
 	abaixado: false,
@@ -25,6 +26,7 @@ function reiniciarPropriedadesPlayer() {
 		caindo: true,
 		parando: true,
 		velocidade: 0,
+		fimJogo: false,
 		samurai: false,
 		correndo: false,
 		abaixado: false,
@@ -229,7 +231,8 @@ function morrer() {
 	pararTodosAudios();
 	pausarAnimacoes();
 	pausarAnimacoesChefe();
-	instance_destroy(player);	
+	instance_destroy(player);
+	reiniciarPropriedadesPlayer();
 	
 	global.propriedadesJogo.vidas--;
 	global.propriedadesPlayer.morto = true;
@@ -309,5 +312,27 @@ function descerMastro() {
 		if(y >= 188) {
 			descer = false;
 		}
+	}
+}
+	
+function paralizarJogador() {	
+	var fimJogo = global.propriedadesPlayer.fimJogo;
+	
+	if (fimJogo && place_meeting(x, y + 5, objParede)) {	
+		var sprite = 0;
+		var direcao = global.propriedadesPlayer.direcao;
+		var samurai = global.propriedadesPlayer.samurai;
+		
+		if(samurai) {
+			sprite = direcao == DirecaoEnum.Direita ? sprSamuraiParadoDireita : sprSamuraiParadoEsquerda;
+		} else {
+			sprite = direcao == DirecaoEnum.Direita ? sprMadrugaParadoDireita : sprMadrugaParadoEsquerda;
+		}
+		
+		layer_sprite_create("Secondary_Assets", x, y, sprite);
+		
+		instance_destroy();
+		instance_destroy(objHitBoxTop);
+		instance_destroy(objHitBoxBottom);
 	}
 }

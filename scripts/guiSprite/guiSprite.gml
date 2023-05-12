@@ -157,6 +157,16 @@ function exibirSpriteNaveChefe() {
 	}
 }
 
+function exibirSpriteNaveViradaChefe() {
+	var direcao = global.propriedadesChefe.direcao;
+	
+	if(direcao == DirecaoEnum.Direita) {
+		objNaveVirada.sprite_index = sprNaveViradaDireita;
+	} else {
+		objNaveVirada.sprite_index = sprNaveViradaEsquerda;
+	}
+}
+
 function exibirSpriteFlorindaFase1(sprite) {
 	var direcao = global.propriedadesChefe.direcao;
 	

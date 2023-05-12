@@ -323,7 +323,7 @@ function movimentoNave() {
 	}
 }
 	
-function irProximaFase() {
+function irProximaFaseChefe() {
 	var fase = global.propriedadesChefe.fase;
 	
 	fase++;
@@ -343,7 +343,7 @@ function derrotarChefe() {
 	var fase = global.propriedadesChefe.fase;
 	
 	if(fase < 3) {
-		irProximaFase();
+		irProximaFaseChefe();
 		exibirAnimacaoChefeTomandoDano();
 	} else {
 		pararTodosAudios();
@@ -370,8 +370,8 @@ function receberDanoPulo() {
 			
 			var samurai = global.propriedadesPlayer.samurai;
 			var player = samurai ? objSamurai : objSeuMadruga;
-	
-			player.y += 10;
+
+			player.y += 5;
 			global.propriedadesPlayer.caindo = false;
 			global.propriedadesPlayer.forcaGravidade = -2;
 			
@@ -612,10 +612,48 @@ function droparRoloMacarrao() {
 		var player = samurai ? objSamurai : objSeuMadruga;
 		layer_sequence_create("Animations", x, y, anRoloMacarraoCaindo);
 		
-		player.y += 10;
+		player.y += 5;
 		global.propriedadesPlayer.caindo = false;
 		global.propriedadesPlayer.forcaGravidade = -2;
 		
 		aplicarGravidadePlayer(true);
+	}
+}
+	
+function ajustarPosicaoNaveVirada() {
+	x = round(x);
+	y = round(y);
+}
+	
+function subirNaveVirada() {	
+	var tiles = layer_get_id("Tiles");
+	var camadaPrincipal = layer_get_id("Main");
+	var player = layer_get_id("Secondary_Assets");
+	
+	var posicaoTiles = layer_get_y(tiles) + 1;
+	var posicaoPlayer = layer_get_y(player) + 1;
+	
+	var centroHorizontalSala = obterValorDePorcentagem(50, room_width);
+	var centroVerticalSala = round(obterValorDePorcentagem(64, room_height));
+	
+	if (x > centroHorizontalSala) {
+		x -= 1;
+	} else if (x < centroHorizontalSala) {
+		x += 1;
+	}
+	
+	if (y > centroVerticalSala) {
+		y -= 1;
+	} else if (y < centroVerticalSala) {
+		y += 1;
+	}
+	
+	layer_y(tiles, posicaoTiles);
+	layer_y(player, posicaoPlayer);
+	
+	with (all) {
+	  if (layer == camadaPrincipal) {
+	    y += 1;
+	  }
 	}
 }

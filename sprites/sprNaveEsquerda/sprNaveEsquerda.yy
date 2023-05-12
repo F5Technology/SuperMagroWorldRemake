@@ -27,8 +27,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "Chefe Florinda",
-    "path": "folders/Sprites/NPC/Chefe Florinda.yy",
+    "name": "Nave",
+    "path": "folders/Sprites/NPC/Chefe Florinda/Nave.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

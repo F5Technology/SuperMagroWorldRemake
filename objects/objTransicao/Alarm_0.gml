@@ -1,1 +1,1 @@
-transicaoSala();
+transicaoFase();

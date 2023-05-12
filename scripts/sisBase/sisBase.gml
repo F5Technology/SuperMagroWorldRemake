@@ -1,7 +1,7 @@
 /// @description Sistema basicos de controle de dados do jogo
 
 global.sistemasJogo = {
-	tempo: false,
+	tempo: true,
 	inteligenciaArtificial: true,
 	fisicaProjeteisLigado: true
 }
@@ -56,29 +56,25 @@ function coletarMoeda() {
 }
 
 function checarTempo() {	
+	var segundos = 3;
 	var morto = global.propriedadesPlayer.morto;
+	var passandoFase = global.propriedadesJogo.passandoFase;
 	var transformando = global.propriedadesPlayer.transformando;
 	
-	if(!morto && !transformando) {
+	if(!morto && !transformando && !passandoFase) {
 		var tempo = global.propriedadesJogo.tempo;
 	
 		tempo--;
 		global.propriedadesJogo.tempo = tempo;
 		
-		show_debug_message("tempo: " + string(global.propriedadesJogo.tempo));
-		
-		
 		if (tempo <= 0) {
 			morrer();
 		} else {
-			var segundos = 3;
 			
-			alarm[0] = 60 * 3;
+			alarm[0] = 60 * segundos;
 		}
-	} else {
-		var segundos = 3;
-		
-		alarm[0] = 60 * 3;
+	} else {		
+		alarm[0] = 60 * segundos;
 	}
 }
 	
@@ -90,10 +86,11 @@ function incluirPontos(pontos) {
 	
 function pausar() {
 	var morto = global.propriedadesPlayer.morto;
+	var fimJogo = global.propriedadesPlayer.fimJogo;
 	var passandoFase = global.propriedadesJogo.passandoFase;
 	var transformando = global.propriedadesPlayer.transformando;
 	
-	if(!morto && !transformando && !passandoFase) {		
+	if(!morto && !transformando && !passandoFase && !fimJogo) {		
 		var camadaTiles = layer_get_id("Tiles");
 		var pause = global.propriedadesJogo.pause;
 		
@@ -125,4 +122,11 @@ function pausar() {
 		global.propriedadesJogo.pause = pause;
 		global.propriedadesPlayer.parando = true;
 	}
+}
+	
+function irProximaFaseJogo() {
+	global.propriedadesJogo.fase++;
+	global.propriedadesJogo.passandoFase = false;
+	
+	room_goto(rmTransicao);
 }

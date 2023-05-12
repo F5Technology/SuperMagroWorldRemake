@@ -1,2 +1,1 @@
-reiniciarSala();
-instance_destroy();
+checarGameOver();

@@ -13,9 +13,7 @@ function rodandoInteligenciaArtificial(){
 	}
 }
 
-function movimento() {		
-	//var forca = (direcao * 1);
-	
+function movimento() {			
 	x += direcao;
 	
 	if(andandoTijolos && noChao) {
@@ -60,7 +58,15 @@ function aplicandoDanoPulo() {
 		
 		serMorto();
 		
-		player.y += 10;
+		var limiteColisao = player.sprite_width / 2;
+	
+		if (
+			!place_meeting(player.x + limiteColisao, player.y + 5, objParede) &&
+			!place_meeting(player.x - limiteColisao, player.y + 5, objParede)
+		) {
+			player.y += 5;
+		}
+		
 		global.propriedadesPlayer.caindo = false;
 		global.propriedadesPlayer.forcaGravidade = -2;
 		

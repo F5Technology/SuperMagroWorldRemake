@@ -1,8 +1,12 @@
 /// @description Exibição dos dados do jogo na HUD
 
 function exibirHUD() {
-	exibirVidas();
-	exibirPontuacao();
+	var fimJogo = global.propriedadesPlayer.fimJogo;
+	
+	if (!fimJogo) {
+		exibirVidas();
+		exibirPontuacao();
+	}
 	
 	if(room != rmChefe) {
 		exibirFaseAtual();
@@ -11,10 +15,16 @@ function exibirHUD() {
 	}
 }
 
-function exibirVidas(){
+function exibirVidas() {	
 	var vertical = 130;
-	var horizontal = 130;
-	var numeroVidas = "x" + string(global.propriedadesJogo.vidas);
+	var horizontal = 130;	
+	var vidas = global.propriedadesJogo.vidas;
+	
+	if (vidas < 0) {
+		vidas = 0;
+	}
+	
+	var numeroVidas = "x" + string(vidas);
 	
 	draw_sprite_ext(sprRosto, 0, 20, 20, 4.5, 4.5, 0, c_white, 1);
 	

@@ -1,26 +1,23 @@
 /// @description Funções de troca de salas ou fases diretas
 
 function iniciarSala() {
+	var fase = global.propriedadesJogo.fase;
 	global.sistemasJogo.fisicaProjeteisLigado = true;
 	global.sistemasJogo.inteligenciaArtificial = true;
 	
-	var sistemaTempoAtivo = global.sistemasJogo.tempo;
-	reiniciarPropriedadesPlayer();
-	
-	reiniciarPropriedadesPrint();
-	reiniciarPropriedadesJogo();
-	reiniciarPropriedadesChefe();
-	carregarGruposAudios();
-	
-	if (sistemaTempoAtivo) {
-		checarTempo();
-	}
-	
-	if (room == rmChefe) {
+	if (fase == 3) {
 		global.propriedadesJogo.chefe = true;
+		reiniciarPropriedadesChefe();
 		introduzirChefe();
-	} else {
-		reproduzirMusica(sngFase2, true);
+	} else {	
+		var musica = fase == 1 ? sngFase1 : sngFase2;
+		var sistemaTempoAtivo = global.sistemasJogo.tempo;
+	
+		if (sistemaTempoAtivo) {
+			checarTempo();
+		}
+		
+		reproduzirMusica(musica, true);
 	}
 }
 
@@ -28,23 +25,49 @@ function reiniciarSala() {
 	room_restart();
 }
 	
-function iniciarTransicaoSala() {
+function iniciarTransicaoFase() {
 	audio_stop_all();
 	alarm[0] = 60 * 3;
 }
 	
-function transicaoSala() {
-	global.propriedadesJogo.passandoFase = false;
-	//TODO: Sistema de encaminhamento de fases na tela de Transição
+function transicaoFase() {
+	var fase = global.propriedadesJogo.fase;
+	var samurai = global.propriedadesPlayer.samurai;
+	var funcaoTrocarSpritePlayer = global.propriedadesPlayer.trocarSprite;
 	
-	room_goto(rmTeste);
+	reiniciarPropriedadesPlayer();
+	
+	global.propriedadesJogo.tempo = 51;
+	global.propriedadesPlayer.samurai = samurai;
+	global.propriedadesPlayer.trocarSprite = funcaoTrocarSpritePlayer;
+	
+	switch (fase) {
+		case 1:	
+			room_goto(rmFase1);
+			break;
+		case 2:	
+			room_goto(rmFase2);
+			break;
+		case 3:	
+			room_goto(rmChefe);
+			break;
+	}
 }
 	
 function iniciarJogo() {
+	reiniciarPropriedadesPlayer();
 	reiniciarPropriedadesPrint();
 	reiniciarPropriedadesJogo();
 	reiniciarPropriedadesChefe();
 	carregarGruposAudios();
 	
 	room_goto(rmTransicao);
+}
+	
+function checarGameOver() {
+	var vidas = global.propriedadesJogo.vidas;
+	var sala = vidas >= 0 ? rmTransicao : rmGameOver;
+	
+	room_goto(sala);
+	instance_destroy();
 }

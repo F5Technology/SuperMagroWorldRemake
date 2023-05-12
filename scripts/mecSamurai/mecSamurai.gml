@@ -4,7 +4,10 @@ function transformarSamurai() {
 	var samurai = global.propriedadesPlayer.samurai;
 	
 	if (!samurai) {
+		instance_destroy(objHitBoxTop);
+		instance_destroy(objHitBoxBottom);
 		instance_destroy();	
+		
 		reproduzirSFXPlayer(SFXEnum.TransformarSamurai);
 		global.sistemasJogo.fisicaProjeteisLigado = false;		
 		global.sistemasJogo.inteligenciaArtificial = false;
@@ -23,7 +26,10 @@ function transformarSamurai() {
 }
 
 function transformarNormal() {
+	instance_destroy(objHitBoxTop);
+	instance_destroy(objHitBoxBottom);
 	instance_destroy();
+	
 	reproduzirSFXPlayer(SFXEnum.TransformarNormal);
 	global.sistemasJogo.fisicaProjeteisLigado = false;
 	global.sistemasJogo.inteligenciaArtificial = false;
@@ -118,5 +124,17 @@ function shurikenNoChefe() {
 		
 		global.propriedadesChefe.hp = hpChefe;
 		reproduzirSFXChefe(SFXEnum.DanoShuriken);
+	}
+}
+	
+function checarSamuraiInicioFase() {
+	var samurai = global.propriedadesPlayer.samurai;
+	
+	if (samurai) {
+		instance_destroy(objHitBoxTop);
+		instance_destroy(objHitBoxBottom);
+		instance_destroy(objSeuMadruga);
+		
+		instance_create_layer(x, y, "Main", objSamurai);	
 	}
 }

@@ -19,5 +19,5 @@
   "sampleRate": 48000,
   "soundFile": "sngTelaInicial.ogg",
   "type": 1,
-  "volume": 0.32,
+  "volume": 0.5,
 }

@@ -8,7 +8,7 @@
   },
   "bitDepth": 1,
   "bitRate": 128,
-  "compression": 1,
+  "compression": 2,
   "conversionMode": 1,
   "duration": 7.614444,
   "parent": {
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "sngGameOver.ogg",
   "type": 1,
-  "volume": 1.0,
+  "volume": 0.4,
 }

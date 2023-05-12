@@ -91,6 +91,10 @@ function exibirAnimacaoChefeMorrendo() {
 	} else {
 		layer_sequence_create("Animations_Boss", objNave.x, objNave.y, anFlorindaMorrendoEsquerda);
 	}
+	
+	objCronometrosAnimacoes.alarm[9] = 170;
+	global.coordenadasAnimacao.x = objNave.x;
+	global.coordenadasAnimacao.y = objNave.y;
 }
 
 function exibirAnimacaoChefeTomandoDano() {
@@ -205,4 +209,15 @@ function iniciarLoopTelaInicial() {
 	
 	instance_create_layer(x, y, "Main", objTelaInicial);
 	layer_sequence_create("Animations", 128, 112, anTelaInicial);
+}
+	
+function iniciarTransicaoCreditos() {
+	limparCamadaAnimacoesChefe();
+	
+	instance_create_layer(global.coordenadasAnimacao.x, global.coordenadasAnimacao.y, "Top_priority", objNaveVirada);
+	exibirSpriteNaveViradaChefe();
+		
+	global.propriedadesPlayer.fimJogo = true;	
+	
+	alarm[10] = 300;
 }
