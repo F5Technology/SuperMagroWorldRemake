@@ -167,7 +167,14 @@ function pausarAnimacoes() {
 	
     for (var i = 0; i < array_length(animacoes); i++;)
     {       
-		layer_sequence_pause(animacoes[i]);
+		var frameAtual = layer_sequence_get_headpos(animacoes[i]);
+		var totalFrames = layer_sequence_get_length(animacoes[i]);
+		
+		if(frameAtual < totalFrames) {		
+			layer_sequence_pause(animacoes[i]);
+		} else {
+			layer_sprite_destroy(animacoes[i]);
+		}
     }
 }
 	
