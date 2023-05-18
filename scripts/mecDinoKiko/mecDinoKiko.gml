@@ -58,15 +58,6 @@ function aplicandoDanoPulo() {
 		
 		serMorto();
 		
-		var limiteColisao = player.sprite_width / 2;
-	
-		if (
-			!place_meeting(player.x + limiteColisao, player.y + 5, objParede) &&
-			!place_meeting(player.x - limiteColisao, player.y + 5, objParede)
-		) {
-			player.y += 5;
-		}
-		
 		global.propriedadesPlayer.caindo = false;
 		global.propriedadesPlayer.forcaGravidade = -2;
 		

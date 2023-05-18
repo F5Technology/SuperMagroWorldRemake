@@ -144,3 +144,17 @@ function posicionarHitBox() {
 		y = player.y;
 	}
 }
+
+function posicionarHitBoxInferior() {
+	var instanciaHitBox = global.propriedadesPlayer.instanciaHitBox;
+	
+	if(instance_exists(instanciaHitBox)) {
+		var morto = global.propriedadesPlayer.morto;
+		var transformando = global.propriedadesPlayer.transformando;
+		
+		if(!morto && !transformando) {			
+			instanciaHitBox.x = x;
+			instanciaHitBox.y = y;
+		}
+	}
+}

@@ -1,1 +1,1 @@
-posicionarHitBox();
+//posicionarHitBox();

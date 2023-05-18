@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "sngCreditos.ogg",
   "type": 1,
-  "volume": 0.4,
+  "volume": 0.6,
 }

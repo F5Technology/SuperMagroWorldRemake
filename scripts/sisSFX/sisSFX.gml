@@ -11,7 +11,7 @@ function carregarGruposAudios() {
 
 function reproduzirSFXPlayer(sfx) {
 	if(sfx != SFXEnum.Pular) {
-		audio_group_stop_all(sfxPlayer);
+		//audio_group_stop_all(sfxPlayer);
 	}
 	
 	switch (sfx) {
@@ -22,7 +22,7 @@ function reproduzirSFXPlayer(sfx) {
 			var lancandoShuriken = global.propriedadesPlayer.lancandoShuriken;
 	
 			if(forcaGravidade == 0 && !lancandoShuriken && !caindo) {
-				audio_group_stop_all(sfxPlayer);
+				//audio_group_stop_all(sfxPlayer);
 				audio_play_sound(sndPular, 1, false);
 			}
 			
@@ -46,7 +46,7 @@ function reproduzirSFXPlayer(sfx) {
 }
 	
 function reproduzirSFXElementos(sfx) {
-	audio_group_stop_all(sfxElementos);
+	//audio_group_stop_all(sfxElementos);
 	
 	switch (sfx) {
 		case SFXEnum.Moeda:		
@@ -59,7 +59,7 @@ function reproduzirSFXElementos(sfx) {
 }
 
 function reproduzirSFXChefe(sfx) {
-	audio_group_stop_all(sfxChefe);
+	//audio_group_stop_all(sfxChefe);
 	
 	switch (sfx) {
 		case SFXEnum.Tremer:		

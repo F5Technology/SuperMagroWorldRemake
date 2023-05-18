@@ -182,6 +182,8 @@ function aplicarGravidadePlayer(pular) {
 		if(caindo && forcaGravidade > 0.30 && !lancandoShuriken) {
 			global.propriedadesPlayer.trocarSprite(SpriteEnum.Caindo);
 		}
+		
+		posicionarHitBoxInferior();
 	}
 }
 

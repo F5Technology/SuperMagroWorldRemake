@@ -371,7 +371,6 @@ function receberDanoPulo() {
 			var samurai = global.propriedadesPlayer.samurai;
 			var player = samurai ? objSamurai : objSeuMadruga;
 
-			player.y += 5;
 			global.propriedadesPlayer.caindo = false;
 			global.propriedadesPlayer.forcaGravidade = -2;
 			
@@ -612,7 +611,6 @@ function droparRoloMacarrao() {
 		var player = samurai ? objSamurai : objSeuMadruga;
 		layer_sequence_create("Animations", x, y, anRoloMacarraoCaindo);
 		
-		player.y += 5;
 		global.propriedadesPlayer.caindo = false;
 		global.propriedadesPlayer.forcaGravidade = -2;
 		
