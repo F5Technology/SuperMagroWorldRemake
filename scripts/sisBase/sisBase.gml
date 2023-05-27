@@ -57,11 +57,12 @@ function coletarMoeda() {
 
 function checarTempo() {	
 	var segundos = 3;
+	var pause = global.propriedadesJogo.pause;
 	var morto = global.propriedadesPlayer.morto;
 	var passandoFase = global.propriedadesJogo.passandoFase;
 	var transformando = global.propriedadesPlayer.transformando;
 	
-	if(!morto && !transformando && !passandoFase) {
+	if(!morto && !transformando && !passandoFase && !pause) {
 		var tempo = global.propriedadesJogo.tempo;
 	
 		tempo--;

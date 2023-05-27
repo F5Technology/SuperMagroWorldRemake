@@ -1,7 +1,7 @@
 /// @description Rotinas e mecanicas do chefe final
 
 global.propriedadesChefe = {
-	hp: 7,
+	hp: 5,
 	fase: 1,
 	forcaVertical: 0,
 	forcaHorizontal: 0,
@@ -34,7 +34,7 @@ function reiniciarPropriedadesBasicasChefe() {
 
 function reiniciarPropriedadesChefe() {
 	global.propriedadesChefe = {
-		hp: 7,
+		hp: 5,
 		fase: 1,
 		forcaVertical: 0,
 		forcaHorizontal: 0,
@@ -329,10 +329,10 @@ function irProximaFaseChefe() {
 	fase++;
 	
 	if(fase == 2) {
-		global.propriedadesChefe.hp = 7;
+		global.propriedadesChefe.hp = 5;
 		global.propriedadesChefe.trocarSprite = exibirSpriteFlorindaFase2;
 	} else if (fase == 3) {
-		global.propriedadesChefe.hp = 15;
+		global.propriedadesChefe.hp = 8;
 		global.propriedadesChefe.trocarSprite = exibirSpriteFlorindaFase3;
 	}
 	
