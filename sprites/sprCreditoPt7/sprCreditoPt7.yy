@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sprCreditoPt7",
-  "bbox_bottom": 43,
+  "bbox_bottom": 29,
   "bbox_left": 2,
   "bbox_right": 121,
   "bbox_top": 4,

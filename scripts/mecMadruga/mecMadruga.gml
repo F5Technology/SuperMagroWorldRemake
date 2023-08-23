@@ -75,7 +75,6 @@ function checarMovimento(direcao) {
 function movimentar(direcao) {	
 	var parando = global.propriedadesPlayer.parando;
 	
-	
 	ajustarVelocidade();	
 	
 	var velocidade = global.propriedadesPlayer.velocidade;	
